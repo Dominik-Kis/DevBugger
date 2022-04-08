@@ -18,6 +18,7 @@ namespace DevBuggerRest.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+        //napravi sve konstantne
         private string con = "Server=.\\SQLEXPRESS;Database=DevBugger;Trusted_Connection=True;";
         private const string ID_ACCOUNT = "IDAccount";
         private const string ID = "@IDAccount";
