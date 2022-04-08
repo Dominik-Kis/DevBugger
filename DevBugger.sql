@@ -50,7 +50,6 @@ AccountID int foreign key references Account(IDAccount) not null,
 Titel nvarchar(100) not null,
 Description nvarchar(2500) not null,
 Created datetime DEFAULT getdate(),
-Images varbinary null
 )
 GO
 
