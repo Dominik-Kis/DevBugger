@@ -19,6 +19,8 @@ namespace DevBuggerRest.Controllers
     public class AccountController : ControllerBase
     {
         private string con = "Server=.\\SQLEXPRESS;Database=DevBugger;Trusted_Connection=True;";
+        private const string ID_ACCOUNT = "IDAccount";
+        private const string ID = "@IDAccount";
 
         [HttpGet]
         public List<Account> GetAccounts()
@@ -40,7 +42,7 @@ namespace DevBuggerRest.Controllers
                         while (oReader.Read())
                         {
                             Account acc = new Account();
-                            acc.IDAccount = int.Parse(oReader["IDAccount"].ToString());
+                            acc.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
                             acc.AccountLevelID = int.Parse(oReader["AccountLevelID"].ToString());
                             acc.Email = oReader["Email"].ToString();
                             acc.Username = oReader["Username"].ToString();
@@ -61,7 +63,7 @@ namespace DevBuggerRest.Controllers
 
         //http://localhost:52999/api/Account/GetAccount/1
         [Route("[action]/{id}")]
-        [HttpGet]
+        [HttpPost]
         public Account GetAccount(int id)
         {
             Account acc = new Account();
@@ -70,15 +72,15 @@ namespace DevBuggerRest.Controllers
                 var command = new SqlCommand("selectAccount", myConnection);
 
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@IDAccount", SqlDbType.Int));
-                command.Parameters["@IDAccount"].Value = id;
+                command.Parameters.Add(new SqlParameter(ID, SqlDbType.Int));
+                command.Parameters[ID].Value = id;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
                     {
                         if (oReader.Read())
                         {
-                            acc.IDAccount = int.Parse(oReader["IDAccount"].ToString());
+                            acc.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
                             acc.AccountLevelID = int.Parse(oReader["AccountLevelID"].ToString());
                             acc.Email = oReader["Email"].ToString();
                             acc.Username = oReader["Username"].ToString();
