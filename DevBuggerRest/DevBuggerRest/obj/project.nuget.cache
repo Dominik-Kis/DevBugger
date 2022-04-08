@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1l9Fd1U2tCuMwACmV25H+HJk4Z8E+qMlrxL/QGrwVkt0h2syTqUcpKpxAXrwkEIJBLXLLxqtuVIHM3XPTGhMqg==",
+  "dgSpecHash": "VCD+JNtS9CCjIEmHF0w8WzD/OaC6dxiQku65X/JEKzLxi4lZ5VAsOUz2HYLsNrg/3/5Ekc6cvxWX/yGBeZzVyg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ivan\\Desktop\\OICAR REST\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
+  "projectFilePath": "C:\\Users\\Ivan\\Desktop\\Oicar GIT\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",

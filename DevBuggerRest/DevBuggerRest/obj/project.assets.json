@@ -746,11 +746,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ivan\\Desktop\\OICAR REST\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
+      "projectUniqueName": "C:\\Users\\Ivan\\Desktop\\Oicar GIT\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
       "projectName": "DevBuggerRest",
-      "projectPath": "C:\\Users\\Ivan\\Desktop\\OICAR REST\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
+      "projectPath": "C:\\Users\\Ivan\\Desktop\\Oicar GIT\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
       "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ivan\\Desktop\\OICAR REST\\DevBuggerRest\\DevBuggerRest\\obj\\",
+      "outputPath": "C:\\Users\\Ivan\\Desktop\\Oicar GIT\\DevBugger\\DevBuggerRest\\DevBuggerRest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
