@@ -21,7 +21,20 @@ namespace DevBuggerRest.Controllers
         //napravi sve konstantne
         private string con = "Server=.\\SQLEXPRESS;Database=DevBugger;Trusted_Connection=True;";
         private const string ID_ACCOUNT = "IDAccount";
-        private const string ID = "@IDAccount";
+        private const string DB_ID_ACCOUNT = "@IDAccount";
+        private const string EMAIL = "Email";
+        private const string DB_EMAIL = "@Email";
+        private const string USERNAME = "Username";
+        private const string DB_USERNAME = "@Username";
+        private const string PASSWORD = "Password";
+        private const string DB_PASSWORD = "@Password";
+        private const string FIRSTNAME = "Firstname";
+        private const string DB_FIRSTNAME = "@Firstname";
+        private const string LASTNAME = "Lastname";
+        private const string DB_LASTNAME = "@Lastname";
+        private const string ACCOUNT_LEVEL_ID = "AccountLevelID";
+        private const string DB_ACCOUNT_LEVEL_ID = "@AccountLevelID";
+        private const string CREATED = "Created";
 
         [HttpGet]
         public List<Account> GetAccounts()
@@ -44,13 +57,13 @@ namespace DevBuggerRest.Controllers
                         {
                             Account acc = new Account();
                             acc.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
-                            acc.AccountLevelID = int.Parse(oReader["AccountLevelID"].ToString());
-                            acc.Email = oReader["Email"].ToString();
-                            acc.Username = oReader["Username"].ToString();
-                            acc.Password = oReader["Password"].ToString();
-                            acc.FirstName = oReader["FirstName"].ToString();
-                            acc.LastName = oReader["LastName"].ToString();
-                            acc.Created = DateTime.Parse(oReader["Created"].ToString());
+                            acc.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
+                            acc.Email = oReader[EMAIL].ToString();
+                            acc.Username = oReader[USERNAME].ToString();
+                            acc.Password = oReader[PASSWORD].ToString();
+                            acc.FirstName = oReader[FIRSTNAME].ToString();
+                            acc.LastName = oReader[LASTNAME].ToString();
+                            acc.Created = DateTime.Parse(oReader[CREATED].ToString());
                             accounts.Add(acc);
 
                         }
@@ -73,8 +86,8 @@ namespace DevBuggerRest.Controllers
                 var command = new SqlCommand("selectAccount", myConnection);
 
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter(ID, SqlDbType.Int));
-                command.Parameters[ID].Value = id;
+                command.Parameters.Add(new SqlParameter(ID_ACCOUNT, SqlDbType.Int));
+                command.Parameters[ID_ACCOUNT].Value = id;
 
                 myConnection.Open();
                 using (SqlDataReader oReader = command.ExecuteReader())
@@ -82,13 +95,13 @@ namespace DevBuggerRest.Controllers
                     if (oReader.Read())
                     {
                         acc.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
-                        acc.AccountLevelID = int.Parse(oReader["AccountLevelID"].ToString());
-                        acc.Email = oReader["Email"].ToString();
-                        acc.Username = oReader["Username"].ToString();
-                        acc.Password = oReader["Password"].ToString();
-                        acc.FirstName = oReader["FirstName"].ToString();
-                        acc.LastName = oReader["LastName"].ToString();
-                        acc.Created = DateTime.Parse(oReader["Created"].ToString());
+                        acc.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
+                        acc.Email = oReader[EMAIL].ToString();
+                        acc.Username = oReader[USERNAME].ToString();
+                        acc.Password = oReader[PASSWORD].ToString();
+                        acc.FirstName = oReader[FIRSTNAME].ToString();
+                        acc.LastName = oReader[LASTNAME].ToString();
+                        acc.Created = DateTime.Parse(oReader[CREATED].ToString());
                     }
 
                     myConnection.Close();
@@ -111,11 +124,11 @@ namespace DevBuggerRest.Controllers
                 {
                     command.CommandText = "UpdateAccount";
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("IDAccount", account.IDAccount);
-                    command.Parameters.AddWithValue("Username", account.Username);
-                    command.Parameters.AddWithValue("Password", account.Password);
-                    command.Parameters.AddWithValue("FirstName", account.FirstName);
-                    command.Parameters.AddWithValue("LastName", account.LastName);
+                    command.Parameters.AddWithValue(ID_ACCOUNT, account.IDAccount);
+                    command.Parameters.AddWithValue(USERNAME, account.Username);
+                    command.Parameters.AddWithValue(PASSWORD, account.Password);
+                    command.Parameters.AddWithValue(FIRSTNAME, account.FirstName);
+                    command.Parameters.AddWithValue(LASTNAME, account.LastName);
                     command.ExecuteNonQuery();
 
                 }
@@ -135,10 +148,10 @@ namespace DevBuggerRest.Controllers
                 var command = new SqlCommand("loginAccount", myConnection);
 
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@Email", SqlDbType.NVarChar));
-                command.Parameters["@Email"].Value = email;
-                command.Parameters.Add(new SqlParameter("@Password", SqlDbType.NVarChar));
-                command.Parameters["@Password"].Value = password;
+                command.Parameters.Add(new SqlParameter(DB_EMAIL, SqlDbType.NVarChar));
+                command.Parameters[DB_EMAIL].Value = email;
+                command.Parameters.Add(new SqlParameter(DB_PASSWORD, SqlDbType.NVarChar));
+                command.Parameters[DB_PASSWORD].Value = password;
 
                 myConnection.Open();
                 using (SqlDataReader oReader = command.ExecuteReader())
@@ -146,13 +159,13 @@ namespace DevBuggerRest.Controllers
                     if (oReader.Read())
                     {
                         acc.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
-                        acc.AccountLevelID = int.Parse(oReader["AccountLevelID"].ToString());
-                        acc.Email = oReader["Email"].ToString();
-                        acc.Username = oReader["Username"].ToString();
-                        acc.Password = oReader["Password"].ToString();
-                        acc.FirstName = oReader["FirstName"].ToString();
-                        acc.LastName = oReader["LastName"].ToString();
-                        acc.Created = DateTime.Parse(oReader["Created"].ToString());
+                        acc.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
+                        acc.Email = oReader[EMAIL].ToString();
+                        acc.Username = oReader[USERNAME].ToString();
+                        acc.Password = oReader[PASSWORD].ToString();
+                        acc.FirstName = oReader[FIRSTNAME].ToString();
+                        acc.LastName = oReader[LASTNAME].ToString();
+                        acc.Created = DateTime.Parse(oReader[CREATED].ToString());
                     }
 
                     myConnection.Close();
@@ -175,23 +188,23 @@ namespace DevBuggerRest.Controllers
                 {
                     cmd.CommandText = "createAccount";
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@AccountLevelID", account.AccountLevelID);
-                    cmd.Parameters.AddWithValue("@Email", account.Email);
-                    cmd.Parameters.AddWithValue("@Username", account.Username);
-                    cmd.Parameters.AddWithValue("@Password", account.Password);
-                    cmd.Parameters.AddWithValue("@Firstname", account.FirstName);
-                    cmd.Parameters.AddWithValue("@Lastname", account.LastName);
-                    /*
+                    cmd.Parameters.AddWithValue(DB_ACCOUNT_LEVEL_ID, account.AccountLevelID);
+                    cmd.Parameters.AddWithValue(DB_EMAIL, account.Email);
+                    cmd.Parameters.AddWithValue(DB_USERNAME, account.Username);
+                    cmd.Parameters.AddWithValue(DB_PASSWORD, account.Password);
+                    cmd.Parameters.AddWithValue(DB_FIRSTNAME, account.FirstName);
+                    cmd.Parameters.AddWithValue(DB_LASTNAME, account.LastName);
+                    
                     SqlParameter id = new SqlParameter(
-                            IdPersonParam,
+                            "@idAccount",
                             System.Data.SqlDbType.Int)
                     {
                         Direction = System.Data.ParameterDirection.Output
                     };
                     cmd.Parameters.Add(id);
-                    */
+                    
                     cmd.ExecuteNonQuery();
-                    //person.IDPerson = (int)id.Value;
+                    account.IDAccount = (int)id.Value;
                 }
             }
         }

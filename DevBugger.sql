@@ -76,10 +76,12 @@ CREATE proc createAccount
 @Username nvarchar(50),
 @Password nvarchar(20),
 @Firstname nvarchar(50),
-@Lastname nvarchar(50)
+@Lastname nvarchar(50),
+@idAccount int output
 as
 INSERT into Account(AccountLevelID, Email, Username, Password, FirstName, LastName, Created)
 values(@AccountLevelID, @Email, @Username, @Password, @FirstName, @LastName, getdate())
+set @idAccount = SCOPE_IDENTITY()
 GO
 
 CREATE proc updateAccount
