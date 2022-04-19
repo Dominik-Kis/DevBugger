@@ -23,5 +23,10 @@ namespace DevBuggerDesktop.Windows
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
