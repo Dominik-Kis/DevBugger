@@ -13,3 +13,21 @@ C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDe
 C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.csproj.CoreCompileInputs.cache
 C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.exe
 C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.pdb
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\DevBuggerDesktop.exe.config
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\DevBuggerDesktop.exe
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\DevBuggerDesktop.pdb
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.csprojAssemblyReference.cache
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\LoginWindow.g.cs
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\App.g.cs
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop_MarkupCompile.cache
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop_MarkupCompile.lref
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\LoginWindow.baml
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.g.resources
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.Properties.Resources.resources
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.csproj.GenerateResource.cache
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.csproj.CoreCompileInputs.cache
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.exe
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.pdb
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.csproj.CopyComplete

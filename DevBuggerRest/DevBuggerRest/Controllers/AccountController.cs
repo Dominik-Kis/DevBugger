@@ -8,6 +8,9 @@ using DevBuggerRest.Model;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using System.Xml.Serialization;
+using System.IO;
+using System.Xml;
 
 namespace DevBuggerRest.Controllers
 {
@@ -78,16 +81,18 @@ namespace DevBuggerRest.Controllers
         //http://localhost:52999/api/Account/GetAccount/1
         [Route("[action]/{id}")]
         [HttpPost]
-        public Account GetAccount(int id)
+        public Account GetAccount(Account ac)
         {
             Account acc = new Account();
+            Console.WriteLine("ppppppppppp");
+            Console.WriteLine(ac.IDAccount);
             using (SqlConnection myConnection = new SqlConnection(con))
             {
                 var command = new SqlCommand("selectAccount", myConnection);
 
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter(ID_ACCOUNT, SqlDbType.Int));
-                command.Parameters[ID_ACCOUNT].Value = id;
+                command.Parameters[ID_ACCOUNT].Value = ac.IDAccount;
 
                 myConnection.Open();
                 using (SqlDataReader oReader = command.ExecuteReader())
