@@ -115,3 +115,21 @@ as
 SELECT * from Account
 where Account.Email = @Email and Account.Password = @Password
 GO
+
+--Dummy
+CREATE proc updateToDummy
+@idAccount int
+as
+declare  @AccountLevelID int
+declare  @Email nvarchar(100)
+declare  @Username nvarchar(50)
+declare  @Password nvarchar(20)
+declare  @Firstname nvarchar(50)
+declare  @Lastname nvarchar(50)
+Select @AccountLevelID = a.AccountLevelID, @Email = a.Email, @Username = a.Username, 
+@Password = a.Password, @Firstname = a.FirstName, @Lastname = a.LastName
+from Account as a where a.Firstname like 'Dummy' and  a.Lastname like 'Account'
+update Account
+set Username = @Username, Password = @Password, FirstName = @Firstname, LastName = @Lastname, AccountLevelID = @AccountLevelID
+where Account.IDAccount = @idAccount
+GO
