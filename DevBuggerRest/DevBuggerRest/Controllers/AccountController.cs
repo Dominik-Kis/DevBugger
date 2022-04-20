@@ -78,21 +78,19 @@ namespace DevBuggerRest.Controllers
             return accounts;
         }
 
-        //http://localhost:52999/api/Account/GetAccount/1
+        //http://localhost:5000/api/Account/GetAccount/1
         [Route("[action]/{id}")]
         [HttpPost]
-        public Account GetAccount(Account ac)
+        public Account GetAccount([FromBody]int idAccount)
         {
             Account acc = new Account();
-            Console.WriteLine("ppppppppppp");
-            Console.WriteLine(ac.IDAccount);
             using (SqlConnection myConnection = new SqlConnection(con))
             {
                 var command = new SqlCommand("selectAccount", myConnection);
 
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter(ID_ACCOUNT, SqlDbType.Int));
-                command.Parameters[ID_ACCOUNT].Value = ac.IDAccount;
+                command.Parameters[ID_ACCOUNT].Value = idAccount;
 
                 myConnection.Open();
                 using (SqlDataReader oReader = command.ExecuteReader())
@@ -117,10 +115,10 @@ namespace DevBuggerRest.Controllers
         }
 
 
-        //http://localhost:52999/api/Account/UpdateAccount/1
+        //http://localhost:5000/api/Account/UpdateAccount/1
         [Route("[action]/{id}")]
         [HttpPost]
-        public void UpdateAccount(Account account)
+        public bool UpdateAccount(Account account)
         {
             using (SqlConnection myConnection = new SqlConnection(con))
             {
@@ -138,53 +136,55 @@ namespace DevBuggerRest.Controllers
 
                 }
             }
+
+            return true;
         }
 
 
 
-        //http://localhost:52999/api/Account/LoginAccount/1
+        //http://localhost:5000/api/Account/LoginAccount/1
         [Route("[action]/{id}")]
         [HttpPost]
-        public Account LoginAccount(string email, string password)
+        public Account LoginAccount(Account account)
         {
-            Account acc = new Account();
+            Account returnAccount = new Account();
             using (SqlConnection myConnection = new SqlConnection(con))
             {
                 var command = new SqlCommand("loginAccount", myConnection);
 
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter(DB_EMAIL, SqlDbType.NVarChar));
-                command.Parameters[DB_EMAIL].Value = email;
+                command.Parameters[DB_EMAIL].Value = account.Email;
                 command.Parameters.Add(new SqlParameter(DB_PASSWORD, SqlDbType.NVarChar));
-                command.Parameters[DB_PASSWORD].Value = password;
+                command.Parameters[DB_PASSWORD].Value = account.Password;
 
                 myConnection.Open();
                 using (SqlDataReader oReader = command.ExecuteReader())
                 {
                     if (oReader.Read())
                     {
-                        acc.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
-                        acc.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
-                        acc.Email = oReader[EMAIL].ToString();
-                        acc.Username = oReader[USERNAME].ToString();
-                        acc.Password = oReader[PASSWORD].ToString();
-                        acc.FirstName = oReader[FIRSTNAME].ToString();
-                        acc.LastName = oReader[LASTNAME].ToString();
-                        acc.Created = DateTime.Parse(oReader[CREATED].ToString());
+                        returnAccount.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
+                        returnAccount.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
+                        returnAccount.Email = oReader[EMAIL].ToString();
+                        returnAccount.Username = oReader[USERNAME].ToString();
+                        returnAccount.Password = oReader[PASSWORD].ToString();
+                        returnAccount.FirstName = oReader[FIRSTNAME].ToString();
+                        returnAccount.LastName = oReader[LASTNAME].ToString();
+                        returnAccount.Created = DateTime.Parse(oReader[CREATED].ToString());
                     }
 
                     myConnection.Close();
                 }
 
             }
-            return acc;
+            return returnAccount;
         }
 
 
-        //http://localhost:52999/api/Account/CreatePerson/1
+        //http://localhost:5000/api/Account/CreateAccount/1
         [Route("[action]/{id}")]
         [HttpPost]
-        public void CreatePerson(Account account)
+        public bool CreateAccount(Account account)
         {
             using (SqlConnection sqlConnection = new SqlConnection(con))
             {
@@ -212,6 +212,33 @@ namespace DevBuggerRest.Controllers
                     account.IDAccount = (int)id.Value;
                 }
             }
+
+            return true;
+        }
+
+        //http://localhost:5000/api/Account/UpdateToDummy/1
+        [Route("[action]/{id}")]
+        [HttpPost]
+        public bool UpdateToDummy(Account account)
+        {
+            using (SqlConnection myConnection = new SqlConnection(con))
+            {
+                myConnection.Open();
+                using (SqlCommand command = myConnection.CreateCommand())
+                {
+                    command.CommandText = "updateToDummy";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue(ID_ACCOUNT, account.IDAccount);
+                    command.Parameters.AddWithValue(USERNAME, account.Username);
+                    command.Parameters.AddWithValue(PASSWORD, account.Password);
+                    command.Parameters.AddWithValue(FIRSTNAME, account.FirstName);
+                    command.Parameters.AddWithValue(LASTNAME, account.LastName);
+                    command.ExecuteNonQuery();
+
+                }
+            }
+
+            return true;
         }
 
 

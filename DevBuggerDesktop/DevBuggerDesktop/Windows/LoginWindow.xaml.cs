@@ -23,7 +23,7 @@ namespace DevBuggerDesktop.Windows
         public LoginWindow()
         {
             InitializeComponent();
-            RepoFactory.getAccountRepo().GetAccount(1);
+            RepoFactory.getAccountRepo().GetAccount(1005);
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
