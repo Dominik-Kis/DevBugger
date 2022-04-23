@@ -16,89 +16,127 @@ namespace DevBuggerDesktop.DAL
     {
         public bool AddAccount(Account account)
         {
-            DataContractSerializer serializer = new DataContractSerializer(typeof(Account));
-            MemoryStream data = new MemoryStream();
-            XmlWriter writer = XmlWriter.Create(data);
+            string line;
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/AddAccount/1");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
 
-            serializer.WriteObject(writer, account);
-            writer.Close();
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(account);
+            }
 
-            byte[] podaciZaServis = Encoding.UTF8.GetBytes(Encoding.UTF8.GetString(data.ToArray()));
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/CreateAccount/1");
-            request.Method = "POST";
-            request.Accept = "application/xml";
-            request.ContentType = "application/xml";
-            Stream requestData = request.GetRequestStream();
-            requestData.Write(podaciZaServis, 0, podaciZaServis.Length);
-            requestData.Close();
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream responseData = response.GetResponseStream();
-
-            DataContractSerializer deserijalizacija = new DataContractSerializer(typeof(bool));
-            bool added = (bool)deserijalizacija.ReadObject(responseData);
-            return added;
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                line = result;
+            }
+            if(line.Contains("true"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public bool UpdateAccount(Account account)
         {
-            DataContractSerializer serializer = new DataContractSerializer(typeof(Account));
-            MemoryStream data = new MemoryStream();
-            XmlWriter writer = XmlWriter.Create(data);
+            string line;
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/UpdateAccount/1");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
 
-            serializer.WriteObject(writer, account);
-            writer.Close();
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(account);
+            }
 
-            byte[] podaciZaServis = Encoding.UTF8.GetBytes(Encoding.UTF8.GetString(data.ToArray()));
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/UpdateAccount/1");
-            request.Method = "POST";
-            request.Accept = "application/xml";
-            request.ContentType = "application/xml";
-            Stream requestData = request.GetRequestStream();
-            requestData.Write(podaciZaServis, 0, podaciZaServis.Length);
-            requestData.Close();
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream responseData = response.GetResponseStream();
-
-            DataContractSerializer deserijalizacija = new DataContractSerializer(typeof(bool));
-            bool added = (bool)deserijalizacija.ReadObject(responseData);
-            return added;
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                line = result;
+            }
+            if (line.Contains("true"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        /*public void DeleteAccount(Account account)
+        public bool DeleteAccount(Account account)
         {
+            string line;
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/DeleteAccount/1");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
 
-        }*/
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(account);
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                line = result;
+            }
+            if (line.Contains("true"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public bool UpdateToDummy(Account account)
         {
-            DataContractSerializer serializer = new DataContractSerializer(typeof(Account));
-            MemoryStream data = new MemoryStream();
-            XmlWriter writer = XmlWriter.Create(data);
+            string line;
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/UpdateToDummy/1");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
 
-            serializer.WriteObject(writer, account);
-            writer.Close();
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(account);
+            }
 
-            byte[] podaciZaServis = Encoding.UTF8.GetBytes(Encoding.UTF8.GetString(data.ToArray()));
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/UpdateToDummy/1");
-            request.Method = "POST";
-            request.Accept = "application/xml";
-            request.ContentType = "application/xml";
-            Stream requestData = request.GetRequestStream();
-            requestData.Write(podaciZaServis, 0, podaciZaServis.Length);
-            requestData.Close();
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream responseData = response.GetResponseStream();
-
-            DataContractSerializer deserijalizacija = new DataContractSerializer(typeof(bool));
-            bool added = (bool)deserijalizacija.ReadObject(responseData);
-            return added;
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                line = result;
+            }
+            if (line.Contains("true"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public Account GetAccount(int idAccount)
         {
-            DataContractSerializer serializer = new DataContractSerializer(typeof(int));
+            /*DataContractSerializer serializer = new DataContractSerializer(typeof(int));
             MemoryStream data = new MemoryStream();
             XmlWriter writer = XmlWriter.Create(data);
 
@@ -123,54 +161,69 @@ namespace DevBuggerDesktop.DAL
             Console.WriteLine("------------");
             Console.WriteLine(account.Email);
             Console.WriteLine("------------");
-            return account;
+            return account;*/
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/GetAccount/1");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(idAccount);
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+
+                Account responseAccount = JsonConvert.DeserializeObject<Account>(result);
+
+                Console.WriteLine("------------");
+                Console.WriteLine(responseAccount.Email);
+                Console.WriteLine("------------");
+                return responseAccount;
+            }
         }
         public IList<Account> GetAccounts()
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/GetAccount/1");
-            request.Method = "GET";
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream responseData = response.GetResponseStream();
-
-            DataContractSerializer deserijalizacija = new DataContractSerializer(typeof(List<Account>));
-            List<Account> accounts = (List<Account>)deserijalizacija.ReadObject(responseData);
-            Console.WriteLine("------------");
-            foreach (var ac in accounts)
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
-                Console.WriteLine(ac.Email);
+                var result = streamReader.ReadToEnd();
+                List<Account> responseAccounts = JsonConvert.DeserializeObject<List<Account>>(result);
+
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                return responseAccounts;
             }
-            Console.WriteLine("------------");
-            return accounts;
         }
         public Account LoginAccount(Account account)
         {
-            DataContractSerializer serializer = new DataContractSerializer(typeof(Account));
-            MemoryStream data = new MemoryStream();
-            XmlWriter writer = XmlWriter.Create(data);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/LoginAccount/1");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
 
-            serializer.WriteObject(writer, account);
-            writer.Close();
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(account);
+            }
 
-            byte[] podaciZaServis = Encoding.UTF8.GetBytes(Encoding.UTF8.GetString(data.ToArray()));
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                Account responseAccount = JsonConvert.DeserializeObject<Account>(result);
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/LoginAccount/1");
-            request.Method = "POST";
-            request.Accept = "application/xml";
-            request.ContentType = "application/xml";
-            Stream requestData = request.GetRequestStream();
-            requestData.Write(podaciZaServis, 0, podaciZaServis.Length);
-            requestData.Close();
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream responseData = response.GetResponseStream();
-
-            DataContractSerializer deserijalizacija = new DataContractSerializer(typeof(Account));
-            Account loginAccount = (Account)deserijalizacija.ReadObject(responseData);
-            Console.WriteLine("------------");
-            Console.WriteLine(loginAccount.Email);
-            Console.WriteLine("------------");
-            return loginAccount;
+                Console.WriteLine("------------");
+                Console.WriteLine(responseAccount.Email);
+                Console.WriteLine("------------");
+                return responseAccount;
+            }
         }
     }
 }

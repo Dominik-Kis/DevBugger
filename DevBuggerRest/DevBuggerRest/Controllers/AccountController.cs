@@ -44,21 +44,70 @@ namespace DevBuggerRest.Controllers
         {
 
             //var con = ConfigurationManager.ConnectionStrings["MasterDatabase"].ToString();
-
-            List<Account> accounts = new List<Account>();
-            using (SqlConnection myConnection = new SqlConnection(con))
+            try
             {
-                using (var command = new SqlCommand("selectAccounts", myConnection)
+                List<Account> accounts = new List<Account>();
+                using (SqlConnection myConnection = new SqlConnection(con))
                 {
-                    CommandType = CommandType.StoredProcedure
-                })
+                    using (var command = new SqlCommand("selectAccounts", myConnection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    })
+                    {
+                        myConnection.Open();
+                        using (SqlDataReader oReader = command.ExecuteReader())
+                        {
+                            while (oReader.Read())
+                            {
+                                Account acc = new Account();
+                                acc.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
+                                acc.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
+                                acc.Email = oReader[EMAIL].ToString();
+                                acc.Username = oReader[USERNAME].ToString();
+                                acc.Password = oReader[PASSWORD].ToString();
+                                acc.FirstName = oReader[FIRSTNAME].ToString();
+                                acc.LastName = oReader[LASTNAME].ToString();
+                                acc.Created = DateTime.Parse(oReader[CREATED].ToString());
+                                accounts.Add(acc);
+
+                            }
+
+                            myConnection.Close();
+                        }
+                    }
+                }
+
+                return accounts;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+        }
+
+        //http://localhost:5000/api/Account/GetAccount/1
+        [Route("[action]/{id}")]
+        [HttpPost]
+        public Account GetAccount([FromBody] int idAccount)
+        {
+            try
+            {
+                Account acc = new Account();
+                using (SqlConnection myConnection = new SqlConnection(con))
                 {
+                    var command = new SqlCommand("selectAccount", myConnection);
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter(ID_ACCOUNT, SqlDbType.Int));
+                    command.Parameters[ID_ACCOUNT].Value = idAccount;
+
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
                     {
-                        while (oReader.Read())
+                        if (oReader.Read())
                         {
-                            Account acc = new Account();
                             acc.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
                             acc.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
                             acc.Email = oReader[EMAIL].ToString();
@@ -67,51 +116,20 @@ namespace DevBuggerRest.Controllers
                             acc.FirstName = oReader[FIRSTNAME].ToString();
                             acc.LastName = oReader[LASTNAME].ToString();
                             acc.Created = DateTime.Parse(oReader[CREATED].ToString());
-                            accounts.Add(acc);
-
                         }
 
                         myConnection.Close();
                     }
-                }
-            }
-            return accounts;
-        }
 
-        //http://localhost:5000/api/Account/GetAccount/1
-        [Route("[action]/{id}")]
-        [HttpPost]
-        public Account GetAccount([FromBody]int idAccount)
-        {
-            Account acc = new Account();
-            using (SqlConnection myConnection = new SqlConnection(con))
+                }
+                return acc;
+            }
+            catch (Exception e)
             {
-                var command = new SqlCommand("selectAccount", myConnection);
-
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter(ID_ACCOUNT, SqlDbType.Int));
-                command.Parameters[ID_ACCOUNT].Value = idAccount;
-
-                myConnection.Open();
-                using (SqlDataReader oReader = command.ExecuteReader())
-                {
-                    if (oReader.Read())
-                    {
-                        acc.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
-                        acc.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
-                        acc.Email = oReader[EMAIL].ToString();
-                        acc.Username = oReader[USERNAME].ToString();
-                        acc.Password = oReader[PASSWORD].ToString();
-                        acc.FirstName = oReader[FIRSTNAME].ToString();
-                        acc.LastName = oReader[LASTNAME].ToString();
-                        acc.Created = DateTime.Parse(oReader[CREATED].ToString());
-                    }
-
-                    myConnection.Close();
-                }
-
+                Console.WriteLine(e.Message);
+                return null;
             }
-            return acc;
+
         }
 
 
@@ -120,24 +138,32 @@ namespace DevBuggerRest.Controllers
         [HttpPost]
         public bool UpdateAccount(Account account)
         {
-            using (SqlConnection myConnection = new SqlConnection(con))
+            try
             {
-                myConnection.Open();
-                using (SqlCommand command = myConnection.CreateCommand())
+                using (SqlConnection myConnection = new SqlConnection(con))
                 {
-                    command.CommandText = "UpdateAccount";
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue(ID_ACCOUNT, account.IDAccount);
-                    command.Parameters.AddWithValue(USERNAME, account.Username);
-                    command.Parameters.AddWithValue(PASSWORD, account.Password);
-                    command.Parameters.AddWithValue(FIRSTNAME, account.FirstName);
-                    command.Parameters.AddWithValue(LASTNAME, account.LastName);
-                    command.ExecuteNonQuery();
+                    myConnection.Open();
+                    using (SqlCommand command = myConnection.CreateCommand())
+                    {
+                        command.CommandText = "UpdateAccount";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue(ID_ACCOUNT, account.IDAccount);
+                        command.Parameters.AddWithValue(USERNAME, account.Username);
+                        command.Parameters.AddWithValue(PASSWORD, account.Password);
+                        command.Parameters.AddWithValue(FIRSTNAME, account.FirstName);
+                        command.Parameters.AddWithValue(LASTNAME, account.LastName);
+                        command.ExecuteNonQuery();
 
+                    }
                 }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
             }
 
-            return true;
         }
 
 
@@ -147,37 +173,46 @@ namespace DevBuggerRest.Controllers
         [HttpPost]
         public Account LoginAccount(Account account)
         {
-            Account returnAccount = new Account();
-            using (SqlConnection myConnection = new SqlConnection(con))
+            try
             {
-                var command = new SqlCommand("loginAccount", myConnection);
-
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter(DB_EMAIL, SqlDbType.NVarChar));
-                command.Parameters[DB_EMAIL].Value = account.Email;
-                command.Parameters.Add(new SqlParameter(DB_PASSWORD, SqlDbType.NVarChar));
-                command.Parameters[DB_PASSWORD].Value = account.Password;
-
-                myConnection.Open();
-                using (SqlDataReader oReader = command.ExecuteReader())
+                Account returnAccount = new Account();
+                using (SqlConnection myConnection = new SqlConnection(con))
                 {
-                    if (oReader.Read())
+                    var command = new SqlCommand("loginAccount", myConnection);
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter(DB_EMAIL, SqlDbType.NVarChar));
+                    command.Parameters[DB_EMAIL].Value = account.Email;
+                    command.Parameters.Add(new SqlParameter(DB_PASSWORD, SqlDbType.NVarChar));
+                    command.Parameters[DB_PASSWORD].Value = account.Password;
+
+                    myConnection.Open();
+                    using (SqlDataReader oReader = command.ExecuteReader())
                     {
-                        returnAccount.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
-                        returnAccount.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
-                        returnAccount.Email = oReader[EMAIL].ToString();
-                        returnAccount.Username = oReader[USERNAME].ToString();
-                        returnAccount.Password = oReader[PASSWORD].ToString();
-                        returnAccount.FirstName = oReader[FIRSTNAME].ToString();
-                        returnAccount.LastName = oReader[LASTNAME].ToString();
-                        returnAccount.Created = DateTime.Parse(oReader[CREATED].ToString());
+                        if (oReader.Read())
+                        {
+                            returnAccount.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
+                            returnAccount.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
+                            returnAccount.Email = oReader[EMAIL].ToString();
+                            returnAccount.Username = oReader[USERNAME].ToString();
+                            returnAccount.Password = oReader[PASSWORD].ToString();
+                            returnAccount.FirstName = oReader[FIRSTNAME].ToString();
+                            returnAccount.LastName = oReader[LASTNAME].ToString();
+                            returnAccount.Created = DateTime.Parse(oReader[CREATED].ToString());
+                        }
+
+                        myConnection.Close();
                     }
 
-                    myConnection.Close();
                 }
-
+                return returnAccount;
             }
-            return returnAccount;
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
         }
 
 
@@ -186,34 +221,43 @@ namespace DevBuggerRest.Controllers
         [HttpPost]
         public bool CreateAccount(Account account)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(con))
+            try
             {
-                sqlConnection.Open();
-                using (SqlCommand cmd = sqlConnection.CreateCommand())
+                using (SqlConnection sqlConnection = new SqlConnection(con))
                 {
-                    cmd.CommandText = "createAccount";
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue(DB_ACCOUNT_LEVEL_ID, account.AccountLevelID);
-                    cmd.Parameters.AddWithValue(DB_EMAIL, account.Email);
-                    cmd.Parameters.AddWithValue(DB_USERNAME, account.Username);
-                    cmd.Parameters.AddWithValue(DB_PASSWORD, account.Password);
-                    cmd.Parameters.AddWithValue(DB_FIRSTNAME, account.FirstName);
-                    cmd.Parameters.AddWithValue(DB_LASTNAME, account.LastName);
-                    
-                    SqlParameter id = new SqlParameter(
-                            "@idAccount",
-                            System.Data.SqlDbType.Int)
+                    sqlConnection.Open();
+                    using (SqlCommand cmd = sqlConnection.CreateCommand())
                     {
-                        Direction = System.Data.ParameterDirection.Output
-                    };
-                    cmd.Parameters.Add(id);
-                    
-                    cmd.ExecuteNonQuery();
-                    account.IDAccount = (int)id.Value;
+                        cmd.CommandText = "createAccount";
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue(DB_ACCOUNT_LEVEL_ID, account.AccountLevelID);
+                        cmd.Parameters.AddWithValue(DB_EMAIL, account.Email);
+                        cmd.Parameters.AddWithValue(DB_USERNAME, account.Username);
+                        cmd.Parameters.AddWithValue(DB_PASSWORD, account.Password);
+                        cmd.Parameters.AddWithValue(DB_FIRSTNAME, account.FirstName);
+                        cmd.Parameters.AddWithValue(DB_LASTNAME, account.LastName);
+
+                        SqlParameter id = new SqlParameter(
+                                "@idAccount",
+                                System.Data.SqlDbType.Int)
+                        {
+                            Direction = System.Data.ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(id);
+
+                        cmd.ExecuteNonQuery();
+                        account.IDAccount = (int)id.Value;
+                    }
                 }
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
             }
 
-            return true;
         }
 
         //http://localhost:5000/api/Account/UpdateToDummy/1
@@ -221,24 +265,32 @@ namespace DevBuggerRest.Controllers
         [HttpPost]
         public bool UpdateToDummy(Account account)
         {
-            using (SqlConnection myConnection = new SqlConnection(con))
+            try
             {
-                myConnection.Open();
-                using (SqlCommand command = myConnection.CreateCommand())
+                using (SqlConnection myConnection = new SqlConnection(con))
                 {
-                    command.CommandText = "updateToDummy";
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue(ID_ACCOUNT, account.IDAccount);
-                    command.Parameters.AddWithValue(USERNAME, account.Username);
-                    command.Parameters.AddWithValue(PASSWORD, account.Password);
-                    command.Parameters.AddWithValue(FIRSTNAME, account.FirstName);
-                    command.Parameters.AddWithValue(LASTNAME, account.LastName);
-                    command.ExecuteNonQuery();
+                    myConnection.Open();
+                    using (SqlCommand command = myConnection.CreateCommand())
+                    {
+                        command.CommandText = "updateToDummy";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue(ID_ACCOUNT, account.IDAccount);
+                        command.Parameters.AddWithValue(USERNAME, account.Username);
+                        command.Parameters.AddWithValue(PASSWORD, account.Password);
+                        command.Parameters.AddWithValue(FIRSTNAME, account.FirstName);
+                        command.Parameters.AddWithValue(LASTNAME, account.LastName);
+                        command.ExecuteNonQuery();
 
+                    }
                 }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
             }
 
-            return true;
         }
 
 
