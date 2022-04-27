@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DevBuggerDesktop.Windows"
         mc:Ignorable="d"
-        Title="Login" Height="300" Width="500" FontSize="18" Background="#292929" ResizeMode="NoResize">
+        Title="Login" Height="300" Width="400" FontSize="18" Background="#292929" ResizeMode="NoResize" Foreground="White">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -24,12 +24,12 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Text="Username:" Width="120" Foreground="White" FontWeight="Bold"/>
-        <TextBox Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Width="260" MaxLength="50" x:Name="tbUsername"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Text="Password:" Width="120" Foreground="White" FontWeight="Bold"/>
-        <PasswordBox Grid.Column="2" HorizontalAlignment="Left" Width="260" Grid.Row="4" VerticalAlignment="Center" MaxLength="20" x:Name="tbPassword"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Text="Email:" Width="120" FontWeight="Bold"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Width="260" MaxLength="100" x:Name="txtEmail" Foreground="White" Background="#545d6a"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Text="Password:" Width="120" FontWeight="Bold"/>
+        <PasswordBox Grid.Column="2" HorizontalAlignment="Left" Width="260" Grid.Row="4" VerticalAlignment="Center" MaxLength="20" x:Name="txtPassword" Background="#545d6a"/>
 
-        <Button x:Name="btnLogin" Grid.Column="2" Grid.Row="5" Content="Login" FontWeight="Bold" Height="30" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnLogin_Click"/>
+        <Button x:Name="btnLogin" Grid.Column="2" Grid.Row="5" Content="Login" FontWeight="Bold" Height="30" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnLogin_Click" Background="#545d6a" Foreground="White"/>
 
     </Grid>
 </Window>

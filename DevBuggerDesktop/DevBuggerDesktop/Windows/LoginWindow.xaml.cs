@@ -1,4 +1,5 @@
 ﻿using DevBuggerDesktop.DAL;
+using DevBuggerDesktop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,24 @@ namespace DevBuggerDesktop.Windows
         public LoginWindow()
         {
             InitializeComponent();
-            RepoFactory.getAccountRepo().GetAccount(1006);
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
+            Account account = new Account();
+            account.Email = txtEmail.Text;
+            account.Password = txtPassword.Password;
+            //Account acc = RepoFactory.getAccountRepo().LoginAccount(account);
+            //if (acc != null)
+            {
+                DashboardWindow dashboard = new DashboardWindow();
+                dashboard.Show();
+                this.Close();
+            }
+            //else
+            {
+                MessageBox.Show("Username or password is incorrect");
+            }
         }
     }
 }
