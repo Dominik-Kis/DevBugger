@@ -133,3 +133,48 @@ update Account
 set Username = @Username, Password = @Password, FirstName = @Firstname, LastName = @Lastname, AccountLevelID = @AccountLevelID
 where Account.IDAccount = @idAccount
 GO
+
+
+
+--GAME PAGE PROCEDURES
+CREATE proc createGamePage
+@AccountID int,
+@Title nvarchar(100),
+@Description nvarchar(2000),
+@idGamePage int output
+as
+INSERT into GamePage(AccountID, Title, Description, Created)
+values(@AccountID, @Title, @Description, getdate())
+set @idGamePage = SCOPE_IDENTITY()
+GO
+
+CREATE proc updateGamePage
+@AccountID int,
+@Created datetime,
+@Title nvarchar(100),
+@Description nvarchar(2000),
+@idGamePage int
+as
+UPDATE GamePage
+set AccountID = @AccountID, Title = @Title, Description = @Description, Created = @Created
+where IDGamePage = @idGamePage
+GO
+
+CREATE proc selectGamePage
+@idGamePage int
+as
+SELECT * from GamePage
+where IDGamePage = @idGamePage
+GO
+
+CREATE proc selectGamePages
+as
+SELECT * from GamePage
+GO
+
+CREATE proc deleteGamePage
+@idGamePage int
+as
+DELETE FROM GamePage
+where IDGamePage = @idGamePage
+GO
