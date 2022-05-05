@@ -115,8 +115,8 @@ namespace DevBuggerRest.Controllers
         }
 
 
-        //http://localhost:5000/api/GamePage/UpdateGamePage/1
-        [Route("[action]/{id}")]
+        //http://localhost:5000/api/GamePage/UpdateGamePage
+        [Route("[action]")]
         [HttpPost]
         public bool UpdateGamePage(GamePage gamePage)
         {
@@ -149,8 +149,8 @@ namespace DevBuggerRest.Controllers
         }
 
 
-        //http://localhost:5000/api/GamePage/CreateGamePage/1
-        [Route("[action]/{id}")]
+        //http://localhost:5000/api/GamePage/CreateGamePage
+        [Route("[action]")]
         [HttpPost]
         public bool CreateGamePage(GamePage gamePage)
         {
@@ -190,8 +190,8 @@ namespace DevBuggerRest.Controllers
 
         }
 
-        //http://localhost:5000/api/GamePage/DeleteGamePage/1
-        [Route("[action]/{id}")]
+        //http://localhost:5000/api/GamePage/DeleteGamePage
+        [Route("[action]")]
         [HttpPost]
         public bool DeleteGamePage(GamePage gamePage)
         {

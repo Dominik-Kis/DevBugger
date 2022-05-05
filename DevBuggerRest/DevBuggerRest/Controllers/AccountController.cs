@@ -134,8 +134,8 @@ namespace DevBuggerRest.Controllers
         }
 
 
-        //http://localhost:5000/api/Account/UpdateAccount/1
-        [Route("[action]/{id}")]
+        //http://localhost:5000/api/Account/UpdateAccount
+        [Route("[action]")]
         [HttpPost]
         public bool UpdateAccount(Account account)
         {
@@ -177,8 +177,8 @@ namespace DevBuggerRest.Controllers
 
 
 
-        //http://localhost:5000/api/Account/LoginAccount/1
-        [Route("[action]/{id}")]
+        //http://localhost:5000/api/Account/LoginAccount
+        [Route("[action]")]
         [HttpPost]
         public Account LoginAccount(Account account)
         {
@@ -232,8 +232,8 @@ namespace DevBuggerRest.Controllers
         }
 
 
-        //http://localhost:5000/api/Account/CreateAccount/1
-        [Route("[action]/{id}")]
+        //http://localhost:5000/api/Account/CreateAccount
+        [Route("[action]")]
         [HttpPost]
         public bool CreateAccount(Account account)
         {
@@ -283,8 +283,8 @@ namespace DevBuggerRest.Controllers
 
         }
 
-        //http://localhost:5000/api/Account/UpdateToDummy/1
-        [Route("[action]/{id}")]
+        //http://localhost:5000/api/Account/UpdateToDummy
+        [Route("[action]")]
         [HttpPost]
         public bool UpdateToDummy(Account account)
         {
