@@ -9,6 +9,8 @@ namespace DevBuggerDesktop.DAL
     public class RepoFactory
     {
         private static AccountRepository accountRepository { get; set; }
+        private static GamePageRepository gamePageRepository { get; set; }
+
         public static AccountRepository getAccountRepo()
         {
             if (accountRepository == null)
@@ -16,6 +18,15 @@ namespace DevBuggerDesktop.DAL
                 accountRepository = new AccountRepository();
             }
             return accountRepository;
+        }
+
+        public static GamePageRepository getGamePageRepo()
+        {
+            if (gamePageRepository == null)
+            {
+                gamePageRepository = new GamePageRepository();
+            }
+            return gamePageRepository;
         }
     }
 }
