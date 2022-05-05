@@ -15,6 +15,7 @@ namespace DevBuggerRest.Controllers
     public class GamePageController : ControllerBase
     {
         private string con = "Server=.\\SQLEXPRESS;Database=DevBugger;Trusted_Connection=True;";
+        //private string con = "Server=.;Database=DevBugger;Trusted_Connection=True;";      //Dominik login
         private const string ID_GAMEPAGE = "IDGamePage";
         private const string DB_ID_GAMEPAGE = "@idGamePage";
         private const string ACCOUNTID = "AccountID";

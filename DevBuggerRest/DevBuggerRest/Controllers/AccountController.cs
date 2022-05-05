@@ -22,6 +22,7 @@ namespace DevBuggerRest.Controllers
     public class AccountController : ControllerBase
     {
         private string con = "Server=.\\SQLEXPRESS;Database=DevBugger;Trusted_Connection=True;";
+        //private string con = "Server=.;Database=DevBugger;Trusted_Connection=True;";      //Dominik login
         private const string ID_ACCOUNT = "IDAccount";
         private const string DB_ID_ACCOUNT = "@IDAccount";
         private const string EMAIL = "Email";
