@@ -11,6 +11,7 @@ using System.Data;
 using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
+using DevBuggerRest.Utils;
 
 namespace DevBuggerRest.Controllers
 {
@@ -21,8 +22,6 @@ namespace DevBuggerRest.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private string con = "Server=.\\SQLEXPRESS;Database=DevBugger;Trusted_Connection=True;";
-        //private string con = "Server=.;Database=DevBugger;Trusted_Connection=True;";      //Dominik login
         private const string ID_ACCOUNT = "IDAccount";
         private const string DB_ID_ACCOUNT = "@IDAccount";
         private const string EMAIL = "Email";
@@ -49,7 +48,7 @@ namespace DevBuggerRest.Controllers
             try
             {
                 List<Account> accounts = new List<Account>();
-                using (SqlConnection myConnection = new SqlConnection(con))
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     using (var command = new SqlCommand("selectAccounts", myConnection)
                     {
@@ -97,7 +96,7 @@ namespace DevBuggerRest.Controllers
             try
             {
                 Account acc = new Account();
-                using (SqlConnection myConnection = new SqlConnection(con))
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     var command = new SqlCommand("selectAccount", myConnection);
 
@@ -142,7 +141,7 @@ namespace DevBuggerRest.Controllers
         {
             try
             {
-                using (SqlConnection myConnection = new SqlConnection(con))
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     myConnection.Open();
                     using (SqlCommand command = myConnection.CreateCommand())
@@ -186,7 +185,7 @@ namespace DevBuggerRest.Controllers
             try
             {
                 Account returnAccount = new Account();
-                using (SqlConnection myConnection = new SqlConnection(con))
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     var command = new SqlCommand("loginAccount", myConnection);
 
@@ -240,7 +239,7 @@ namespace DevBuggerRest.Controllers
         {
             try
             {
-                using (SqlConnection sqlConnection = new SqlConnection(con))
+                using (SqlConnection sqlConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     sqlConnection.Open();
                     using (SqlCommand cmd = sqlConnection.CreateCommand())
@@ -291,7 +290,7 @@ namespace DevBuggerRest.Controllers
         {
             try
             {
-                using (SqlConnection myConnection = new SqlConnection(con))
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     myConnection.Open();
                     using (SqlCommand command = myConnection.CreateCommand())

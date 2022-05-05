@@ -1,4 +1,5 @@
 ﻿using DevBuggerRest.Model;
+using DevBuggerRest.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,8 +15,6 @@ namespace DevBuggerRest.Controllers
     [ApiController]
     public class GamePageController : ControllerBase
     {
-        private string con = "Server=.\\SQLEXPRESS;Database=DevBugger;Trusted_Connection=True;";
-        //private string con = "Server=.;Database=DevBugger;Trusted_Connection=True;";      //Dominik login
         private const string ID_GAMEPAGE = "IDGamePage";
         private const string DB_ID_GAMEPAGE = "@idGamePage";
         private const string ACCOUNTID = "AccountID";
@@ -36,7 +35,7 @@ namespace DevBuggerRest.Controllers
             try
             {
                 List<GamePage> gamePages = new List<GamePage>();
-                using (SqlConnection myConnection = new SqlConnection(con))
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     using (var command = new SqlCommand("selectGamePages", myConnection)
                     {
@@ -81,7 +80,7 @@ namespace DevBuggerRest.Controllers
             try
             {
                 GamePage gp = new GamePage();
-                using (SqlConnection myConnection = new SqlConnection(con))
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     var command = new SqlCommand("selectGamePage", myConnection);
 
@@ -123,7 +122,7 @@ namespace DevBuggerRest.Controllers
         {
             try
             {
-                using (SqlConnection myConnection = new SqlConnection(con))
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     myConnection.Open();
                     using (SqlCommand command = myConnection.CreateCommand())
@@ -157,7 +156,7 @@ namespace DevBuggerRest.Controllers
         {
             try
             {
-                using (SqlConnection sqlConnection = new SqlConnection(con))
+                using (SqlConnection sqlConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     sqlConnection.Open();
                     using (SqlCommand cmd = sqlConnection.CreateCommand())
@@ -198,7 +197,7 @@ namespace DevBuggerRest.Controllers
         {
             try
             {
-                using (SqlConnection sqlConnection = new SqlConnection(con))
+                using (SqlConnection sqlConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
                     sqlConnection.Open();
                     using (SqlCommand cmd = sqlConnection.CreateCommand())
