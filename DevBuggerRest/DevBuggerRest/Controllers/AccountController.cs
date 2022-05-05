@@ -38,6 +38,8 @@ namespace DevBuggerRest.Controllers
         private const string DB_ACCOUNT_LEVEL_ID = "@AccountLevelID";
         private const string CREATED = "Created";
 
+        private const string DELETEDACCOUNT = "[Deleted_Account]";
+
         [HttpGet]
         public List<Account> GetAccounts()
         {
@@ -155,7 +157,15 @@ namespace DevBuggerRest.Controllers
 
                     }
                 }
-                return true;
+                if(account.Username.Equals(DELETEDACCOUNT))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+
             }
             catch (Exception e)
             {
@@ -204,7 +214,14 @@ namespace DevBuggerRest.Controllers
                     }
 
                 }
-                return returnAccount;
+                if (returnAccount.Username.Equals(DELETEDACCOUNT))
+                {
+                    return null;
+                }
+                else
+                {
+                    return returnAccount;
+                }
             }
             catch (Exception e)
             {
@@ -248,7 +265,14 @@ namespace DevBuggerRest.Controllers
                         account.IDAccount = (int)id.Value;
                     }
                 }
-                return true;
+                if (account.Username.Equals(DELETEDACCOUNT))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
 
             }
             catch (Exception e)
