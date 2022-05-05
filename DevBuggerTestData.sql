@@ -4,7 +4,7 @@ select @id = a.IDAccountLevel from AccountLevel as a where a.Name like 'test'
 
 declare @outID int
 
-exec createAccount 2,'deleteted-account@mail.com','Deleted','go342mjkojsdpkijgmkiWEENMGKwnghare','Deleted','Account', @outID
+exec createAccount 2,'deleteted-account@mail.com','[Deleted_account]','go342mjkojsdpkijgmkiWEENMGKwnghare','Deleted','Account', @outID
 
 exec createAccount 2,'test1@mail.com','test','pass','te','st', @outID output
 
