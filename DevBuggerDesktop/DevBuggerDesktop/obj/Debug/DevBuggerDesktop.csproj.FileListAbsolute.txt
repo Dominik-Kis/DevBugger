@@ -54,3 +54,9 @@ C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\
 C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Pages\AccountsPage.baml
 C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\DashboardWindow.baml
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Pages\GamesPage.g.cs
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Pages\GamesPage.baml

@@ -22,8 +22,8 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <Button Content="Accounts" Grid.Column="1" Grid.Row="1" Background="#545d6a" Foreground="White"/>
-        <Button Content="GamePages" Grid.Column="2" Grid.Row="1" Background="#545d6a" Foreground="White"/>
+        <Button x:Name="btnAccounts" Content="Accounts" Grid.Column="1" Grid.Row="1" Background="#545d6a" Foreground="White" Click="btnAccounts_Click"/>
+        <Button x:Name="btnGames" Content="Games" Grid.Column="2" Grid.Row="1" Background="#545d6a" Foreground="White" Click="btnGames_Click"/>
 
         <Frame x:Name="frameDashboard" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" NavigationUIVisibility="Hidden" Source="/DevBuggerDesktop;component/Pages/AccountsPage.xaml"/>
         

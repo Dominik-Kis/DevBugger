@@ -1,7 +1,6 @@
 ﻿using DevBuggerDesktop.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,17 +17,16 @@ using System.Windows.Shapes;
 namespace DevBuggerDesktop.Pages
 {
     /// <summary>
-    /// Interaction logic for AccountsPage.xaml
+    /// Interaction logic for GamesPage.xaml
     /// </summary>
-    public partial class AccountsPage : Page
+    public partial class GamesPage : Page
     {
-        AccountsViewModel accountsViewModel;
-        public AccountsPage()
+        GamesViewModel gamesViewModel;
+        public GamesPage()
         {
-            accountsViewModel = new AccountsViewModel();
+            gamesViewModel = new GamesViewModel();
             InitializeComponent();
-            LvAccounts.ItemsSource = accountsViewModel.Accounts;
+            LvAccounts.ItemsSource = gamesViewModel.Games;
         }
-
     }
 }

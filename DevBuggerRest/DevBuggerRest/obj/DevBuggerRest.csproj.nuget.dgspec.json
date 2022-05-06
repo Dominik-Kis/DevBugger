@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj": {}
+    "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj": {
+    "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
+        "projectUniqueName": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
         "projectName": "DevBuggerRest",
-        "projectPath": "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
-        "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\DevBuggerRest\\obj\\",
+        "projectPath": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
+        "packagesPath": "C:\\Users\\GamerGruft\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\GamerGruft\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.emzi0767.com/api/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -67,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
         }
       }
     }

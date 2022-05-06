@@ -23,5 +23,15 @@ namespace DevBuggerDesktop.Windows
         {
             InitializeComponent();
         }
+
+        private void btnAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            frameDashboard.Source = new Uri("/DevBuggerDesktop;component/Pages/AccountsPage.xaml", UriKind.Relative);
+        }
+
+        private void btnGames_Click(object sender, RoutedEventArgs e)
+        {
+            frameDashboard.Source = new Uri("/DevBuggerDesktop;component/Pages/GamesPage.xaml", UriKind.Relative);
+        }
     }
 }

@@ -85,9 +85,13 @@
     <Compile Include="Pages\AccountsPage.xaml.cs">
       <DependentUpon>AccountsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GamesPage.xaml.cs">
+      <DependentUpon>GamesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util\GridViewSort.cs" />
     <Compile Include="Util\PasswordHashUtils.cs" />
     <Compile Include="ViewModels\AccountsViewModel.cs" />
+    <Compile Include="ViewModels\GamesViewModel.cs" />
     <Compile Include="Windows\DashboardWindow.xaml.cs">
       <DependentUpon>DashboardWindow.xaml</DependentUpon>
     </Compile>
@@ -125,6 +129,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Pages\AccountsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GamesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
