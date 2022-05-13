@@ -136,6 +136,7 @@ GO
 
 
 
+
 --GAME PAGE PROCEDURES
 CREATE proc createGamePage
 @AccountID int,
@@ -177,4 +178,201 @@ CREATE proc deleteGamePage
 as
 DELETE FROM GamePage
 where IDGamePage = @idGamePage
+GO
+
+
+--BUG CATEGORY
+CREATE proc createBugCategory
+@Name nvarchar(100),
+@Description nvarchar(500),
+@idCategory int output
+as
+INSERT into BugCategory(Name, Description)
+values(@Name, @Description)
+set @idCategory = SCOPE_IDENTITY()
+GO
+
+CREATE proc updateBugCategory
+@Name nvarchar(100),
+@Description nvarchar(500),
+@idCategory int
+as
+UPDATE BugCategory
+set Name = @Name, Description = @Description
+where IDCategory = @idCategory
+GO
+
+CREATE proc selectBugCategory
+@idCategory int
+as
+SELECT * from BugCategory
+where IDCategory = @idCategory
+GO
+
+CREATE proc selectBugCategories
+as
+SELECT * from BugCategory
+GO
+
+CREATE proc deleteBugCategory
+@idCategory int
+as
+
+declare @id int
+select @id = IDCategory FROM BugCategory
+WHERE BugCategory.Name = '[Unspecified]'
+
+UPDATE BugReport
+SET BugCategoryID = @id 
+WHERE BugCategoryID = @idCategory
+
+DELETE FROM BugCategory
+where IDCategory = @idCategory
+GO
+
+
+
+--BUG REPORT
+CREATE proc createBugReport
+@BugCategoryID int,
+@GamePageID int,
+@AccountID int,
+@Titel nvarchar(100),
+@Description nvarchar(2500),
+@idBugReport int output
+as
+INSERT into BugReport(BugCategoryID, GamePageID, AccountID, Titel, Description, Created)
+values(@BugCategoryID, @GamePageID, @AccountID, @Titel, @Description, getdate())
+set @idBugReport = SCOPE_IDENTITY()
+GO
+
+CREATE proc updateBugReport
+@BugCategoryID int,
+@GamePageID int,
+@AccountID int,
+@Titel nvarchar(100),
+@Description nvarchar(2500),
+@idBugReport int
+as
+UPDATE BugReport
+set BugCategoryID = @BugCategoryID, GamePageID = @GamePageID, AccountID = @AccountID, Titel = @Titel, Description = @Description
+where IDBugReport = @idBugReport
+GO
+
+CREATE proc selectBugReport
+@idBugReport int
+as
+SELECT * from BugReport
+where IDBugReport = @idBugReport
+GO
+
+CREATE proc selectBugReports
+as
+SELECT * from BugReport
+GO
+
+CREATE proc deleteBugReport
+@idBugReport int
+as
+
+DELETE FROM BugReportImage
+WHERE IDBugReportImage=ANY(
+SELECT IDBugReportImage FROM BugReportImage
+WHERE BugReportID=@idBugReport);
+
+DELETE FROM Comment
+WHERE IDComment=ANY(
+SELECT IDComment FROM Comment
+WHERE BugReportID=@idBugReport);
+
+DELETE FROM BugReport
+where IDBugReport = @idBugReport
+GO
+
+
+
+
+--BUG REPORT IMAGE
+CREATE proc createBugReportImage
+@BugReportID int,
+@Image varbinary(max),
+@idBugReportImage int output
+as
+INSERT into BugReportImage(BugReportID, Image)
+values(@BugReportID, @Image)
+set @idBugReportImage = SCOPE_IDENTITY()
+GO
+
+CREATE proc updateBugReportImage
+@BugReportID int,
+@Image varbinary(max),
+@idBugReportImage int
+as
+UPDATE BugReportImage
+set BugReportID = @BugReportID, Image = @Image
+where IDBugReportImage = @idBugReportImage
+GO
+
+CREATE proc selectBugReportImage
+@idBugReportImage int
+as
+SELECT * from BugReportImage
+where IDBugReportImage = @idBugReportImage
+GO
+
+CREATE proc selectBugReportImages
+as
+SELECT * from BugReportImage
+GO
+
+CREATE proc deleteBugReportImage
+@idBugReportImage int
+as
+DELETE FROM BugReportImage
+where IDBugReportImage = @idBugReportImage
+GO
+
+
+
+--COMMENT PROCEDURES
+CREATE proc createComment
+@BugReportID int,
+@AccountID int,
+@Text nvarchar(2500),
+@idComment int output
+as
+INSERT into Comment(BugReportID, AccountID, Text, Created)
+values(@BugReportID, @AccountID, @Text, getdate())
+set @idComment = SCOPE_IDENTITY()
+GO
+
+CREATE proc updateComment
+@BugReportID int,
+@AccountID int,
+@Text nvarchar(2500),
+@Created datetime,
+@idComment int
+as
+UPDATE Comment
+set BugReportID = @BugReportID, AccountID = @AccountID, Text = @Text 
+where IDComment = @idComment
+GO
+
+CREATE proc selectComment
+@idComment int
+as
+SELECT * from Comment
+where IDComment = @idComment
+GO
+
+CREATE proc selectComments
+as
+SELECT * from Comment
+GO
+
+CREATE proc deleteComment
+@idComment int
+as
+DELETE FROM Comment
+where IDComment = @idComment
 GO
