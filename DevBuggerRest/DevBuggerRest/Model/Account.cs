@@ -11,18 +11,25 @@ namespace DevBuggerRest.Model
     {
         [DataMember(Order = 0)]
         public int IDAccount { get; set; }
+
         [DataMember(Order = 1)]
         public int AccountLevelID { get; set; }
+
         [DataMember(Order = 2)]
         public string Email { get; set; }
+
         [DataMember(Order = 3)]
         public string Username { get; set; }
+
         [DataMember(Order = 4)]
         public string Password { get; set; }
+
         [DataMember(Order = 5)]
         public string FirstName { get; set; }
+
         [DataMember(Order = 6)]
         public string LastName { get; set; }
+
         [DataMember(Order = 7)]
         public DateTime Created { get; set; }
 

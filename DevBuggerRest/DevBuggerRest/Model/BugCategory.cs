@@ -11,8 +11,10 @@ namespace DevBuggerRest.Model
     {
         [DataMember(Order = 0)]
         public int IDCategory { get; set; }
+
         [DataMember(Order = 1)]
         public string Name { get; set; }
+
         [DataMember(Order = 2)]
         public string Description { get; set; }
 

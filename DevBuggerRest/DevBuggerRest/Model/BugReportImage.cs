@@ -11,8 +11,10 @@ namespace DevBuggerRest.Model
     {
         [DataMember(Order = 0)]
         public int IDBugReportImage { get; set; }
+
         [DataMember(Order = 1)]
         public int BugReportID { get; set; }
+
         [DataMember(Order = 2)]
         public byte[] Image { get; set; }
 

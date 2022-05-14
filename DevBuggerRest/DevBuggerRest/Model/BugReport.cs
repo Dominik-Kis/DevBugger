@@ -11,16 +11,22 @@ namespace DevBuggerRest.Model
     {
         [DataMember(Order = 0)]
         public int IDBugReport { get; set; }
+
         [DataMember(Order = 1)]
         public int BugCategoryID { get; set; }
+
         [DataMember(Order = 2)]
         public int GamePageID { get; set; }
+
         [DataMember(Order = 3)]
         public int AccountID { get; set; }
+
         [DataMember(Order = 4)]
         public string Title { get; set; }
+
         [DataMember(Order = 5)]
         public string Description { get; set; }
+
         [DataMember(Order = 6)]
         public DateTime Created { get; set; }
 
