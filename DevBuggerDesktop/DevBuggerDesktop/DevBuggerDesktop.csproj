@@ -78,9 +78,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DAL\AccountRepository.cs" />
+    <Compile Include="DAL\BugCategoryRepository.cs" />
+    <Compile Include="DAL\BugReportImageRepository.cs" />
+    <Compile Include="DAL\BugReportRepository.cs" />
+    <Compile Include="DAL\CommentRepository.cs" />
     <Compile Include="DAL\GamePageRepository.cs" />
     <Compile Include="DAL\RepoFactory.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\BugCategory.cs" />
+    <Compile Include="Models\BugReport.cs" />
+    <Compile Include="Models\BugReportImage.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\GamePage.cs" />
     <Compile Include="Pages\AccountsPage.xaml.cs">
       <DependentUpon>AccountsPage.xaml</DependentUpon>

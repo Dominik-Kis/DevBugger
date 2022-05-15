@@ -2,35 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace DevBuggerDesktop.Models
+namespace DevBuggerRest.Model
 {
     [DataContract(Namespace = "http://schemas.datacontract.org/2004/07/DevBuggerRest.Model")]
-    public class GamePage
+    public class Comment
     {
         [DataMember(Order = 0)]
-        public int IDGamePage { get; set; }
+        public int IDComment { get; set; }
+
         [DataMember(Order = 1)]
-        public int AccountID { get; set; }
+        public int BugReportID { get; set; }
+
         [DataMember(Order = 2)]
-        public string Title { get; set; }
+        public int AccountID { get; set; }
+
         [DataMember(Order = 3)]
-        public string Description { get; set; }
+        public string Text { get; set; }
+
         [DataMember(Order = 4)]
         public DateTime Created { get; set; }
 
-        public GamePage(int iDGamePage, int accountID, string title, string description, DateTime created)
+        public Comment(int iDComment, int bugReportID, int accountID, string text, DateTime created)
         {
-            IDGamePage = iDGamePage;
+            IDComment = iDComment;
+            BugReportID = bugReportID;
             AccountID = accountID;
-            Title = title;
-            Description = description;
+            Text = text;
             Created = created;
         }
 
-        public GamePage()
+        public Comment()
         {
         }
     }

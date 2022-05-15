@@ -10,6 +10,10 @@ namespace DevBuggerDesktop.DAL
     {
         private static AccountRepository accountRepository { get; set; }
         private static GamePageRepository gamePageRepository { get; set; }
+        private static BugCategoryRepository bugCategoryRepository { get; set; }
+        private static BugReportRepository bugReportRepository { get; set; }
+        private static BugReportImageRepository bugReportImageRepository { get; set; }
+        private static CommentRepository commentRepository { get; set; }
 
         public static AccountRepository getAccountRepo()
         {
@@ -27,6 +31,42 @@ namespace DevBuggerDesktop.DAL
                 gamePageRepository = new GamePageRepository();
             }
             return gamePageRepository;
+        }
+
+        public static BugCategoryRepository getBugCategoryRepo()
+        {
+            if (bugCategoryRepository == null)
+            {
+                bugCategoryRepository = new BugCategoryRepository();
+            }
+            return bugCategoryRepository;
+        }
+
+        public static BugReportRepository getBugReportRepo()
+        {
+            if (bugReportRepository == null)
+            {
+                bugReportRepository = new BugReportRepository();
+            }
+            return bugReportRepository;
+        }
+
+        public static BugReportImageRepository getBugReportImageRepo()
+        {
+            if (bugReportImageRepository == null)
+            {
+                bugReportImageRepository = new BugReportImageRepository();
+            }
+            return bugReportImageRepository;
+        }
+
+        public static CommentRepository getCommentRepo()
+        {
+            if (commentRepository == null)
+            {
+                commentRepository = new CommentRepository();
+            }
+            return commentRepository;
         }
     }
 }
