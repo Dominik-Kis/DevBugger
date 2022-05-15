@@ -350,7 +350,6 @@ CREATE proc updateComment
 @BugReportID int,
 @AccountID int,
 @Text nvarchar(2500),
-@Created datetime,
 @idComment int
 as
 UPDATE Comment

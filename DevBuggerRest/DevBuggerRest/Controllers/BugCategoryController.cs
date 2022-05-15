@@ -13,29 +13,24 @@ namespace DevBuggerRest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CommentController : ControllerBase
+    public class BugCategoryController : ControllerBase
     {
-        private const string ID_COMMENT = "IDComment";
-        private const string DB_ID_COMMENT = "@idComment";
-        private const string BUGREPORTID = "BugReportID";
-        private const string DB_BUGREPORTID = "@BugReportID";
-        private const string ACCOUNTID = "AccountID";
-        private const string DB_ACCOUNTID = "@AccountID";
-        private const string TEXT = "Text";
-        private const string DB_TEXT = "@Text";
-        private const string CREATED = "Created";
-        private const string DB_CREATED = "@Created";
-
+        private const string ID_CATEGORY = "IDCategory";
+        private const string DB_ID_CATEGORY = "@idCategory";
+        private const string NAME = "Name";
+        private const string DB_NAME = "@Name";
+        private const string DESCRIPTION = "Description";
+        private const string DB_DESCRIPTION = "@Description";
 
         [HttpGet]
-        public List<Comment> GetComments()
+        public List<BugCategory> GetBugCategory()
         {
             try
             {
-                List<Comment> comments = new List<Comment>();
+                List<BugCategory> bugCategories = new List<BugCategory>();
                 using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
-                    using (var command = new SqlCommand("selectComments", myConnection)
+                    using (var command = new SqlCommand("selectBugCategories", myConnection)
                     {
                         CommandType = CommandType.StoredProcedure
                     })
@@ -45,13 +40,11 @@ namespace DevBuggerRest.Controllers
                         {
                             while (oReader.Read())
                             {
-                                Comment comment = new Comment();
-                                comment.IDComment = int.Parse(oReader[ID_COMMENT].ToString());
-                                comment.AccountID = int.Parse(oReader[ACCOUNTID].ToString());
-                                comment.BugReportID = int.Parse(oReader[BUGREPORTID].ToString());
-                                comment.Text = oReader[TEXT].ToString();
-                                comment.Created = DateTime.Parse(oReader[CREATED].ToString());
-                                comments.Add(comment);
+                                BugCategory bugCategory = new BugCategory();
+                                bugCategory.IDCategory = int.Parse(oReader[ID_CATEGORY].ToString());
+                                bugCategory.Name = oReader[NAME].ToString();
+                                bugCategory.Description = oReader[DESCRIPTION].ToString();
+                                bugCategories.Add(bugCategory);
 
                             }
 
@@ -60,7 +53,7 @@ namespace DevBuggerRest.Controllers
                     }
                 }
 
-                return comments;
+                return bugCategories;
             }
             catch (Exception e)
             {
@@ -70,39 +63,37 @@ namespace DevBuggerRest.Controllers
 
         }
 
-        //http://localhost:5000/api/Comment/GetComment/1
+        //http://localhost:5000/api/BugCategory/GetBugCategory/1
         [Route("[action]/{id}")]
         [HttpPost]
-        public Comment GetComment([FromBody] int idComment)
+        public BugCategory GetBugCategory([FromBody] int idBugCategory)
         {
             try
             {
-                Comment comment = new Comment();
+                BugCategory bugCategory = new BugCategory();
                 using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
                 {
-                    var command = new SqlCommand("selectComment", myConnection);
+                    var command = new SqlCommand("selectBugCategory", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ID_COMMENT, SqlDbType.Int));
-                    command.Parameters[ID_COMMENT].Value = idComment;
+                    command.Parameters.Add(new SqlParameter(ID_CATEGORY, SqlDbType.Int));
+                    command.Parameters[ID_CATEGORY].Value = idBugCategory;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
                     {
                         if (oReader.Read())
                         {
-                            comment.IDComment = int.Parse(oReader[ID_COMMENT].ToString());
-                            comment.AccountID = int.Parse(oReader[ACCOUNTID].ToString());
-                            comment.BugReportID = int.Parse(oReader[BUGREPORTID].ToString());
-                            comment.Text = oReader[TEXT].ToString();
-                            comment.Created = DateTime.Parse(oReader[CREATED].ToString());
+                            bugCategory.IDCategory = int.Parse(oReader[ID_CATEGORY].ToString());
+                            bugCategory.Name = oReader[NAME].ToString();
+                            bugCategory.Description = oReader[DESCRIPTION].ToString();
                         }
 
                         myConnection.Close();
                     }
 
                 }
-                return comment;
+                return bugCategory;
             }
             catch (Exception e)
             {
@@ -113,10 +104,10 @@ namespace DevBuggerRest.Controllers
         }
 
 
-        //http://localhost:5000/api/Comment/UpdateComment
+        //http://localhost:5000/api/BugCategory/UpdateBugCategory
         [Route("[action]")]
         [HttpPost]
-        public bool UpdateComment(Comment comment)
+        public bool UpdateBugCategory(BugCategory bugCategory)
         {
             try
             {
@@ -125,13 +116,11 @@ namespace DevBuggerRest.Controllers
                     myConnection.Open();
                     using (SqlCommand command = myConnection.CreateCommand())
                     {
-                        command.CommandText = "updateComment";
+                        command.CommandText = "updateBugCategory";
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue(BUGREPORTID, comment.BugReportID);
-                        command.Parameters.AddWithValue(ACCOUNTID, comment.AccountID);
-                        command.Parameters.AddWithValue(TEXT, comment.Text);
-                        command.Parameters.AddWithValue(CREATED, comment.Created);
-                        command.Parameters.AddWithValue(ID_COMMENT, comment.IDComment);
+                        command.Parameters.AddWithValue(ID_CATEGORY, bugCategory.IDCategory);
+                        command.Parameters.AddWithValue(NAME, bugCategory.Name);
+                        command.Parameters.AddWithValue(DESCRIPTION, bugCategory.Description);
                         command.ExecuteNonQuery();
 
                     }
@@ -147,10 +136,10 @@ namespace DevBuggerRest.Controllers
         }
 
 
-        //http://localhost:5000/api/Comment/CreateComment
+        //http://localhost:5000/api/BugCategory/CreateBugCategory
         [Route("[action]")]
         [HttpPost]
-        public bool CreateComment(Comment comment) 
+        public bool CreateBugCategory(BugCategory bugCategory)
         {
             try
             {
@@ -159,14 +148,14 @@ namespace DevBuggerRest.Controllers
                     sqlConnection.Open();
                     using (SqlCommand cmd = sqlConnection.CreateCommand())
                     {
-                        cmd.CommandText = "createComment";
+                        cmd.CommandText = "createBugCategory";
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue(DB_BUGREPORTID, comment.BugReportID);
-                        cmd.Parameters.AddWithValue(DB_ACCOUNTID, comment.AccountID);
-                        cmd.Parameters.AddWithValue(DB_TEXT, comment.Text);
+                        cmd.Parameters.AddWithValue(DB_ID_CATEGORY, bugCategory.IDCategory);
+                        cmd.Parameters.AddWithValue(DB_NAME, bugCategory.Name);
+                        cmd.Parameters.AddWithValue(DB_DESCRIPTION, bugCategory.Description);
 
                         SqlParameter id = new SqlParameter(
-                                "@idComment",
+                                "@idBugCategory",
                                 System.Data.SqlDbType.Int)
                         {
                             Direction = System.Data.ParameterDirection.Output
@@ -174,7 +163,7 @@ namespace DevBuggerRest.Controllers
                         cmd.Parameters.Add(id);
 
                         cmd.ExecuteNonQuery();
-                        comment.IDComment = (int)id.Value;
+                        bugCategory.IDCategory = (int)id.Value;
                     }
                 }
                 return true;
@@ -188,10 +177,10 @@ namespace DevBuggerRest.Controllers
 
         }
 
-        //http://localhost:5000/api/Comment/DeleteComment
+        //http://localhost:5000/api/BugCategory/DeleteBugCategory
         [Route("[action]")]
         [HttpPost]
-        public bool DeleteComment(Comment comment)
+        public bool DeleteBugCategory(BugCategory bugCategory)
         {
             try
             {
@@ -200,9 +189,9 @@ namespace DevBuggerRest.Controllers
                     sqlConnection.Open();
                     using (SqlCommand cmd = sqlConnection.CreateCommand())
                     {
-                        cmd.CommandText = "deleteGamePage";
+                        cmd.CommandText = "deleteBugCategory";
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue(DB_ID_COMMENT, comment.IDComment);
+                        cmd.Parameters.AddWithValue(DB_ID_CATEGORY, bugCategory.IDCategory);
                         cmd.ExecuteNonQuery();
                     }
                 }
