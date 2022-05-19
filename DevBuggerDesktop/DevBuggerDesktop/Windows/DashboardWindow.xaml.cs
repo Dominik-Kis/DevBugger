@@ -33,5 +33,10 @@ namespace DevBuggerDesktop.Windows
         {
             frameDashboard.Source = new Uri("/DevBuggerDesktop;component/Pages/GamesPage.xaml", UriKind.Relative);
         }
+
+        private void btnBugCategorys_Click(object sender, RoutedEventArgs e)
+        {
+            frameDashboard.Source = new Uri("/DevBuggerDesktop;component/Pages/BugCategorysPage.xaml", UriKind.Relative);
+        }
     }
 }

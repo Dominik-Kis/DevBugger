@@ -93,13 +93,21 @@
     <Compile Include="Pages\AccountsPage.xaml.cs">
       <DependentUpon>AccountsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BugCategorysPage.xaml.cs">
+      <DependentUpon>BugCategorysPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GamesPage.xaml.cs">
       <DependentUpon>GamesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\GridViewSort.cs" />
     <Compile Include="Util\PasswordHashUtils.cs" />
+    <Compile Include="Util\ValidationUtils.cs" />
     <Compile Include="ViewModels\AccountsViewModel.cs" />
+    <Compile Include="ViewModels\BugCategorysViewModel.cs" />
     <Compile Include="ViewModels\GamesViewModel.cs" />
+    <Compile Include="Windows\AccountDetailWindow.xaml.cs">
+      <DependentUpon>AccountDetailWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DashboardWindow.xaml.cs">
       <DependentUpon>DashboardWindow.xaml</DependentUpon>
     </Compile>
@@ -140,7 +148,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\BugCategorysPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\GamesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AccountDetailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
