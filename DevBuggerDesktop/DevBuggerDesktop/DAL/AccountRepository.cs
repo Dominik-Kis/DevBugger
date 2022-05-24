@@ -53,7 +53,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(account);
+                streamWriter.Write(JsonConvert.SerializeObject(account));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -210,7 +210,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(account);
+                streamWriter.Write(JsonConvert.SerializeObject(account));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
