@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\
 DevBuggerDesktop
 none
 false
 DEBUG;TRACE
-C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\App.xaml
-41823632230
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\App.xaml
+621662692
 
-18-725057898
-20-885767566
-Pages\AccountsPage.xaml;Pages\GamesPage.xaml;Windows\DashboardWindow.xaml;Windows\LoginWindow.xaml;
+292028665380
+20309339689
+Pages\AccountsPage.xaml;Pages\BugCategorysPage.xaml;Pages\GamesPage.xaml;Windows\AccountDetailWindow.xaml;Windows\DashboardWindow.xaml;Windows\LoginWindow.xaml;
 
-True
+False
 

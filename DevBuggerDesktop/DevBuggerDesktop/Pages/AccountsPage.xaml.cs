@@ -1,4 +1,6 @@
-﻿using DevBuggerDesktop.ViewModels;
+﻿using DevBuggerDesktop.Models;
+using DevBuggerDesktop.ViewModels;
+using DevBuggerDesktop.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +30,14 @@ namespace DevBuggerDesktop.Pages
             accountsViewModel = new AccountsViewModel();
             InitializeComponent();
             LvAccounts.ItemsSource = accountsViewModel.Accounts;
+        }
+
+        private void BtnDetail_Click(object sender, RoutedEventArgs e)
+        {
+            if (LvAccounts.SelectedItem != null)
+            {
+                new AccountDetailWindow(accountsViewModel, LvAccounts.SelectedItem as Account);
+            }
         }
 
     }
