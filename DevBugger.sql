@@ -19,7 +19,7 @@ IDAccount int identity primary key,
 AccountLevelID int foreign key references AccountLevel(IDAccountLevel) not null,
 Email nvarchar(100) unique not null,
 Username nvarchar(50) not null,
-Password nvarchar(20) not null,
+Password nvarchar(100) not null,
 FirstName nvarchar(50) not null,
 LastName nvarchar(50) not null,
 Created datetime DEFAULT getdate(),
@@ -74,7 +74,7 @@ CREATE proc createAccount
 @AccountLevelID int,
 @Email nvarchar(100),
 @Username nvarchar(50),
-@Password nvarchar(20),
+@Password nvarchar(100),
 @Firstname nvarchar(50),
 @Lastname nvarchar(50),
 @idAccount int output
@@ -87,7 +87,7 @@ GO
 CREATE proc updateAccount
 @IDAccount int,
 @Username nvarchar(50),
-@Password nvarchar(20),
+@Password nvarchar(100),
 @Firstname nvarchar(50),
 @Lastname nvarchar(50)
 as
@@ -110,7 +110,7 @@ GO
 
 CREATE proc loginAccount
 @Email nvarchar(100),
-@Password nvarchar(20)
+@Password nvarchar(100)
 as
 SELECT * from Account
 where Account.Email = @Email and Account.Password = @Password

@@ -189,16 +189,18 @@ namespace DevBuggerRest.Controllers
                 {
                     var command = new SqlCommand("loginAccount", myConnection);
 
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(EMAIL, SqlDbType.NVarChar));
-                    command.Parameters[EMAIL].Value = account.Email;
-                    command.Parameters.Add(new SqlParameter(PASSWORD, SqlDbType.NVarChar));
-                    command.Parameters[PASSWORD].Value = account.Password;
+                     command.CommandType = CommandType.StoredProcedure;
+                     command.Parameters.Add(new SqlParameter(DB_EMAIL, SqlDbType.NVarChar));
+                     command.Parameters[DB_EMAIL].Value = account.Email;
+                     command.Parameters.Add(new SqlParameter(DB_PASSWORD, SqlDbType.NVarChar));
+                     command.Parameters[DB_PASSWORD].Value = account.Password;
+                    /*command.Parameters.AddWithValue(EMAIL, account.Email);
+                    command.Parameters.AddWithValue(PASSWORD, account.Password);*/
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
                     {
-                        if (oReader.Read())
+                        if(oReader.Read())
                         {
                             returnAccount.IDAccount = int.Parse(oReader[ID_ACCOUNT].ToString());
                             returnAccount.AccountLevelID = int.Parse(oReader[ACCOUNT_LEVEL_ID].ToString());
@@ -214,17 +216,21 @@ namespace DevBuggerRest.Controllers
                     }
 
                 }
-                if (returnAccount.Username == null)
+                if (returnAccount.Username != null)
                 {
-                    return null;
-                } 
-                else if(returnAccount.Username.Equals(DELETEDACCOUNT))
-                {
-                    return null;
+                    if (returnAccount.Username.Equals(DELETEDACCOUNT))
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return returnAccount;
+                    }
+                    
                 } 
                 else
                 {
-                    return returnAccount;
+                    return null;
                 }
             }
             catch (Exception e)
