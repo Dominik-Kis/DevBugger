@@ -167,5 +167,29 @@ namespace DevBuggerDesktop.DAL
                 return responseAccount;
             }
         }
+
+        public IList<GamePage> GetGamePagesByAccountID(int idAccount)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/GamePage/GetGamePagesByAccountID/" + idAccount);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(idAccount);
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+
+                List<GamePage> responseGamePages = JsonConvert.DeserializeObject<List<GamePage>>(result);
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                return responseGamePages;
+            }
+        }
     }
 }

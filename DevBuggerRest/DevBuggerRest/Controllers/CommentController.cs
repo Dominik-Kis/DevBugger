@@ -113,6 +113,51 @@ namespace DevBuggerRest.Controllers
         }
 
 
+        //http://localhost:5000/api/Comment/GetCommentsByAccountID/1
+        [Route("[action]/{id}")]
+        [HttpPost]
+        public List<Comment> GetCommentsByAccountID([FromBody] int idAccount)
+        {
+            try
+            {
+                List<Comment> comments = new List<Comment>();
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
+                {
+                    var command = new SqlCommand("selectCommentsByAccountID", myConnection);
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter(ACCOUNTID, SqlDbType.Int));
+                    command.Parameters[ACCOUNTID].Value = idAccount;
+
+                    myConnection.Open();
+                    using (SqlDataReader oReader = command.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            Comment comment = new Comment();
+                            comment.IDComment = int.Parse(oReader[ID_COMMENT].ToString());
+                            comment.AccountID = int.Parse(oReader[ACCOUNTID].ToString());
+                            comment.BugReportID = int.Parse(oReader[BUGREPORTID].ToString());
+                            comment.Text = oReader[TEXT].ToString();
+                            comment.Created = DateTime.Parse(oReader[CREATED].ToString());
+                            comments.Add(comment);
+                        }
+
+                        myConnection.Close();
+                    }
+
+                }
+                return comments;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+        }
+
+
         //http://localhost:5000/api/Comment/UpdateComment
         [Route("[action]")]
         [HttpPost]

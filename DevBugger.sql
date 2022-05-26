@@ -180,6 +180,13 @@ DELETE FROM GamePage
 where IDGamePage = @idGamePage
 GO
 
+CREATE proc selectGamePageByAccountID
+@idAccount int
+as
+SELECT * from GamePage as gp
+where AccountID = @idAccount
+GO
+
 
 --BUG CATEGORY
 CREATE proc createBugCategory
@@ -289,7 +296,12 @@ DELETE FROM BugReport
 where IDBugReport = @idBugReport
 GO
 
-
+CREATE proc selectBugReportsByAccountID
+@idAccount int
+as
+SELECT * from BugReport as br
+where br.AccountID = @idAccount
+GO
 
 
 --BUG REPORT IMAGE
@@ -374,4 +386,11 @@ CREATE proc deleteComment
 as
 DELETE FROM Comment
 where IDComment = @idComment
+GO
+
+CREATE proc selectCommentsByAccountID
+@idAccount int
+as
+SELECT * from Comment as c
+where c.AccountID = @idAccount
 GO

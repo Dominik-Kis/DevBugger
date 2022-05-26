@@ -115,6 +115,51 @@ namespace DevBuggerRest.Controllers
         }
 
 
+        //http://localhost:5000/api/GamePage/GetGamePagesByAccountID/1
+        [Route("[action]/{id}")]
+        [HttpPost]
+        public List<GamePage> GetGamePagesByAccountID([FromBody] int idAccount)
+        {
+            try
+            {
+                List<GamePage> gamePages = new List<GamePage>();
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
+                {
+                    var command = new SqlCommand("selectGamePageByAccountID", myConnection);
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter(ACCOUNTID, SqlDbType.Int));
+                    command.Parameters[ACCOUNTID].Value = idAccount;
+
+                    myConnection.Open();
+                    using (SqlDataReader oReader = command.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            GamePage gamePage = new GamePage();
+                            gamePage.IDGamePage = int.Parse(oReader[ID_GAMEPAGE].ToString());
+                            gamePage.AccountID = int.Parse(oReader[ACCOUNTID].ToString());
+                            gamePage.Title = oReader[TITLE].ToString();
+                            gamePage.Description = oReader[DESCRIPTION].ToString();
+                            gamePage.Created = DateTime.Parse(oReader[CREATED].ToString());
+                            gamePages.Add(gamePage);
+                        }
+
+                        myConnection.Close();
+                    }
+
+                }
+                return gamePages;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+        }
+
+
         //http://localhost:5000/api/GamePage/UpdateGamePage
         [Route("[action]")]
         [HttpPost]

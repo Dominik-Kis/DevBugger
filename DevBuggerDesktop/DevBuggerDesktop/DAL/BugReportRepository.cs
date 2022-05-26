@@ -144,5 +144,29 @@ namespace DevBuggerDesktop.DAL
                 return responseBugReports;
             }
         }
+
+        public IList<BugReport> GetBugReportsByAccountID(int idAccount)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/GetBugReportsByAccountID/" + idAccount);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(idAccount);
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+
+                List<BugReport> responseBugReports = JsonConvert.DeserializeObject<List<BugReport>>(result);
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                return responseBugReports;
+            }
+        }
     }
 }

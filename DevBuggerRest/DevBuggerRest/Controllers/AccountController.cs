@@ -38,7 +38,7 @@ namespace DevBuggerRest.Controllers
         private const string DB_ACCOUNT_LEVEL_ID = "@AccountLevelID";
         private const string CREATED = "Created";
 
-        private const string DELETEDACCOUNT = "[Deleted_Account]";
+        protected const string DELETEDACCOUNT = "[Deleted_Account]";
 
         [HttpGet]
         public List<Account> GetAccounts()
@@ -190,10 +190,10 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("loginAccount", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(DB_EMAIL, SqlDbType.NVarChar));
-                    command.Parameters[DB_EMAIL].Value = account.Email;
-                    command.Parameters.Add(new SqlParameter(DB_PASSWORD, SqlDbType.NVarChar));
-                    command.Parameters[DB_PASSWORD].Value = account.Password;
+                    command.Parameters.Add(new SqlParameter(EMAIL, SqlDbType.NVarChar));
+                    command.Parameters[EMAIL].Value = account.Email;
+                    command.Parameters.Add(new SqlParameter(PASSWORD, SqlDbType.NVarChar));
+                    command.Parameters[PASSWORD].Value = account.Password;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
@@ -214,10 +214,14 @@ namespace DevBuggerRest.Controllers
                     }
 
                 }
-                if (returnAccount.Username.Equals(DELETEDACCOUNT))
+                if (returnAccount.Username == null)
                 {
                     return null;
-                }
+                } 
+                else if(returnAccount.Username.Equals(DELETEDACCOUNT))
+                {
+                    return null;
+                } 
                 else
                 {
                     return returnAccount;

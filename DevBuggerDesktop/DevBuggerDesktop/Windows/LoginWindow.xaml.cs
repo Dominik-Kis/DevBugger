@@ -32,12 +32,12 @@ namespace DevBuggerDesktop.Windows
             Account account = new Account();
             account.Email = txtEmail.Text;
             account.Password = txtPassword.Password;
-            //Account acc = RepoFactory.getAccountRepo().LoginAccount(account);
-            //if (acc == null || acc.AccountLevelID != 1)
-            //{
-            //    MessageBox.Show("Username or password is incorrect");
-            //    return;
-            //}
+            Account acc = RepoFactory.getAccountRepo().LoginAccount(account);
+            if (acc == null || acc.AccountLevelID != 1)
+            {
+                MessageBox.Show("Username or password is incorrect");
+                return;
+            }
             DashboardWindow dashboard = new DashboardWindow();
             dashboard.Show();
             this.Close();

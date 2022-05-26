@@ -144,5 +144,29 @@ namespace DevBuggerDesktop.DAL
                 return responsecomments;
             }
         }
+
+        public IList<Comment> GetCommentsByAccountID(int idAccount)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Comment/GetCommentsByAccountID/" + idAccount);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(idAccount);
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+
+                List<Comment> responseComments = JsonConvert.DeserializeObject<List<Comment>>(result);
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                return responseComments;
+            }
+        }
     }
 }
