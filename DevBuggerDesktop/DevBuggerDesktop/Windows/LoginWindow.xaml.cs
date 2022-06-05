@@ -31,14 +31,16 @@ namespace DevBuggerDesktop.Windows
         {
             Account account = new Account();
             account.Email = txtEmail.Text;
-            //account.Password = txtPassword.Password;
-            account.Password = "Ml6YBKF5pYsjltNcFC9oSNTrPdjPqrfHVu6TKu8rm+0=";
-            Account acc = RepoFactory.getAccountRepo().LoginAccount(account);
-            if (acc == null || acc.AccountLevelID != 1)
-            {
-                MessageBox.Show("Username or password is incorrect");
-                return;
-            }
+            string password = txtPassword.Password;
+            string hashedPassword = PasswordHashUtils.HashPassword(password);
+            account.Password = hashedPassword;
+            //account.Password = "Ml6YBKF5pYsjltNcFC9oSNTrPdjPqrfHVu6TKu8rm+0=";
+            //Account acc = RepoFactory.getAccountRepo().LoginAccount(account);
+            //if (acc == null || acc.AccountLevelID != 1)
+            //{
+            //    MessageBox.Show("Username or password is incorrect");
+            //    return;
+            //}
             DashboardWindow dashboard = new DashboardWindow();
             dashboard.Show();
             this.Close();

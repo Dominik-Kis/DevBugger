@@ -1,4 +1,5 @@
-﻿using DevBuggerDesktop.ViewModels;
+﻿using DevBuggerDesktop.Models;
+using DevBuggerDesktop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,13 @@ namespace DevBuggerDesktop.Pages
         public GamesPage()
         {
             gamesViewModel = new GamesViewModel();
+            InitializeComponent();
+            LvAccounts.ItemsSource = gamesViewModel.Games;
+        }
+
+        public GamesPage(Account account)
+        {
+            gamesViewModel = new GamesViewModel(account);
             InitializeComponent();
             LvAccounts.ItemsSource = gamesViewModel.Games;
         }

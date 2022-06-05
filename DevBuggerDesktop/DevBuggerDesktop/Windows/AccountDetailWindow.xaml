@@ -143,7 +143,7 @@
             VerticalAlignment="Center"
             x:Name="BtnChangePassword"
             Background="#545d6a" Foreground="White"
-            Content="Change"/>
+            Content="Change" Click="BtnChangePassword_Click"/>
 
         <Label 
             Grid.Row="6"
@@ -218,6 +218,27 @@
         <Button x:Name="btnDelete" Content="Delete" Grid.Column="7" Grid.Row="8" Height="25" Margin="10,0,10,0" Background="Red" Foreground="White" Click="btnDelete_Click"/>
         <Button x:Name="btnReplaceWithDummy" Content="Replace with dummy" Grid.Column="8" Grid.Row="8" Height="25" Margin="10,0,10,0" Background="#FF353940" Foreground="White" Click="btnReplaceWithDummy_Click"/>
 
+
+        <Grid x:Name="InputBox" Visibility="Collapsed" Grid.ColumnSpan="10" Grid.RowSpan="10">
+            <Grid Background="Black" Opacity="0.5"/>
+            <Border
+                MinWidth="250"
+                Background="#292929" 
+                BorderBrush="White" 
+                BorderThickness="1" 
+                CornerRadius="10,10,10,10" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Margin="5" Text="Change password" FontWeight="Bold" />
+                    <TextBox MinWidth="150" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="InputTextBox"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="YesButton" Margin="5" Content="Yes" Background="{x:Null}" Click="YesButton_Click" Foreground="White"/>
+                        <Button x:Name="NoButton" Margin="5" Content="No" Background="{x:Null}" Click="NoButton_Click" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
 
     </Grid>
 </Window>

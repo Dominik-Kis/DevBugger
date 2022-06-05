@@ -116,9 +116,9 @@ namespace DevBuggerRest.Controllers
 
 
         //http://localhost:5000/api/GamePage/GetGamePagesByAccountID/1
-        [Route("[action]/{id}")]
+        [Route("[action]/{idAccount}")]
         [HttpPost]
-        public List<GamePage> GetGamePagesByAccountID([FromBody] int idAccount)
+        public List<GamePage> GetGamePagesByAccountID(int idAccount)
         {
             try
             {

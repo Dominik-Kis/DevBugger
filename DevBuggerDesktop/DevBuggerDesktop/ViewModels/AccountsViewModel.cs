@@ -13,6 +13,7 @@ namespace DevBuggerDesktop.ViewModels
     public class AccountsViewModel
     {
         public ObservableCollection<Account> Accounts { get; set; }
+        public const string DELETED_ACCOUNT = "[Deleted_account]";
 
         public AccountsViewModel()
         {
@@ -31,9 +32,20 @@ namespace DevBuggerDesktop.ViewModels
                     RepoFactory.getAccountRepo().DeleteAccount(e.OldItems.OfType<Account>().ToList()[0]);
                     break;
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Replace:
-                    RepoFactory.getAccountRepo().UpdateAccount(e.NewItems.OfType<Account>().ToList()[0]);
+                    HandleUpdate(e.NewItems.OfType<Account>().ToList()[0]);
                     break;
             }
+        }
+
+        private void HandleUpdate(Account account)
+        {
+            if (account.Username == DELETED_ACCOUNT)
+            {
+                RepoFactory.getAccountRepo().UpdateToDummy(account);
+                return;
+            }
+
+            RepoFactory.getAccountRepo().UpdateAccount(account);
         }
 
         internal void Update(Account account) => Accounts[Accounts.IndexOf(account)] = account;

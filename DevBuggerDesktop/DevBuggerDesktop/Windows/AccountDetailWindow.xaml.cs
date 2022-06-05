@@ -1,4 +1,5 @@
 ﻿using DevBuggerDesktop.Models;
+using DevBuggerDesktop.Pages;
 using DevBuggerDesktop.Util;
 using DevBuggerDesktop.ViewModels;
 using System;
@@ -54,17 +55,17 @@ namespace DevBuggerDesktop.Windows
 
         private void btnGames_Click(object sender, RoutedEventArgs e)
         {
-
+            frameDashboard.Content = new GamesPage(account);
         }
 
         private void btnBugReports_Click(object sender, RoutedEventArgs e)
         {
-
+            frameDashboard.Content = new GamesPage(account);
         }
 
         private void btnComments_Click(object sender, RoutedEventArgs e)
         {
-
+            frameDashboard.Content = new GamesPage(account);
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
@@ -91,7 +92,43 @@ namespace DevBuggerDesktop.Windows
 
         private void btnReplaceWithDummy_Click(object sender, RoutedEventArgs e)
         {
+            account.IDAccount = int.Parse(TbIDAccount.Text.Trim());
+            account.AccountLevelID = int.Parse(TbAccountLevelID.Text.Trim());
+            account.Email = TbEmail.Text.Trim();
+            account.Username = "[Deleted_account]";
+            account.Password = "go342mjkojsdpkijgmkiWEENMGKwnghare";
+            account.FirstName = "Deleted";
+            account.LastName = "Account";
+
             accountsViewModel.Update(account);
+        }
+
+        private void BtnChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            InputBox.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void YesButton_Click(object sender, RoutedEventArgs e)
+        {
+            // YesButton Clicked! Let's hide our InputBox and handle the input text.
+            InputBox.Visibility = System.Windows.Visibility.Collapsed;
+
+            // Use PasswordHashUtils to hash the password and save it to the text box
+            String password = InputTextBox.Text;
+            String hashedPassword = PasswordHashUtils.HashPassword(password);
+            TbPassword.Text = hashedPassword;
+
+            // Clear InputBox.
+            InputTextBox.Text = String.Empty;
+        }
+
+        private void NoButton_Click(object sender, RoutedEventArgs e)
+        {
+            // NoButton Clicked! Let's hide our InputBox.
+            InputBox.Visibility = System.Windows.Visibility.Collapsed;
+
+            // Clear InputBox.
+            InputTextBox.Text = String.Empty;
         }
     }
 }

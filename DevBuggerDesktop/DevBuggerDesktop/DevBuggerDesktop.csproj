@@ -96,6 +96,12 @@
     <Compile Include="Pages\BugCategorysPage.xaml.cs">
       <DependentUpon>BugCategorysPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BugReportsPage.xaml.cs">
+      <DependentUpon>BugReportsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CommentsPage.xaml.cs">
+      <DependentUpon>CommentsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GamesPage.xaml.cs">
       <DependentUpon>GamesPage.xaml</DependentUpon>
     </Compile>
@@ -104,12 +110,17 @@
     <Compile Include="Util\ValidationUtils.cs" />
     <Compile Include="ViewModels\AccountsViewModel.cs" />
     <Compile Include="ViewModels\BugCategorysViewModel.cs" />
+    <Compile Include="ViewModels\BugReportsViewModel.cs" />
+    <Compile Include="ViewModels\CommentsViewModel.cs" />
     <Compile Include="ViewModels\GamesViewModel.cs" />
     <Compile Include="Windows\AccountDetailWindow.xaml.cs">
       <DependentUpon>AccountDetailWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DashboardWindow.xaml.cs">
       <DependentUpon>DashboardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\GameDetailWindow.xaml.cs">
+      <DependentUpon>GameDetailWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -152,6 +163,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\BugReportsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CommentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\GamesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +180,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DashboardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\GameDetailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

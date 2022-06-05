@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
-namespace DevBuggerRest.Model
+namespace DevBuggerDesktop.Models
 {
     [DataContract(Namespace = "http://schemas.datacontract.org/2004/07/DevBuggerRest.Model")]
     public class Comment

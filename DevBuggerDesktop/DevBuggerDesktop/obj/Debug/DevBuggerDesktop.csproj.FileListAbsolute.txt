@@ -70,3 +70,4 @@ C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\
 C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Pages\BugCategorysPage.baml
 C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Pages\GamesPage.baml
 C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\AccountDetailWindow.baml
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.csproj.SuggestedBindingRedirects.cache

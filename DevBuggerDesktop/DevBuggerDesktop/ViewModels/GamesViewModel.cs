@@ -20,6 +20,12 @@ namespace DevBuggerDesktop.ViewModels
             Games.CollectionChanged += Games_CollectionChanged;
         }
 
+        public GamesViewModel(Account account)
+        {
+            Games = new ObservableCollection<GamePage>(RepoFactory.getGamePageRepo().GetGamePagesByAccountID(account.IDAccount));
+            Games.CollectionChanged += Games_CollectionChanged;
+        }
+
         private void Games_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             switch (e.Action)

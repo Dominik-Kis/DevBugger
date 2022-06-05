@@ -1,4 +1,4 @@
-﻿using DevBuggerRest.Model;
+﻿using DevBuggerDesktop.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using DevBuggerRest.Model;
+using DevBuggerDesktop.Models;
 
 namespace DevBuggerDesktop.DAL
 {
