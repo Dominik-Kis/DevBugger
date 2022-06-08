@@ -60,5 +60,15 @@ namespace DevBuggerDesktop.Models
         public Account()
         {
         }
+
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj is Account && obj != null)
+        //    {
+        //        Account acc = obj as Account;
+        //        return this.IDAccount.Equals(acc.IDAccount);
+        //    }
+        //    return false;
+        //}
     }
 }

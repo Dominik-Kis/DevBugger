@@ -33,6 +33,13 @@ namespace DevBuggerDesktop.Windows
             DataContext = account;
         }
 
+        public AccountDetailWindow(Account account)
+        {
+            InitializeComponent();
+            this.account = account;
+            DataContext = account;
+        }
+
         private bool FormValid()
         {
             bool valid = true;

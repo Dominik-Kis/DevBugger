@@ -79,7 +79,7 @@
             VerticalAlignment="Center"
             x:Name="btnOpenAccount"
             Background="#545d6a" Foreground="White"
-            Content="Open"/>
+            Content="Open" Click="btnOpenAccount_Click"/>
 
         <Label 
             Grid.Row="3"

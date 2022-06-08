@@ -1,4 +1,5 @@
-﻿using DevBuggerDesktop.Models;
+﻿using DevBuggerDesktop.DAL;
+using DevBuggerDesktop.Models;
 using DevBuggerDesktop.Pages;
 using DevBuggerDesktop.Util;
 using DevBuggerDesktop.ViewModels;
@@ -78,6 +79,11 @@ namespace DevBuggerDesktop.Windows
         private void btnComments_Click(object sender, RoutedEventArgs e)
         {
             frameDashboard.Content = new CommentsPage(game);
+        }
+
+        private void btnOpenAccount_Click(object sender, RoutedEventArgs e)
+        {
+            new AccountDetailWindow(RepoFactory.getAccountRepo().GetAccount(game.AccountID));
         }
     }
 }
