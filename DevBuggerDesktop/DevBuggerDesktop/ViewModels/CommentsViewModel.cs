@@ -25,9 +25,9 @@ namespace DevBuggerDesktop.ViewModels
             Comments.CollectionChanged += Comments_CollectionChanged;
         }
 
-        public CommentsViewModel(GamePage game)
+        public CommentsViewModel(BugReport bugReport)
         {
-            //Comments = new ObservableCollection<Comment>(RepoFactory.getCommentRepo().GetCommentsByByGamePageID(game.IDGamePage));
+            //Comments = new ObservableCollection<Comment>(RepoFactory.getCommentRepo().GetCommentsByByBugReportID(bugReport.IDBugReport));
             Comments.CollectionChanged += Comments_CollectionChanged;
         }
 

@@ -5,8 +5,199 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DevBuggerDesktop.Windows"
         mc:Ignorable="d"
-        Title="BugReportsWindow" Height="450" Width="800">
-    <Grid>
+        Title="Bug Report Detail" Height="450" Width="1050" Background="#292929" Visibility="Visible" Foreground="White">
+    <Grid x:Name="GridContainter">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Label 
+            Grid.Row="1"
+            Grid.Column="1"
+            Content="IDBugReport:" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="1"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            x:Name="TbIDBugReport"
+            HorizontalAlignment="Left" 
+            Height="23" 
+            TextWrapping="Wrap" 
+            Text="{Binding IDBugReport}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+
+        <Label 
+            Grid.Row="2"
+            Grid.Column="1"
+            Content="BugCategoryID:" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="2"
+            Grid.Column="3"
+            Grid.ColumnSpan="1"
+            x:Name="TbBugCategoryID"
+            HorizontalAlignment="Left" 
+            Height="23" 
+            TextWrapping="Wrap" 
+            Text="{Binding BugCategoryID}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" Width="150" IsReadOnly="True"/>
+
+        <Button 
+            Grid.Row="2"
+            Grid.Column="4"
+            Height="25"
+            VerticalAlignment="Center"
+            x:Name="btnOpenAccount"
+            Background="#545d6a" Foreground="White"
+            Content="Open" Click="btnOpenAccount_Click"/>
+
+        <Label 
+            Grid.Row="3"
+            Grid.Column="1"
+            Content="GamePageID:" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="3"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            x:Name="TbGamePageID"
+            HorizontalAlignment="Left" 
+            Height="23" 
+            TextWrapping="Wrap" 
+            Text="{Binding GamePageID}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center"
+            Width="200"/>
         
+        <Label 
+            Grid.Row="4"
+            Grid.Column="1"
+            Content="AccountID:" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="4"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            x:Name="TbAccountID"
+            HorizontalAlignment="Left" 
+            Height="23" 
+            TextWrapping="Wrap" 
+            Text="{Binding AccountID}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center"
+            Width="200"/>    
+        
+        <Label 
+            Grid.Row="5"
+            Grid.Column="1"
+            Content="Title:" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="5"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            x:Name="TbTitle"
+            HorizontalAlignment="Left" 
+            Height="23" 
+            TextWrapping="Wrap" 
+            Text="{Binding Title}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center"
+            Width="200"/>
+
+        <Label 
+            Grid.Row="10"
+            Grid.Column="1"
+            Content="Created:" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="10"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            x:Name="TbCreated"
+            HorizontalAlignment="Left" 
+            Height="23" 
+            TextWrapping="Wrap" 
+            Text="{Binding Created}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" 
+            Width="200" IsReadOnly="True"/>
+
+        <Label 
+            Grid.Row="6"
+            Grid.Column="1"
+            Content="Description:" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="6"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="4"
+            x:Name="TbDescription"
+            HorizontalAlignment="Left" 
+            Height="160" 
+            TextWrapping="Wrap" 
+            Text="{Binding Description}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" 
+            Width="200"/>
+
+
+        <Frame x:Name="frameDashboard" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="8" NavigationUIVisibility="Hidden" Source="/DevBuggerDesktop;component/Pages/BugReportsPage.xaml"/>
+
+        <Button x:Name="btnBugReports" Content="Bug reports" Grid.Column="6" Grid.Row="9" Height="25" Margin="10,0,10,0" Background="#545d6a" Foreground="White" Click="btnBugReports_Click"/>
+        <Button x:Name="btnComments" Content="Comments" Grid.Column="7" Grid.Row="9" Height="25" Margin="10,0,10,0" Background="#545d6a" Foreground="White" Click="btnComments_Click"/>
+
+        <Button x:Name="btnUpdate" Content="Update" Grid.Column="6" Grid.Row="10" Height="25" Margin="10,0,10,0" Background="#FF87AFEA" Foreground="White" Click="btnUpdate_Click"/>
+        <Button x:Name="btnDelete" Content="Delete" Grid.Column="7" Grid.Row="10" Height="25" Margin="10,0,10,0" Background="Red" Foreground="White" Click="btnDelete_Click"/>
+
+
     </Grid>
 </Window>

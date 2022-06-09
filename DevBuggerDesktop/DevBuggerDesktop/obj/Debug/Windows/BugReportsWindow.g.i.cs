@@ -40,6 +40,118 @@ namespace DevBuggerDesktop.Windows {
     /// </summary>
     public partial class BugReportsWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
+        
+        #line 9 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Grid GridContainter;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 49 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox TbIDBugReport;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 69 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox TbBugCategoryID;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 82 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnOpenAccount;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 98 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox TbGamePageID;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 119 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox TbAccountID;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 140 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox TbTitle;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 161 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox TbCreated;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 183 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox TbDescription;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 193 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Frame frameDashboard;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 195 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnBugReports;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 196 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnComments;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 198 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnUpdate;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 199 "..\..\..\Windows\BugReportsWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnDelete;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -68,6 +180,81 @@ namespace DevBuggerDesktop.Windows {
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
         void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target) {
+            switch (connectionId)
+            {
+            case 1:
+            this.GridContainter = ((System.Windows.Controls.Grid)(target));
+            return;
+            case 2:
+            this.TbIDBugReport = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 3:
+            this.TbBugCategoryID = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 4:
+            this.btnOpenAccount = ((System.Windows.Controls.Button)(target));
+            
+            #line 84 "..\..\..\Windows\BugReportsWindow.xaml"
+            this.btnOpenAccount.Click += new System.Windows.RoutedEventHandler(this.btnOpenAccount_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 5:
+            this.TbGamePageID = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 6:
+            this.TbAccountID = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 7:
+            this.TbTitle = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 8:
+            this.TbCreated = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 9:
+            this.TbDescription = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 10:
+            this.frameDashboard = ((System.Windows.Controls.Frame)(target));
+            return;
+            case 11:
+            this.btnBugReports = ((System.Windows.Controls.Button)(target));
+            
+            #line 195 "..\..\..\Windows\BugReportsWindow.xaml"
+            this.btnBugReports.Click += new System.Windows.RoutedEventHandler(this.btnBugReports_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 12:
+            this.btnComments = ((System.Windows.Controls.Button)(target));
+            
+            #line 196 "..\..\..\Windows\BugReportsWindow.xaml"
+            this.btnComments.Click += new System.Windows.RoutedEventHandler(this.btnComments_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 13:
+            this.btnUpdate = ((System.Windows.Controls.Button)(target));
+            
+            #line 198 "..\..\..\Windows\BugReportsWindow.xaml"
+            this.btnUpdate.Click += new System.Windows.RoutedEventHandler(this.btnUpdate_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 14:
+            this.btnDelete = ((System.Windows.Controls.Button)(target));
+            
+            #line 199 "..\..\..\Windows\BugReportsWindow.xaml"
+            this.btnDelete.Click += new System.Windows.RoutedEventHandler(this.btnDelete_Click);
+            
+            #line default
+            #line hidden
+            return;
+            }
             this._contentLoaded = true;
         }
     }

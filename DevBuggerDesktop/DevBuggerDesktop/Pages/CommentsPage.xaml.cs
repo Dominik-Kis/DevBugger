@@ -35,9 +35,9 @@ namespace DevBuggerDesktop.Pages
             InitializeComponent();
             LvComments.ItemsSource = commentsViewModel.Comments;
         }
-        public CommentsPage(GamePage game)
+        public CommentsPage(BugReport bugReport)
         {
-            commentsViewModel = new CommentsViewModel(game);
+            commentsViewModel = new CommentsViewModel(bugReport);
             InitializeComponent();
             LvComments.ItemsSource = commentsViewModel.Comments;
         }
