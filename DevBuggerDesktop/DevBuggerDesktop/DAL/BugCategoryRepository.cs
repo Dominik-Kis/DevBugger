@@ -21,16 +21,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(bugCategory);
+                streamWriter.Write(JsonConvert.SerializeObject(bugCategory));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -51,16 +51,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(bugCategory);
+                streamWriter.Write(JsonConvert.SerializeObject(bugCategory));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -81,16 +81,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(bugCategory);
+                streamWriter.Write(JsonConvert.SerializeObject(bugCategory));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -110,7 +110,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(idGameCategory);
+                streamWriter.Write(JsonConvert.SerializeObject(idGameCategory));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -120,9 +120,9 @@ namespace DevBuggerDesktop.DAL
 
                 BugCategory responseBugCategory = JsonConvert.DeserializeObject<BugCategory>(result);
 
-                Console.WriteLine("------------");
-                Console.WriteLine(responseBugCategory.Name);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(responseBugCategory.Name);
+                //Console.WriteLine("------------");
                 return responseBugCategory;
             }
         }
@@ -138,9 +138,9 @@ namespace DevBuggerDesktop.DAL
                 var result = streamReader.ReadToEnd();
                 List<BugCategory> responseBugCategories = JsonConvert.DeserializeObject<List<BugCategory>>(result);
 
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 return responseBugCategories;
             }
         }

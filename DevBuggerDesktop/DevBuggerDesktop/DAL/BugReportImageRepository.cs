@@ -21,16 +21,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(bugReportImage);
+                streamWriter.Write(JsonConvert.SerializeObject(bugReportImage));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -51,16 +51,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(bugReportImage);
+                streamWriter.Write(JsonConvert.SerializeObject(bugReportImage));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -81,16 +81,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(bugReportImage);
+                streamWriter.Write(JsonConvert.SerializeObject(bugReportImage));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -110,7 +110,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(idBugReportImage);
+                streamWriter.Write(JsonConvert.SerializeObject(idBugReportImage));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -120,9 +120,9 @@ namespace DevBuggerDesktop.DAL
 
                 BugReportImage responseBugReportImage = JsonConvert.DeserializeObject<BugReportImage>(result);
 
-                Console.WriteLine("------------");
-                Console.WriteLine(responseBugReportImage.IDBugReportImage);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(responseBugReportImage.IDBugReportImage);
+                //Console.WriteLine("------------");
                 return responseBugReportImage;
             }
         }
@@ -138,9 +138,9 @@ namespace DevBuggerDesktop.DAL
                 var result = streamReader.ReadToEnd();
                 List<BugReportImage> responseBugReportImages = JsonConvert.DeserializeObject<List<BugReportImage>>(result);
 
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 return responseBugReportImages;
             }
         }
@@ -153,7 +153,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(idBugReport);
+                streamWriter.Write(JsonConvert.SerializeObject(idBugReport));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -162,9 +162,9 @@ namespace DevBuggerDesktop.DAL
                 var result = streamReader.ReadToEnd();
 
                 List<BugReportImage> responseBugReportImages = JsonConvert.DeserializeObject<List<BugReportImage>>(result);
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 return responseBugReportImages;
             }
         }

@@ -21,16 +21,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(comment);
+                streamWriter.Write(JsonConvert.SerializeObject(comment));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -51,16 +51,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(comment);
+                streamWriter.Write(JsonConvert.SerializeObject(comment));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -81,16 +81,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(comment);
+                streamWriter.Write(JsonConvert.SerializeObject(comment));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -110,7 +110,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(idComment);
+                streamWriter.Write(JsonConvert.SerializeObject(idComment));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -120,9 +120,9 @@ namespace DevBuggerDesktop.DAL
 
                 Comment responseComment = JsonConvert.DeserializeObject<Comment>(result);
 
-                Console.WriteLine("------------");
-                Console.WriteLine(responseComment.Text);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(responseComment.Text);
+                //Console.WriteLine("------------");
                 return responseComment;
             }
         }
@@ -138,9 +138,9 @@ namespace DevBuggerDesktop.DAL
                 var result = streamReader.ReadToEnd();
                 List<Comment> responsecomments = JsonConvert.DeserializeObject<List<Comment>>(result);
 
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 return responsecomments;
             }
         }
@@ -153,7 +153,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(idAccount);
+                streamWriter.Write(JsonConvert.SerializeObject(idAccount));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -162,9 +162,9 @@ namespace DevBuggerDesktop.DAL
                 var result = streamReader.ReadToEnd();
 
                 List<Comment> responseComments = JsonConvert.DeserializeObject<List<Comment>>(result);
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 return responseComments;
             }
         }
@@ -178,7 +178,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(idBugReport);
+                streamWriter.Write(JsonConvert.SerializeObject(idBugReport));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -187,9 +187,9 @@ namespace DevBuggerDesktop.DAL
                 var result = streamReader.ReadToEnd();
 
                 List<Comment> responseComments = JsonConvert.DeserializeObject<List<Comment>>(result);
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 return responseComments;
             }
         }

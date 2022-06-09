@@ -21,16 +21,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(gamePage);
+                streamWriter.Write(JsonConvert.SerializeObject(gamePage));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -51,16 +51,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(gamePage);
+                streamWriter.Write(JsonConvert.SerializeObject(gamePage));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -81,16 +81,16 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(gamePage);
+                streamWriter.Write(JsonConvert.SerializeObject(gamePage));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 line = result;
             }
             if (line.Contains("true"))
@@ -110,7 +110,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(idGamePage);
+                streamWriter.Write(JsonConvert.SerializeObject(idGamePage));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -120,9 +120,9 @@ namespace DevBuggerDesktop.DAL
 
                 GamePage responseGamePage = JsonConvert.DeserializeObject<GamePage>(result);
 
-                Console.WriteLine("------------");
-                Console.WriteLine(responseGamePage.Title);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(responseGamePage.Title);
+                //Console.WriteLine("------------");
                 return responseGamePage;
             }
         }
@@ -138,9 +138,9 @@ namespace DevBuggerDesktop.DAL
                 var result = streamReader.ReadToEnd();
                 List<GamePage> responseGamePages = JsonConvert.DeserializeObject<List<GamePage>>(result);
 
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 return responseGamePages;
             }
         }
@@ -152,7 +152,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(account);
+                streamWriter.Write(JsonConvert.SerializeObject(account));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -161,9 +161,9 @@ namespace DevBuggerDesktop.DAL
                 var result = streamReader.ReadToEnd();
                 Account responseAccount = JsonConvert.DeserializeObject<Account>(result);
 
-                Console.WriteLine("------------");
-                Console.WriteLine(responseAccount.Email);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(responseAccount.Email);
+                //Console.WriteLine("------------");
                 return responseAccount;
             }
         }
@@ -176,7 +176,7 @@ namespace DevBuggerDesktop.DAL
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(idAccount);
+                streamWriter.Write(JsonConvert.SerializeObject(idAccount));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -185,9 +185,9 @@ namespace DevBuggerDesktop.DAL
                 var result = streamReader.ReadToEnd();
 
                 List<GamePage> responseGamePages = JsonConvert.DeserializeObject<List<GamePage>>(result);
-                Console.WriteLine("------------");
-                Console.WriteLine(result);
-                Console.WriteLine("------------");
+                //Console.WriteLine("------------");
+                //Console.WriteLine(result);
+                //Console.WriteLine("------------");
                 return responseGamePages;
             }
         }
