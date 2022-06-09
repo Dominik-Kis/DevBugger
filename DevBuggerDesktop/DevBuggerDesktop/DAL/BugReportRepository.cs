@@ -168,5 +168,55 @@ namespace DevBuggerDesktop.DAL
                 return responseBugReports;
             }
         }
+
+
+        public IList<BugReport> GetBugReportsByGamePageID(int idGamePage)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/GetBugReportsByGamePageID/" + idGamePage);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(idGamePage);
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+
+                List<BugReport> responseBugReports = JsonConvert.DeserializeObject<List<BugReport>>(result);
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                return responseBugReports;
+            }
+        }
+
+        public IList<BugReport> GetBugReportsByBugCategoryID(int idBugCategory)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/GetBugReportsByBugCategoryID/" + idBugCategory);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(idBugCategory);
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+
+                List<BugReport> responseBugReports = JsonConvert.DeserializeObject<List<BugReport>>(result);
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                return responseBugReports;
+            }
+        }
+
     }
 }

@@ -106,6 +106,49 @@ namespace DevBuggerRest.Controllers
         }
 
 
+        //http://localhost:5000/api/BugReportImage/GetBugReportImagesByBugReportID/1
+        [Route("[action]/{id}")]
+        [HttpPost]
+        public List<BugReportImage> GetBugReportImagesByBugReportID([FromBody] int idBugReport)
+        {
+            try
+            {
+                List<BugReportImage> bugReportImages = new List<BugReportImage>();
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
+                {
+                    var command = new SqlCommand("selectBugReportImagesByBugReportID", myConnection);
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter(ID_BUGREPORTIMAGE, SqlDbType.Int));
+                    command.Parameters[BUGREPORTID].Value = idBugReport;
+
+                    myConnection.Open();
+                    using (SqlDataReader oReader = command.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            BugReportImage bugReportImage = new BugReportImage();
+                            bugReportImage.IDBugReportImage = int.Parse(oReader[ID_BUGREPORTIMAGE].ToString());
+                            bugReportImage.BugReportID = int.Parse(oReader[BUGREPORTID].ToString());
+                            bugReportImage.Image = Encoding.ASCII.GetBytes((oReader[BUGREPORTID].ToString()));
+                            bugReportImages.Add(bugReportImage);
+                        }
+
+                        myConnection.Close();
+                    }
+
+                }
+                return bugReportImages;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+        }
+
+
         //http://localhost:5000/api/BugReportImage/UpdateBugReportImage
         [Route("[action]")]
         [HttpPost]

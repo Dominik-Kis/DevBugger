@@ -303,6 +303,20 @@ SELECT * from BugReport as br
 where br.AccountID = @idAccount
 GO
 
+CREATE proc selectBugReportsByGamePageID
+@idGamePage int
+as
+SELECT * from BugReport as br
+where br.GamePageID = @idGamePage
+GO
+
+CREATE proc selectBugReportsByBugCategoryID
+@idBugCategory int
+as
+SELECT * from BugReport as br
+where br.BugCategoryID = @idBugCategory
+GO
+
 
 --BUG REPORT IMAGE
 CREATE proc createBugReportImage
@@ -342,6 +356,13 @@ CREATE proc deleteBugReportImage
 as
 DELETE FROM BugReportImage
 where IDBugReportImage = @idBugReportImage
+GO
+
+CREATE proc selectBugReportImagesByBugReportID
+@idBugReport int
+as
+SELECT * from BugReportImage as br
+where br.BugReportID = @idBugReport
 GO
 
 
@@ -393,4 +414,11 @@ CREATE proc selectCommentsByAccountID
 as
 SELECT * from Comment as c
 where c.AccountID = @idAccount
+GO
+
+CREATE proc selectCommentsByBugReportID
+@idBugReport int
+as
+SELECT * from Comment as c
+where c.BugReportID = @idBugReport
 GO

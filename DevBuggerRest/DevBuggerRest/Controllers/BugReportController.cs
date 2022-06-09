@@ -121,6 +121,100 @@ namespace DevBuggerRest.Controllers
 
         }
 
+
+        //http://localhost:5000/api/BugReport/GetBugReportsByGamePageID/1
+        [Route("[action]/{id}")]
+        [HttpPost]
+        public List<BugReport> GetBugReportsByGamePageID([FromBody] int idGamePage)
+        {
+            try
+            {
+                List<BugReport> bugReports = new List<BugReport>();
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
+                {
+                    var command = new SqlCommand("selectBugReportsByGamePageID", myConnection);
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter(ID_BUGREPORT, SqlDbType.Int));
+                    command.Parameters[GAMEPAGEID].Value = idGamePage;
+
+                    myConnection.Open();
+                    using (SqlDataReader oReader = command.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            BugReport bugReport = new BugReport();
+                            bugReport.IDBugReport = int.Parse(oReader[ID_BUGREPORT].ToString());
+                            bugReport.BugCategoryID = int.Parse(oReader[BUGCATEGORYID].ToString());
+                            bugReport.GamePageID = int.Parse(oReader[GAMEPAGEID].ToString());
+                            bugReport.AccountID = int.Parse(oReader[ACCOUNTID].ToString());
+                            bugReport.Title = oReader[TITLE].ToString();
+                            bugReport.Description = oReader[DESCRIPTION].ToString();
+                            bugReport.Created = DateTime.Parse(oReader[CREATED].ToString());
+                            bugReports.Add(bugReport);
+                        }
+
+                        myConnection.Close();
+                    }
+
+                }
+                return bugReports;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+        }
+
+        //http://localhost:5000/api/BugReport/GetBugReportsByBugCategoryID/1
+        [Route("[action]/{id}")]
+        [HttpPost]
+        public List<BugReport> GetBugReportsByBugCategoryID([FromBody] int idBugCategory)
+        {
+            try
+            {
+                List<BugReport> bugReports = new List<BugReport>();
+                using (SqlConnection myConnection = new SqlConnection(SqlConnectionUtils.con))
+                {
+                    var command = new SqlCommand("selectBugReportsByBugCategoryID", myConnection);
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter(ID_BUGREPORT, SqlDbType.Int));
+                    command.Parameters[BUGCATEGORYID].Value = idBugCategory;
+
+                    myConnection.Open();
+                    using (SqlDataReader oReader = command.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            BugReport bugReport = new BugReport();
+                            bugReport.IDBugReport = int.Parse(oReader[ID_BUGREPORT].ToString());
+                            bugReport.BugCategoryID = int.Parse(oReader[BUGCATEGORYID].ToString());
+                            bugReport.GamePageID = int.Parse(oReader[GAMEPAGEID].ToString());
+                            bugReport.AccountID = int.Parse(oReader[ACCOUNTID].ToString());
+                            bugReport.Title = oReader[TITLE].ToString();
+                            bugReport.Description = oReader[DESCRIPTION].ToString();
+                            bugReport.Created = DateTime.Parse(oReader[CREATED].ToString());
+                            bugReports.Add(bugReport);
+                        }
+
+                        myConnection.Close();
+                    }
+
+                }
+                return bugReports;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+        }
+
+
         //http://localhost:5000/api/BugReport/GetBugReportsByAccountID/1
         [Route("[action]/{id}")]
         [HttpPost]

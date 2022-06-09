@@ -168,5 +168,31 @@ namespace DevBuggerDesktop.DAL
                 return responseComments;
             }
         }
+
+
+        public IList<Comment> GetCommentsByBugReportID(int idBugReport)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/GetCommentsByBugReportID/" + idBugReport);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(idBugReport);
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+
+                List<Comment> responseComments = JsonConvert.DeserializeObject<List<Comment>>(result);
+                Console.WriteLine("------------");
+                Console.WriteLine(result);
+                Console.WriteLine("------------");
+                return responseComments;
+            }
+        }
+
     }
 }
