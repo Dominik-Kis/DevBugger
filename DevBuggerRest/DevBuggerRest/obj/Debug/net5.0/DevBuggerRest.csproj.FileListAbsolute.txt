@@ -126,3 +126,4 @@ C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\
 C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\DevBuggerRest.pdb
 C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\DevBuggerRest.genruntimeconfig.cache
 C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\refint\DevBuggerRest.dll
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\bin\Debug\net5.0\DevBuggerRest.StaticWebAssets.xml

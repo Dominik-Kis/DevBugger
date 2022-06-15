@@ -308,10 +308,6 @@ namespace DevBuggerRest.Controllers
                         command.CommandText = "updateToDummy";
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue(ID_ACCOUNT, account.IDAccount);
-                        command.Parameters.AddWithValue(USERNAME, account.Username);
-                        command.Parameters.AddWithValue(PASSWORD, account.Password);
-                        command.Parameters.AddWithValue(FIRSTNAME, account.FirstName);
-                        command.Parameters.AddWithValue(LASTNAME, account.LastName);
                         command.ExecuteNonQuery();
 
                     }

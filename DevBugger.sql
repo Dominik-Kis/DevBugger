@@ -118,20 +118,15 @@ GO
 
 --Dummy
 CREATE proc updateToDummy
-@idAccount int
+@IDAccount int
 as
-declare  @AccountLevelID int
-declare  @Email nvarchar(100)
-declare  @Username nvarchar(50)
-declare  @Password nvarchar(20)
-declare  @Firstname nvarchar(50)
-declare  @Lastname nvarchar(50)
-Select @AccountLevelID = a.AccountLevelID, @Email = a.Email, @Username = a.Username, 
-@Password = a.Password, @Firstname = a.FirstName, @Lastname = a.LastName
-from Account as a where a.Firstname like 'Dummy' and  a.Lastname like 'Account'
+declare  @Username nvarchar(50) = '[Deleted_account]'
+declare  @Password nvarchar(100) = 'go342mjkojsdpkijgmkiWEENMGKwnghare'
+declare  @Firstname nvarchar(50) = 'Deleted'
+declare  @Lastname nvarchar(50) = 'Account'
 update Account
-set Username = @Username, Password = @Password, FirstName = @Firstname, LastName = @Lastname, AccountLevelID = @AccountLevelID
-where Account.IDAccount = @idAccount
+set Username = @Username, Password = @Password, FirstName = @Firstname, LastName = @Lastname
+where Account.IDAccount = @IDAccount
 GO
 
 
@@ -142,11 +137,11 @@ CREATE proc createGamePage
 @AccountID int,
 @Title nvarchar(100),
 @Description nvarchar(2000),
-@idGamePage int output
+@IDGamePage int output
 as
 INSERT into GamePage(AccountID, Title, Description, Created)
 values(@AccountID, @Title, @Description, getdate())
-set @idGamePage = SCOPE_IDENTITY()
+set @IDGamePage = SCOPE_IDENTITY()
 GO
 
 CREATE proc updateGamePage
@@ -154,11 +149,11 @@ CREATE proc updateGamePage
 @Created datetime,
 @Title nvarchar(100),
 @Description nvarchar(2000),
-@idGamePage int
+@IDGamePage int
 as
 UPDATE GamePage
 set AccountID = @AccountID, Title = @Title, Description = @Description, Created = @Created
-where IDGamePage = @idGamePage
+where IDGamePage = @IDGamePage
 GO
 
 CREATE proc selectGamePage
@@ -174,17 +169,17 @@ SELECT * from GamePage
 GO
 
 CREATE proc deleteGamePage
-@idGamePage int
+@IDGamePage int
 as
 DELETE FROM GamePage
-where IDGamePage = @idGamePage
+where IDGamePage = @IDGamePage
 GO
 
 CREATE proc selectGamePageByAccountID
-@idAccount int
+@IDAccount int
 as
 SELECT * from GamePage as gp
-where AccountID = @idAccount
+where AccountID = @IDAccount
 GO
 
 
@@ -192,21 +187,21 @@ GO
 CREATE proc createBugCategory
 @Name nvarchar(100),
 @Description nvarchar(500),
-@idCategory int output
+@IDCategory int output
 as
 INSERT into BugCategory(Name, Description)
 values(@Name, @Description)
-set @idCategory = SCOPE_IDENTITY()
+set @IDCategory = SCOPE_IDENTITY()
 GO
 
 CREATE proc updateBugCategory
 @Name nvarchar(100),
 @Description nvarchar(500),
-@idCategory int
+@IDCategory int
 as
 UPDATE BugCategory
 set Name = @Name, Description = @Description
-where IDCategory = @idCategory
+where IDCategory = @IDCategory
 GO
 
 CREATE proc selectBugCategory

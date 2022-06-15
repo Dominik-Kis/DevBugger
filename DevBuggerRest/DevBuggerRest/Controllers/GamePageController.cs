@@ -16,7 +16,7 @@ namespace DevBuggerRest.Controllers
     public class GamePageController : ControllerBase
     {
         private const string ID_GAMEPAGE = "IDGamePage";
-        private const string DB_ID_GAMEPAGE = "@idGamePage";
+        private const string DB_ID_GAMEPAGE = "@IDGamePage";
         private const string ACCOUNTID = "AccountID";
         private const string DB_ACCOUNTID = "@AccountID";
         private const string TITLE = "Title";
@@ -174,11 +174,11 @@ namespace DevBuggerRest.Controllers
                     {
                         command.CommandText = "updateGamePage";
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue(ACCOUNTID, gamePage.AccountID);
-                        command.Parameters.AddWithValue(CREATED, gamePage.Created);
-                        command.Parameters.AddWithValue(TITLE, gamePage.Title);
-                        command.Parameters.AddWithValue(DESCRIPTION, gamePage.Description);
-                        command.Parameters.AddWithValue(ID_GAMEPAGE, gamePage.IDGamePage);
+                        command.Parameters.AddWithValue(DB_ACCOUNTID, gamePage.AccountID);
+                        command.Parameters.AddWithValue(DB_CREATED, gamePage.Created);
+                        command.Parameters.AddWithValue(DB_TITLE, gamePage.Title);
+                        command.Parameters.AddWithValue(DB_DESCRIPTION, gamePage.Description);
+                        command.Parameters.AddWithValue(DB_ID_GAMEPAGE, gamePage.IDGamePage);
                         command.ExecuteNonQuery();
 
                     }
@@ -249,7 +249,7 @@ namespace DevBuggerRest.Controllers
                     {
                         cmd.CommandText = "deleteGamePage";
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue(DB_ID_GAMEPAGE, gamePage.IDGamePage);
+                        cmd.Parameters.AddWithValue(ID_GAMEPAGE, gamePage.IDGamePage);
                         cmd.ExecuteNonQuery();
                     }
                 }

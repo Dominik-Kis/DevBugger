@@ -65,23 +65,14 @@
         <TextBox 
             Grid.Row="2"
             Grid.Column="3"
-            Grid.ColumnSpan="1"
+            Grid.ColumnSpan="2"
             x:Name="TbBugCategoryID"
             HorizontalAlignment="Left" 
             Height="23" 
             TextWrapping="Wrap" 
             Text="{Binding BugCategoryID}" 
             Foreground="White" Background="#545d6a"
-            VerticalAlignment="Center" Width="150" IsReadOnly="True"/>
-
-        <Button 
-            Grid.Row="2"
-            Grid.Column="4"
-            Height="25"
-            VerticalAlignment="Center"
-            x:Name="btnOpenAccount"
-            Background="#545d6a" Foreground="White"
-            Content="Open" Click="btnOpenAccount_Click"/>
+            VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
 
         <Label 
             Grid.Row="3"
@@ -94,16 +85,24 @@
         <TextBox 
             Grid.Row="3"
             Grid.Column="3"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="1"
             x:Name="TbGamePageID"
             HorizontalAlignment="Left" 
             Height="23" 
             TextWrapping="Wrap" 
             Text="{Binding GamePageID}" 
             Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" Width="150" IsReadOnly="True"/>
+
+        <Button 
+            Grid.Row="3"
+            Grid.Column="4"
+            Height="25"
             VerticalAlignment="Center"
-            Width="200"/>
-        
+            x:Name="btnOpenGame"
+            Background="#545d6a" Foreground="White"
+            Content="Open" Click="btnOpenGame_Click"/>
+
         <Label 
             Grid.Row="4"
             Grid.Column="1"
@@ -115,16 +114,24 @@
         <TextBox 
             Grid.Row="4"
             Grid.Column="3"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="1"
             x:Name="TbAccountID"
             HorizontalAlignment="Left" 
             Height="23" 
             TextWrapping="Wrap" 
             Text="{Binding AccountID}" 
             Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" Width="150" IsReadOnly="True"/>
+
+        <Button 
+            Grid.Row="4"
+            Grid.Column="4"
+            Height="25"
             VerticalAlignment="Center"
-            Width="200"/>    
-        
+            x:Name="btnOpenAccount"
+            Background="#545d6a" Foreground="White"
+            Content="Open" Click="btnOpenAccount_Click"/>
+
         <Label 
             Grid.Row="5"
             Grid.Column="1"
@@ -192,8 +199,7 @@
 
         <Frame x:Name="frameDashboard" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="8" NavigationUIVisibility="Hidden" Source="/DevBuggerDesktop;component/Pages/BugReportsPage.xaml"/>
 
-        <Button x:Name="btnBugReports" Content="Bug reports" Grid.Column="6" Grid.Row="9" Height="25" Margin="10,0,10,0" Background="#545d6a" Foreground="White" Click="btnBugReports_Click"/>
-        <Button x:Name="btnComments" Content="Comments" Grid.Column="7" Grid.Row="9" Height="25" Margin="10,0,10,0" Background="#545d6a" Foreground="White" Click="btnComments_Click"/>
+        <Button x:Name="btnComments" Content="Comments" Grid.Column="6" Grid.Row="9" Height="25" Margin="10,0,10,0" Background="#545d6a" Foreground="White" Click="btnComments_Click"/>
 
         <Button x:Name="btnUpdate" Content="Update" Grid.Column="6" Grid.Row="10" Height="25" Margin="10,0,10,0" Background="#FF87AFEA" Foreground="White" Click="btnUpdate_Click"/>
         <Button x:Name="btnDelete" Content="Delete" Grid.Column="7" Grid.Row="10" Height="25" Margin="10,0,10,0" Background="Red" Foreground="White" Click="btnDelete_Click"/>

@@ -41,7 +41,7 @@ namespace DevBuggerDesktop.Pages
             InitializeComponent();
             LvComments.ItemsSource = commentsViewModel.Comments;
         }
-        private void BtnDetail_Click(object sender, RoutedEventArgs e)
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             if (LvComments.SelectedItem != null)
             {

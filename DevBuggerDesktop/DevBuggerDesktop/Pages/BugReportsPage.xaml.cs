@@ -41,7 +41,7 @@ namespace DevBuggerDesktop.Pages
             InitializeComponent();
             LvBugReports.ItemsSource = bugReportsViewModel.BugReports;
         }
-        private void BtnDetail_Click(object sender, RoutedEventArgs e)
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             if (LvBugReports.SelectedItem != null)
             {

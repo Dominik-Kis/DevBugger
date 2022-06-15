@@ -34,6 +34,13 @@ namespace DevBuggerDesktop.Windows
             DataContext = game;
         }
 
+        public GameDetailWindow(GamePage game)
+        {
+            InitializeComponent();
+            this.game = game;
+            DataContext = game;
+        }
+
         private bool FormValid()
         {
             bool valid = true;
@@ -74,11 +81,6 @@ namespace DevBuggerDesktop.Windows
         private void btnBugReports_Click(object sender, RoutedEventArgs e)
         {
             frameDashboard.Content = new BugReportsPage(game);
-        }
-
-        private void btnComments_Click(object sender, RoutedEventArgs e)
-        {
-            frameDashboard.Content = new CommentsPage(game);
         }
 
         private void btnOpenAccount_Click(object sender, RoutedEventArgs e)

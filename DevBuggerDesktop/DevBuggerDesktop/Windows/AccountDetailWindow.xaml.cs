@@ -1,4 +1,5 @@
-﻿using DevBuggerDesktop.Models;
+﻿using DevBuggerDesktop.DAL;
+using DevBuggerDesktop.Models;
 using DevBuggerDesktop.Pages;
 using DevBuggerDesktop.Util;
 using DevBuggerDesktop.ViewModels;
@@ -67,12 +68,12 @@ namespace DevBuggerDesktop.Windows
 
         private void btnBugReports_Click(object sender, RoutedEventArgs e)
         {
-            frameDashboard.Content = new GamesPage(account);
+            frameDashboard.Content = new BugReportsPage(account);
         }
 
         private void btnComments_Click(object sender, RoutedEventArgs e)
         {
-            frameDashboard.Content = new GamesPage(account);
+            frameDashboard.Content = new CommentsPage(account);
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
@@ -88,13 +89,31 @@ namespace DevBuggerDesktop.Windows
                 account.LastName = TbLastName.Text.Trim();
                 //account.Created = new DateTime(int.Parse(TbCreated.Text.Trim()));
 
-                accountsViewModel.Update(account);
+                if (accountsViewModel != null)
+                {
+                    accountsViewModel.Update(account);
+                }
+                else
+                {
+                    RepoFactory.getAccountRepo().UpdateAccount(account);
+                }
+
+                this.Close();
             }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            accountsViewModel.Accounts.Remove(account);
+            if (accountsViewModel != null)
+            {
+                accountsViewModel.Accounts.Remove(account);
+            }
+            else
+            {
+                RepoFactory.getAccountRepo().DeleteAccount(account);
+            }
+
+            this.Close();
         }
 
         private void btnReplaceWithDummy_Click(object sender, RoutedEventArgs e)
@@ -102,12 +121,21 @@ namespace DevBuggerDesktop.Windows
             account.IDAccount = int.Parse(TbIDAccount.Text.Trim());
             account.AccountLevelID = int.Parse(TbAccountLevelID.Text.Trim());
             account.Email = TbEmail.Text.Trim();
-            account.Username = "[Deleted_account]";
-            account.Password = "go342mjkojsdpkijgmkiWEENMGKwnghare";
-            account.FirstName = "Deleted";
-            account.LastName = "Account";
+            account.Username = "[Deleted_account]".Trim();
+            account.Password = "go342mjkojsdpkijgmkiWEENMGKwnghare".Trim();
+            account.FirstName = "Deleted".Trim();
+            account.LastName = "Account".Trim();
 
-            accountsViewModel.Update(account);
+            if (accountsViewModel != null)
+            {
+                accountsViewModel.Update(account);
+            }
+            else
+            {
+                RepoFactory.getAccountRepo().UpdateToDummy(account);
+            }
+
+            this.Close();
         }
 
         private void BtnChangePassword_Click(object sender, RoutedEventArgs e)

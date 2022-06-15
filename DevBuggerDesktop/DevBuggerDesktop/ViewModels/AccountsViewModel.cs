@@ -39,13 +39,15 @@ namespace DevBuggerDesktop.ViewModels
 
         private void HandleUpdate(Account account)
         {
-            if (account.Username == DELETED_ACCOUNT)
+            if (account.Username.Equals(DELETED_ACCOUNT))
             {
                 RepoFactory.getAccountRepo().UpdateToDummy(account);
-                return;
+            }
+            else
+            {
+                RepoFactory.getAccountRepo().UpdateAccount(account);
             }
 
-            RepoFactory.getAccountRepo().UpdateAccount(account);
         }
 
         internal void Update(Account account) => Accounts[Accounts.IndexOf(account)] = account;
