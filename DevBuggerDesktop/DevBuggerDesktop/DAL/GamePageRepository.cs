@@ -172,12 +172,12 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/GamePage/GetGamePagesByAccountID/" + idAccount);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
+            httpWebRequest.Method = "GET";
 
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+           /* using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
                 streamWriter.Write(JsonConvert.SerializeObject(idAccount));
-            }
+            }*/
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))

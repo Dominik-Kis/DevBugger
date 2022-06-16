@@ -117,7 +117,7 @@ namespace DevBuggerRest.Controllers
 
         //http://localhost:5000/api/GamePage/GetGamePagesByAccountID/1
         [Route("[action]/{idAccount}")]
-        [HttpPost]
+        [HttpGet]
         public List<GamePage> GetGamePagesByAccountID(int idAccount)
         {
             try
@@ -128,8 +128,8 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectGamePageByAccountID", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ACCOUNTID, SqlDbType.Int));
-                    command.Parameters[ACCOUNTID].Value = idAccount;
+                    command.Parameters.Add(new SqlParameter("@idAccount", SqlDbType.Int));
+                    command.Parameters["@idAccount"].Value = idAccount;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
