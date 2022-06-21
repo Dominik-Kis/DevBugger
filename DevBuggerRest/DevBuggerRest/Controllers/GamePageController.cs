@@ -85,8 +85,8 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectGamePage", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ID_GAMEPAGE, SqlDbType.Int));
-                    command.Parameters[ID_GAMEPAGE].Value = idGamePage;
+                    command.Parameters.Add(new SqlParameter(DB_ID_GAMEPAGE, SqlDbType.Int));
+                    command.Parameters[DB_ID_GAMEPAGE].Value = idGamePage;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())

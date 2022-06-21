@@ -17,7 +17,7 @@ namespace DevBuggerRest.Controllers
     public class BugReportController : ControllerBase
     {
         private const string ID_BUGREPORT = "IDBugReport";
-        private const string DB_ID_BUGREPORT = "@idBugReport";
+        private const string DB_ID_BUGREPORT = "@IDBugReport";
         private const string BUGCATEGORYID = "BugCategoryID";
         private const string DB_BUGCATEGORYID = "@BugCategoryID";
         private const string GAMEPAGEID = "GamePageID";
@@ -135,13 +135,13 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectBugReportsByGamePageID", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ID_BUGREPORT, SqlDbType.Int));
-                    command.Parameters[GAMEPAGEID].Value = idGamePage;
+                    command.Parameters.Add(new SqlParameter(DB_GAMEPAGEID, SqlDbType.Int));
+                    command.Parameters[DB_GAMEPAGEID].Value = idGamePage;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
                     {
-                        if (oReader.Read())
+                        while (oReader.Read())
                         {
                             BugReport bugReport = new BugReport();
                             bugReport.IDBugReport = int.Parse(oReader[ID_BUGREPORT].ToString());
@@ -181,13 +181,13 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectBugReportsByBugCategoryID", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ID_BUGREPORT, SqlDbType.Int));
-                    command.Parameters[BUGCATEGORYID].Value = idBugCategory;
+                    command.Parameters.Add(new SqlParameter(DB_BUGCATEGORYID, SqlDbType.Int));
+                    command.Parameters[DB_BUGCATEGORYID].Value = idBugCategory;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
                     {
-                        if (oReader.Read())
+                        while (oReader.Read())
                         {
                             BugReport bugReport = new BugReport();
                             bugReport.IDBugReport = int.Parse(oReader[ID_BUGREPORT].ToString());
@@ -228,13 +228,13 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectBugReportsByAccountID", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ACCOUNTID, SqlDbType.Int));
-                    command.Parameters[ACCOUNTID].Value = idAccount;
+                    command.Parameters.Add(new SqlParameter(DB_ACCOUNTID, SqlDbType.Int));
+                    command.Parameters[DB_ACCOUNTID].Value = idAccount;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
                     {
-                        if (oReader.Read())
+                        while (oReader.Read())
                         {
                             BugReport bugReport = new BugReport();
                             bugReport.IDBugReport = int.Parse(oReader[ID_BUGREPORT].ToString());

@@ -16,8 +16,8 @@ namespace DevBuggerRest.Controllers
     [ApiController]
     public class BugReportImageController : ControllerBase
     {
-        private const string ID_BUGREPORTIMAGE = "IDBugReportImaget";
-        private const string DB_ID_BUGREPORTIMAGE = "@idBugReportImaget";
+        private const string ID_BUGREPORTIMAGE = "IDBugReportImage";
+        private const string DB_ID_BUGREPORTIMAGE = "@IDBugReportImage";
         private const string BUGREPORTID = "BugReportID";
         private const string DB_BUGREPORTID = "@BugReportID";
         private const string IMAGE = "Image";
@@ -78,8 +78,8 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectBugReportImages", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ID_BUGREPORTIMAGE, SqlDbType.Int));
-                    command.Parameters[ID_BUGREPORTIMAGE].Value = idBugReportImage;
+                    command.Parameters.Add(new SqlParameter(DB_ID_BUGREPORTIMAGE, SqlDbType.Int));
+                    command.Parameters[DB_ID_BUGREPORTIMAGE].Value = idBugReportImage;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
@@ -119,8 +119,8 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectBugReportImagesByBugReportID", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ID_BUGREPORTIMAGE, SqlDbType.Int));
-                    command.Parameters[BUGREPORTID].Value = idBugReport;
+                    command.Parameters.Add(new SqlParameter(DB_BUGREPORTID, SqlDbType.Int));
+                    command.Parameters[DB_BUGREPORTID].Value = idBugReport;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
@@ -163,9 +163,9 @@ namespace DevBuggerRest.Controllers
                     {
                         command.CommandText = "updateBugReportImage";
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue(BUGREPORTID, bugReportImage.BugReportID);
-                        command.Parameters.AddWithValue(IMAGE, bugReportImage.Image);
-                        command.Parameters.AddWithValue(ID_BUGREPORTIMAGE, bugReportImage.IDBugReportImage);
+                        command.Parameters.AddWithValue(DB_BUGREPORTID, bugReportImage.BugReportID);
+                        command.Parameters.AddWithValue(DB_IMAGE, bugReportImage.Image);
+                        command.Parameters.AddWithValue(DB_ID_BUGREPORTIMAGE, bugReportImage.IDBugReportImage);
                         command.ExecuteNonQuery();
 
                     }

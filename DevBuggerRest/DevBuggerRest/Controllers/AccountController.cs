@@ -101,8 +101,8 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectAccount", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ID_ACCOUNT, SqlDbType.Int));
-                    command.Parameters[ID_ACCOUNT].Value = idAccount;
+                    command.Parameters.Add(new SqlParameter(DB_ID_ACCOUNT, SqlDbType.Int));
+                    command.Parameters[DB_ID_ACCOUNT].Value = idAccount;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())

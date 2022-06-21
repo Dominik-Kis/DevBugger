@@ -16,7 +16,7 @@ namespace DevBuggerRest.Controllers
     public class BugCategoryController : ControllerBase
     {
         private const string ID_CATEGORY = "IDCategory";
-        private const string DB_ID_CATEGORY = "@idCategory";
+        private const string DB_ID_CATEGORY = "@IDCategory";
         private const string NAME = "Name";
         private const string DB_NAME = "@Name";
         private const string DESCRIPTION = "Description";
@@ -76,8 +76,8 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectBugCategory", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ID_CATEGORY, SqlDbType.Int));
-                    command.Parameters[ID_CATEGORY].Value = idBugCategory;
+                    command.Parameters.Add(new SqlParameter(DB_ID_CATEGORY, SqlDbType.Int));
+                    command.Parameters[DB_ID_CATEGORY].Value = idBugCategory;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
@@ -118,9 +118,9 @@ namespace DevBuggerRest.Controllers
                     {
                         command.CommandText = "updateBugCategory";
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue(ID_CATEGORY, bugCategory.IDCategory);
-                        command.Parameters.AddWithValue(NAME, bugCategory.Name);
-                        command.Parameters.AddWithValue(DESCRIPTION, bugCategory.Description);
+                        command.Parameters.AddWithValue(DB_ID_CATEGORY, bugCategory.IDCategory);
+                        command.Parameters.AddWithValue(DB_NAME, bugCategory.Name);
+                        command.Parameters.AddWithValue(DB_DESCRIPTION, bugCategory.Description);
                         command.ExecuteNonQuery();
 
                     }

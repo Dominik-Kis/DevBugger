@@ -16,7 +16,7 @@ namespace DevBuggerRest.Controllers
     public class CommentController : ControllerBase
     {
         private const string ID_COMMENT = "IDComment";
-        private const string DB_ID_COMMENT = "@idComment";
+        private const string DB_ID_COMMENT = "@IDComment";
         private const string BUGREPORTID = "BugReportID";
         private const string DB_BUGREPORTID = "@BugReportID";
         private const string ACCOUNTID = "AccountID";
@@ -83,8 +83,8 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectComment", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ID_COMMENT, SqlDbType.Int));
-                    command.Parameters[ID_COMMENT].Value = idComment;
+                    command.Parameters.Add(new SqlParameter(DB_ID_COMMENT, SqlDbType.Int));
+                    command.Parameters[DB_ID_COMMENT].Value = idComment;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
@@ -126,13 +126,13 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectCommentsByAccountID", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ACCOUNTID, SqlDbType.Int));
-                    command.Parameters[ACCOUNTID].Value = idAccount;
+                    command.Parameters.Add(new SqlParameter(DB_ACCOUNTID, SqlDbType.Int));
+                    command.Parameters[DB_ACCOUNTID].Value = idAccount;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
                     {
-                        if (oReader.Read())
+                        while (oReader.Read())
                         {
                             Comment comment = new Comment();
                             comment.IDComment = int.Parse(oReader[ID_COMMENT].ToString());
@@ -171,13 +171,13 @@ namespace DevBuggerRest.Controllers
                     var command = new SqlCommand("selectCommentsByBugReportID", myConnection);
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(ACCOUNTID, SqlDbType.Int));
-                    command.Parameters[BUGREPORTID].Value = idBugReport;
+                    command.Parameters.Add(new SqlParameter(DB_BUGREPORTID, SqlDbType.Int));
+                    command.Parameters[DB_BUGREPORTID].Value = idBugReport;
 
                     myConnection.Open();
                     using (SqlDataReader oReader = command.ExecuteReader())
                     {
-                        if (oReader.Read())
+                        while (oReader.Read())
                         {
                             Comment comment = new Comment();
                             comment.IDComment = int.Parse(oReader[ID_COMMENT].ToString());
