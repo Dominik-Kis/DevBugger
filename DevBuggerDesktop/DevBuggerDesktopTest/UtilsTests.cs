@@ -60,9 +60,45 @@ namespace DevBuggerDesktopTest
         }
 
         [TestMethod]
-        public void ShouldFailValidateEmail()
+        public void ShouldFailValidateEmailNoAtSign()
         {
             Assert.IsFalse(ValidationUtils.isValidEmail("testgmail.com"));
+        }
+
+        [TestMethod]
+        public void ShouldFailValidateEmailNoDot()
+        {
+            Assert.IsFalse(ValidationUtils.isValidEmail("test@gmailcom"));
+        }
+
+        [TestMethod]
+        public void ShouldFailValidateEmailNoAtSignAndDoubleDot()
+        {
+            Assert.IsFalse(ValidationUtils.isValidEmail("test.gmail.com"));
+        }
+
+        [TestMethod]
+        public void ShouldFailValidateEmailNoAtSignNoDot()
+        {
+            Assert.IsFalse(ValidationUtils.isValidEmail("testgmailcom"));
+        }
+
+        [TestMethod]
+        public void ShouldFailValidateEmailNoFirstText()
+        {
+            Assert.IsFalse(ValidationUtils.isValidEmail("@gmail.com"));
+        }
+
+        [TestMethod]
+        public void ShouldFailValidateEmailNoMiddleText()
+        {
+            Assert.IsFalse(ValidationUtils.isValidEmail("gmail@.com"));
+        }
+
+        [TestMethod]
+        public void ShouldFailValidateEmailNoEndText()
+        {
+            Assert.IsFalse(ValidationUtils.isValidEmail("gmail@test."));
         }
     }
 }
