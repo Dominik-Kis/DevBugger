@@ -59,5 +59,17 @@ namespace DevBuggerRest.Model
         public Account()
         {
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Account account &&
+                   IDAccount == account.IDAccount &&
+                   AccountLevelID == account.AccountLevelID &&
+                   Email == account.Email &&
+                   Username == account.Username &&
+                   Password == account.Password &&
+                   FirstName == account.FirstName &&
+                   LastName == account.LastName;
+        }
     }
 }
