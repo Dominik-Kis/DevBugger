@@ -1,4 +1,6 @@
 ﻿using DevBuggerDesktop.ViewModels;
+using DevBuggerDesktop.Windows;
+using DevBuggerRest.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +28,15 @@ namespace DevBuggerDesktop.Pages
         {
             bugCategorysViewModel = new BugCategorysViewModel();
             InitializeComponent();
-            LvAccounts.ItemsSource = bugCategorysViewModel.BugCategorys;
+            LvBugCategory.ItemsSource = bugCategorysViewModel.BugCategorys;
+        }
+
+        private void BtnDetail_Click(object sender, RoutedEventArgs e)
+        {
+            if (LvBugCategory.SelectedItem != null)
+            {
+                new BugCategoryDetailWindow(bugCategorysViewModel, LvBugCategory.SelectedItem as BugCategory);
+            }
         }
     }
 }

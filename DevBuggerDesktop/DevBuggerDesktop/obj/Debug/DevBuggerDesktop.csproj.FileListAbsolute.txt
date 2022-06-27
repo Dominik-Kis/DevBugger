@@ -87,3 +87,5 @@ C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\
 C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Pages\CommentsPage.baml
 C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugReportsWindow.baml
 C:\Users\Ivan\Desktop\Oicar git\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\GameDetailWindow.baml
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugCategoryDetailWindow.g.cs
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugCategoryDetailWindow.baml

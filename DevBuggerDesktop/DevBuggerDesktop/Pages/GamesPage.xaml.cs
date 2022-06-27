@@ -1,5 +1,6 @@
 ﻿using DevBuggerDesktop.Models;
 using DevBuggerDesktop.ViewModels;
+using DevBuggerDesktop.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,14 +28,22 @@ namespace DevBuggerDesktop.Pages
         {
             gamesViewModel = new GamesViewModel();
             InitializeComponent();
-            LvAccounts.ItemsSource = gamesViewModel.Games;
+            LvGames.ItemsSource = gamesViewModel.Games;
         }
 
         public GamesPage(Account account)
         {
             gamesViewModel = new GamesViewModel(account);
             InitializeComponent();
-            LvAccounts.ItemsSource = gamesViewModel.Games;
+            LvGames.ItemsSource = gamesViewModel.Games;
+        }
+
+        private void BtnDetail_Click(object sender, RoutedEventArgs e)
+        {
+            if (LvGames.SelectedItem != null)
+            {
+                new GameDetailWindow(gamesViewModel, LvGames.SelectedItem as GamePage);
+            }
         }
     }
 }
