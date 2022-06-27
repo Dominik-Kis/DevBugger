@@ -74,7 +74,7 @@ namespace DevBuggerDesktop.DAL
                 return false;
             }
         }
-        public bool DeleteAccount(Account account)
+        public virtual bool DeleteAccount(Account account)
         {
             string line;
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/DeleteAccount");
@@ -134,7 +134,7 @@ namespace DevBuggerDesktop.DAL
                 return false;
             }
         }
-        public Account GetAccount(int idAccount)
+        public virtual Account GetAccount(int idAccount)
         {
             /*DataContractSerializer serializer = new DataContractSerializer(typeof(int));
             MemoryStream data = new MemoryStream();
@@ -184,7 +184,7 @@ namespace DevBuggerDesktop.DAL
                 return responseAccount;
             }
         }
-        public IList<Account> GetAccounts()
+        public virtual IList<Account> GetAccounts()
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account");
             httpWebRequest.ContentType = "application/json";
