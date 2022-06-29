@@ -172,7 +172,7 @@ namespace DevBuggerDesktop.DAL
 
         public IList<Comment> GetCommentsByBugReportID(int idBugReport)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/GetCommentsByBugReportID/" + idBugReport);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Comment/GetCommentsByBugReportID/" + idBugReport);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 

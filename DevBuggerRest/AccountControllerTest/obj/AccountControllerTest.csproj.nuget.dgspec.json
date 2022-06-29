@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj": {}
+    "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj": {
+    "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj",
+        "projectUniqueName": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj",
         "projectName": "AccountControllerTest",
-        "projectPath": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj",
-        "packagesPath": "C:\\Users\\GamerGruft\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\AccountControllerTest\\obj\\",
+        "projectPath": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj",
+        "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\AccountControllerTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\GamerGruft\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\domin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.emzi0767.com/api/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj": {
-                "projectPath": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj"
+              "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj": {
+                "projectPath": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj"
               }
             }
           }
@@ -93,20 +92,20 @@
         }
       }
     },
-    "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj": {
+    "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
+        "projectUniqueName": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
         "projectName": "DevBuggerRest",
-        "projectPath": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
-        "packagesPath": "C:\\Users\\GamerGruft\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\obj\\",
+        "projectPath": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj",
+        "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerRest\\DevBuggerRest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\GamerGruft\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\domin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -115,8 +114,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.emzi0767.com/api/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -153,6 +151,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.17, 5.0.17]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
