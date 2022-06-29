@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DevBuggerDesktop.ViewModels
 {
@@ -21,14 +22,28 @@ namespace DevBuggerDesktop.ViewModels
 
         public BugReportsViewModel(Account account)
         {
-            BugReports = new ObservableCollection<BugReport>(RepoFactory.getBugReportRepo().GetBugReportsByAccountID(account.IDAccount));
-            BugReports.CollectionChanged += BugReports_CollectionChanged;
+            try
+            {
+                BugReports = new ObservableCollection<BugReport>(RepoFactory.getBugReportRepo().GetBugReportsByAccountID(account.IDAccount));
+                BugReports.CollectionChanged += BugReports_CollectionChanged;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No bug reports found");
+            }
         }
 
         public BugReportsViewModel(GamePage game)
         {
-            //BugReports = new ObservableCollection<BugReport>(RepoFactory.getBugReportRepo().GetBugReportsByGamePageID(game.IDGamePage));
-            BugReports.CollectionChanged += BugReports_CollectionChanged;
+            try
+            {
+                BugReports = new ObservableCollection<BugReport>(RepoFactory.getBugReportRepo().GetBugReportsByGamePageID(game.IDGamePage));
+                BugReports.CollectionChanged += BugReports_CollectionChanged;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No bug reports found");
+            }
         }
 
         private void BugReports_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

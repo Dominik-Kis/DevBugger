@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DevBuggerDesktop.ViewModels
 {
@@ -16,14 +17,28 @@ namespace DevBuggerDesktop.ViewModels
 
         public GamesViewModel()
         {
-            Games = new ObservableCollection<GamePage>(RepoFactory.getGamePageRepo().GetGamePages());
-            Games.CollectionChanged += Games_CollectionChanged;
+            try
+            {
+                Games = new ObservableCollection<GamePage>(RepoFactory.getGamePageRepo().GetGamePages());
+                Games.CollectionChanged += Games_CollectionChanged;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No games found");
+            }
         }
 
         public GamesViewModel(Account account)
         {
-            Games = new ObservableCollection<GamePage>(RepoFactory.getGamePageRepo().GetGamePagesByAccountID(account.IDAccount));
-            Games.CollectionChanged += Games_CollectionChanged;
+            try
+            {
+                Games = new ObservableCollection<GamePage>(RepoFactory.getGamePageRepo().GetGamePagesByAccountID(account.IDAccount));
+                Games.CollectionChanged += Games_CollectionChanged;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No games found");
+            }
         }
 
         private void Games_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

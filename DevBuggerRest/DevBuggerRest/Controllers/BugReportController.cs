@@ -21,7 +21,7 @@ namespace DevBuggerRest.Controllers
         private const string BUGCATEGORYID = "BugCategoryID";
         private const string DB_BUGCATEGORYID = "@BugCategoryID";
         private const string GAMEPAGEID = "GamePageID";
-        private const string DB_GAMEPAGEID = "@GamePageID";
+        private const string DB_GAMEPAGEID = "@IDGamePage";
         private const string ACCOUNTID = "AccountID";
         private const string DB_ACCOUNTID = "@AccountID";
         private const string TITLE = "Title";

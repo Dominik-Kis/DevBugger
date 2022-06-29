@@ -208,7 +208,7 @@
             VerticalAlignment="Center" 
             Width="200" IsReadOnly="True"/>
 
-        <Frame x:Name="frameDashboard" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="6" NavigationUIVisibility="Hidden" Source="/DevBuggerDesktop;component/Pages/GamesPage.xaml"/>
+        <Frame x:Name="frameDashboard" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="6" NavigationUIVisibility="Hidden"/>
 
         <Button x:Name="btnGames" Content="Games" Grid.Column="6" Grid.Row="7" Height="25" Margin="10,0,10,0" Background="#545d6a" Foreground="White" Click="btnGames_Click"/>
         <Button x:Name="btnBugReports" Content="Bug reports" Grid.Column="7" Grid.Row="7" Height="25" Margin="10,0,10,0" Background="#545d6a" Foreground="White" Click="btnBugReports_Click"/>

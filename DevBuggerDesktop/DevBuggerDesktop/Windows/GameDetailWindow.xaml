@@ -147,7 +147,7 @@
             Width="200"/>
 
 
-        <Frame x:Name="frameDashboard" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="6" NavigationUIVisibility="Hidden" Source="/DevBuggerDesktop;component/Pages/BugReportsPage.xaml"/>
+        <Frame x:Name="frameDashboard" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="6" NavigationUIVisibility="Hidden"/>
 
         <Button x:Name="btnBugReports" Content="Bug reports" Grid.Column="6" Grid.Row="7" Height="25" Margin="10,0,10,0" Background="#545d6a" Foreground="White" Click="btnBugReports_Click"/>
         

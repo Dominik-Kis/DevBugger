@@ -48,7 +48,7 @@ namespace DevBuggerDesktop.Windows
 
         private void btnOpenGame_Click(object sender, RoutedEventArgs e)
         {
-            new GameDetailWindow(RepoFactory.getGamePageRepo().GetGamePage(bugReport.AccountID));
+            new GameDetailWindow(RepoFactory.getGamePageRepo().GetGamePage(bugReport.GamePageID));
         }
 
         private void btnComments_Click(object sender, RoutedEventArgs e)

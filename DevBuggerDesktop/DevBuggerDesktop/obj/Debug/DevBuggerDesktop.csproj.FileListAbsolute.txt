@@ -91,3 +91,5 @@ C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDe
 C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugCategoryDetailWindow.baml
 C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugCategoryDetailWindow.g.cs
 C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugCategoryDetailWindow.baml
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\CommentDetailWindow.g.cs
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\CommentDetailWindow.baml

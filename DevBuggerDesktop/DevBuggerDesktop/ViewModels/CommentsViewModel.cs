@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DevBuggerDesktop.ViewModels
 {
@@ -15,20 +16,41 @@ namespace DevBuggerDesktop.ViewModels
 
         public CommentsViewModel()
         {
-            Comments = new ObservableCollection<Comment>(RepoFactory.getCommentRepo().GetComments());
-            Comments.CollectionChanged += Comments_CollectionChanged;
+            try
+            {
+                Comments = new ObservableCollection<Comment>(RepoFactory.getCommentRepo().GetComments());
+                Comments.CollectionChanged += Comments_CollectionChanged;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No bug categorys found");
+            }
         }
 
         public CommentsViewModel(Account account)
         {
-            Comments = new ObservableCollection<Comment>(RepoFactory.getCommentRepo().GetCommentsByAccountID(account.IDAccount));
-            Comments.CollectionChanged += Comments_CollectionChanged;
+            try
+            {
+                Comments = new ObservableCollection<Comment>(RepoFactory.getCommentRepo().GetCommentsByAccountID(account.IDAccount));
+                Comments.CollectionChanged += Comments_CollectionChanged;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No bug categorys found");
+            }
         }
 
         public CommentsViewModel(BugReport bugReport)
         {
-            //Comments = new ObservableCollection<Comment>(RepoFactory.getCommentRepo().GetCommentsByByBugReportID(bugReport.IDBugReport));
-            Comments.CollectionChanged += Comments_CollectionChanged;
+            try
+            {
+                Comments = new ObservableCollection<Comment>(RepoFactory.getCommentRepo().GetCommentsByBugReportID(bugReport.IDBugReport));
+                Comments.CollectionChanged += Comments_CollectionChanged;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No bug categorys found");
+            }
         }
 
         private void Comments_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

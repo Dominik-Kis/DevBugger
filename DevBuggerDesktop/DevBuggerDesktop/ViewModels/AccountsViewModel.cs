@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DevBuggerDesktop.ViewModels
 {
@@ -17,8 +18,16 @@ namespace DevBuggerDesktop.ViewModels
 
         public AccountsViewModel()
         {
-            Accounts = new ObservableCollection<Account>(RepoFactory.getAccountRepo().GetAccounts());
-            Accounts.CollectionChanged += Accounts_CollectionChanged;
+            try
+            {
+                Accounts = new ObservableCollection<Account>(RepoFactory.getAccountRepo().GetAccounts());
+                Accounts.CollectionChanged += Accounts_CollectionChanged;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No accounts found");
+            }
+
         }
 
         private void Accounts_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

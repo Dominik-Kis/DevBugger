@@ -197,7 +197,7 @@
             Width="200"/>
 
 
-        <Frame x:Name="frameDashboard" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="8" NavigationUIVisibility="Hidden" Source="/DevBuggerDesktop;component/Pages/BugReportsPage.xaml"/>
+        <Frame x:Name="frameDashboard" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="8" NavigationUIVisibility="Hidden"/>
 
         <Button x:Name="btnComments" Content="Comments" Grid.Column="6" Grid.Row="9" Height="25" Margin="10,0,10,0" Background="#545d6a" Foreground="White" Click="btnComments_Click"/>
 

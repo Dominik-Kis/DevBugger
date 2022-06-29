@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DevBuggerDesktop.ViewModels
 {
@@ -15,8 +16,15 @@ namespace DevBuggerDesktop.ViewModels
 
         public BugCategorysViewModel()
         {
-            BugCategorys = new ObservableCollection<BugCategory>(RepoFactory.getBugCategoryRepo().GetBugCategories());
-            BugCategorys.CollectionChanged += BugCategorys_CollectionChanged;
+            try
+            {
+                BugCategorys = new ObservableCollection<BugCategory>(RepoFactory.getBugCategoryRepo().GetBugCategories());
+                BugCategorys.CollectionChanged += BugCategorys_CollectionChanged;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No bug categorys found");
+            }
         }
 
         private void BugCategorys_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using DevBuggerDesktop.Models;
 using DevBuggerDesktop.ViewModels;
+using DevBuggerDesktop.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,7 @@ namespace DevBuggerDesktop.Pages
         {
             if (LvBugReports.SelectedItem != null)
             {
-                //new BugReportDetail(bugReportsViewModel, LvBugReports.SelectedItem as BugReport);
+                new BugReportsWindow(bugReportsViewModel, LvBugReports.SelectedItem as BugReport);
             }
         }
 

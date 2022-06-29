@@ -1,0 +1,164 @@
+﻿<Window x:Class="DevBuggerDesktop.Windows.CommentDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DevBuggerDesktop.Windows"
+        mc:Ignorable="d"
+        Title="Comment detail" Height="450" Width="1050" Background="#292929" Visibility="Visible" Foreground="White">
+    <Grid x:Name="GridContainter">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Label 
+            Grid.Row="1"
+            Grid.Column="1"
+            Content="IDComment:" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="1"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            x:Name="TbIDComment"
+            HorizontalAlignment="Left" 
+            Height="23" 
+            TextWrapping="Wrap" 
+            Text="{Binding IDComment}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+
+        <Label 
+            Grid.Row="2"
+            Grid.Column="1"
+            Content="BugReportID:" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="2"
+            Grid.Column="3"
+            Grid.ColumnSpan="1"
+            x:Name="TbBugReportID"
+            HorizontalAlignment="Left" 
+            Height="23" 
+            TextWrapping="Wrap" 
+            Text="{Binding BugReportID}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" Width="150" IsReadOnly="True"/>
+
+        <Button 
+            Grid.Row="2"
+            Grid.Column="4"
+            Height="25"
+            VerticalAlignment="Center"
+            x:Name="btnOpenBugReport"
+            Background="#545d6a" Foreground="White"
+            Content="Open" Click="btnOpenBugReport_Click"/>
+
+        <Label 
+            Grid.Row="3"
+            Grid.Column="1"
+            Content="AccountID:" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="3"
+            Grid.Column="3"
+            Grid.ColumnSpan="1"
+            x:Name="TbAccountID"
+            HorizontalAlignment="Left" 
+            Height="23" 
+            TextWrapping="Wrap" 
+            Text="{Binding AccountID}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" Width="150" IsReadOnly="True"/>
+
+        <Button 
+            Grid.Row="3"
+            Grid.Column="4"
+            Height="25"
+            VerticalAlignment="Center"
+            x:Name="btnOpenAccount"
+            Background="#545d6a" Foreground="White"
+            Content="Open" Click="btnOpenAccount_Click"/>
+
+        <Label 
+            Grid.Row="8"
+            Grid.Column="1"
+            Content="Created:" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="8"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            x:Name="TbCreated"
+            HorizontalAlignment="Left" 
+            Height="23" 
+            TextWrapping="Wrap" 
+            Text="{Binding Created}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" 
+            Width="200" IsReadOnly="True"/>
+
+        <Label 
+            Grid.Row="4"
+            Grid.Column="1"
+            Content="Text:" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Foreground="#FFF6F9FE"/>
+
+        <TextBox 
+            Grid.Row="4"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="4"
+            x:Name="TbText"
+            HorizontalAlignment="Left" 
+            Height="180" 
+            TextWrapping="Wrap" 
+            Text="{Binding Text}" 
+            Foreground="White" Background="#545d6a"
+            VerticalAlignment="Center" 
+            Width="200"/>
+
+
+        <Frame x:Name="frameDashboard" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="7" NavigationUIVisibility="Hidden"/>
+
+        <Button x:Name="btnUpdate" Content="Update" Grid.Column="6" Grid.Row="8" Height="25" Margin="10,0,10,0" Background="#FF87AFEA" Foreground="White" Click="btnUpdate_Click"/>
+        <Button x:Name="btnDelete" Content="Delete" Grid.Column="7" Grid.Row="8" Height="25" Margin="10,0,10,0" Background="Red" Foreground="White" Click="btnDelete_Click"/>
+
+
+    </Grid>
+</Window>

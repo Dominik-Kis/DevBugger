@@ -1,5 +1,6 @@
 ﻿using DevBuggerDesktop.Models;
 using DevBuggerDesktop.ViewModels;
+using DevBuggerDesktop.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,7 @@ namespace DevBuggerDesktop.Pages
         {
             if (LvComments.SelectedItem != null)
             {
-                //new CommentDetail(commentsViewModel, LvComments.SelectedItem as Comment);
+                new CommentDetailWindow(commentsViewModel, LvComments.SelectedItem as Comment);
             }
         }
     }
