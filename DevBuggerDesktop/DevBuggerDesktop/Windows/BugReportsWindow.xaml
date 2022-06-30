@@ -65,14 +65,23 @@
         <TextBox 
             Grid.Row="2"
             Grid.Column="3"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="1"
             x:Name="TbBugCategoryID"
             HorizontalAlignment="Left" 
             Height="23" 
             TextWrapping="Wrap" 
             Text="{Binding BugCategoryID}" 
             Foreground="White" Background="#545d6a"
-            VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+            VerticalAlignment="Center" Width="150" IsReadOnly="True"/>
+
+        <Button 
+            Grid.Row="2"
+            Grid.Column="4"
+            Height="25"
+            VerticalAlignment="Center"
+            x:Name="btnOpenBugCategory"
+            Background="#545d6a" Foreground="White"
+            Content="Open" Click="btnOpenBugCategory_Click"/>
 
         <Label 
             Grid.Row="3"

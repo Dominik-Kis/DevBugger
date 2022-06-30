@@ -1,6 +1,7 @@
 ﻿using DevBuggerDesktop.Models;
 using DevBuggerDesktop.ViewModels;
 using DevBuggerDesktop.Windows;
+using DevBuggerRest.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,13 @@ namespace DevBuggerDesktop.Pages
         public BugReportsPage(GamePage game)
         {
             bugReportsViewModel = new BugReportsViewModel(game);
+            InitializeComponent();
+            LvBugReports.ItemsSource = bugReportsViewModel.BugReports;
+        }
+
+        public BugReportsPage(BugCategory bugCategory)
+        {
+            bugReportsViewModel = new BugReportsViewModel(bugCategory);
             InitializeComponent();
             LvBugReports.ItemsSource = bugReportsViewModel.BugReports;
         }

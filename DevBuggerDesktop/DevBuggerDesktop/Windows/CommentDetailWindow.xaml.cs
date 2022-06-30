@@ -56,6 +56,11 @@ namespace DevBuggerDesktop.Windows
                 {
                     commentsViewModel.Update(comment);
                 }
+                else
+                {
+                    RepoFactory.getCommentRepo().UpdateComment(comment);
+                }
+
             }
         }
 
@@ -64,6 +69,10 @@ namespace DevBuggerDesktop.Windows
             if (commentsViewModel != null)
             {
                 commentsViewModel.Comments.Remove(comment);
+            }
+            else
+            {
+                RepoFactory.getCommentRepo().DeleteComment(comment);
             }
 
             this.Close();

@@ -51,6 +51,11 @@ namespace DevBuggerDesktop.Windows
             new GameDetailWindow(RepoFactory.getGamePageRepo().GetGamePage(bugReport.GamePageID));
         }
 
+        private void btnOpenBugCategory_Click(object sender, RoutedEventArgs e)
+        {
+            new BugCategoryDetailWindow(RepoFactory.getBugCategoryRepo().GetBugCategory(bugReport.BugCategoryID));
+        }
+
         private void btnComments_Click(object sender, RoutedEventArgs e)
         {
             frameDashboard.Content = new CommentsPage(bugReport);
@@ -111,5 +116,6 @@ namespace DevBuggerDesktop.Windows
             });
             return valid;
         }
+
     }
 }

@@ -6074,23 +6074,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\domin\\.nuget\\packages\\": {},
+    "C:\\Users\\GamerGruft\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerDesktop\\DevBuggerDesktopTest\\DevBuggerDesktopTest.csproj",
+      "projectUniqueName": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerDesktop\\DevBuggerDesktopTest\\DevBuggerDesktopTest.csproj",
       "projectName": "DevBuggerDesktopTest",
-      "projectPath": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerDesktop\\DevBuggerDesktopTest\\DevBuggerDesktopTest.csproj",
-      "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerDesktop\\DevBuggerDesktopTest\\obj\\",
+      "projectPath": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerDesktop\\DevBuggerDesktopTest\\DevBuggerDesktopTest.csproj",
+      "packagesPath": "C:\\Users\\GamerGruft\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerDesktop\\DevBuggerDesktopTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\domin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\GamerGruft\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6099,14 +6099,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.emzi0767.com/api/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerDesktop\\DevBuggerDesktop\\DevBuggerDesktop.csproj": {
-              "projectPath": "C:\\Users\\domin\\Desktop\\2RP1\\OICAR\\DevBugger\\DevBuggerDesktop\\DevBuggerDesktop\\DevBuggerDesktop.csproj"
+            "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerDesktop\\DevBuggerDesktop\\DevBuggerDesktop.csproj": {
+              "projectPath": "C:\\Users\\GamerGruft\\Desktop\\Algebra\\OICAR\\DevBugger\\DevBuggerDesktop\\DevBuggerDesktop\\DevBuggerDesktop.csproj"
             }
           }
         }

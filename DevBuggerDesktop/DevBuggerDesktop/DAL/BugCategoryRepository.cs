@@ -102,15 +102,15 @@ namespace DevBuggerDesktop.DAL
                 return false;
             }
         }
-        public BugCategory GetGamePage(int idGameCategory)
+        public BugCategory GetBugCategory(int idBugCategory)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugCategory/GetBugCategory/" + idGameCategory);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugCategory/GetBugCategory/" + idBugCategory);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(JsonConvert.SerializeObject(idGameCategory));
+                streamWriter.Write(JsonConvert.SerializeObject(idBugCategory));
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();

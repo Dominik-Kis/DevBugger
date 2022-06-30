@@ -1,5 +1,6 @@
 ﻿using DevBuggerDesktop.DAL;
 using DevBuggerDesktop.Models;
+using DevBuggerRest.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,6 +39,19 @@ namespace DevBuggerDesktop.ViewModels
             try
             {
                 BugReports = new ObservableCollection<BugReport>(RepoFactory.getBugReportRepo().GetBugReportsByGamePageID(game.IDGamePage));
+                BugReports.CollectionChanged += BugReports_CollectionChanged;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No bug reports found");
+            }
+        }
+
+        public BugReportsViewModel(BugCategory bugCategory)
+        {
+            try
+            {
+                BugReports = new ObservableCollection<BugReport>(RepoFactory.getBugReportRepo().GetBugReportsByBugCategoryID(bugCategory.IDCategory));
                 BugReports.CollectionChanged += BugReports_CollectionChanged;
             }
             catch (Exception)

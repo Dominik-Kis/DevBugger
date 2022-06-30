@@ -69,13 +69,28 @@ namespace DevBuggerDesktop.Windows
                 game.Description = TbDescription.Text.Trim();
                 //game.Created = new DateTime(int.Parse(TbCreated.Text.Trim()));
 
-                gamesViewModel.Update(game);
+                if (gamesViewModel != null)
+                {
+                    gamesViewModel.Update(game);
+                }
+                else
+                {
+                    RepoFactory.getGamePageRepo().UpdateGamePage(game);
+                }
+
             }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            gamesViewModel.Games.Remove(game);
+            if (gamesViewModel != null)
+            {
+                gamesViewModel.Games.Remove(game);
+            }
+            else
+            {
+                RepoFactory.getGamePageRepo().DeleteGamePage(game);
+            }
         }
 
         private void btnBugReports_Click(object sender, RoutedEventArgs e)

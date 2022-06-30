@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DevBuggerDesktop.Windows"
         mc:Ignorable="d"
-        Title="Bug Report Detail" Height="450" Width="1050" Background="#292929" Visibility="Visible" Foreground="White">
+        Title="Bug category details" Height="450" Width="1050" Background="#292929" Visibility="Visible" Foreground="White">
     <Grid x:Name="GridContainter">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
