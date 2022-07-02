@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X4rw3c89hTcDsGjga5jxZgPb5/mBrHLaoC02N7G3WBX0CwXL9ofFS00Juh8xrJdETPgiPQTIMaIHOFA98aa7Dw==",
+  "dgSpecHash": "AI4c6ORkzhTAISXa78H+wdedGOCJnfJxBoL4mRSxuzV8fmmqNS15IRYTystHtNP2Dkg0smzbMZCnWsa0Kug11Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj",
+  "projectFilePath": "C:\\Users\\Ivan\\Desktop\\Oicar GIT\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan\\.nuget\\packages\\castle.core\\5.0.0\\castle.core.5.0.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",

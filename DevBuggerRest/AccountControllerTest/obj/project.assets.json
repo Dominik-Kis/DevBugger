@@ -7120,11 +7120,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj",
+      "projectUniqueName": "C:\\Users\\Ivan\\Desktop\\Oicar GIT\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj",
       "projectName": "AccountControllerTest",
-      "projectPath": "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj",
+      "projectPath": "C:\\Users\\Ivan\\Desktop\\Oicar GIT\\DevBugger\\DevBuggerRest\\AccountControllerTest\\AccountControllerTest.csproj",
       "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\AccountControllerTest\\obj\\",
+      "outputPath": "C:\\Users\\Ivan\\Desktop\\Oicar GIT\\DevBugger\\DevBuggerRest\\AccountControllerTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7141,8 +7141,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj": {
-              "projectPath": "C:\\Users\\Ivan\\Desktop\\Oicar git\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj"
+            "C:\\Users\\Ivan\\Desktop\\Oicar GIT\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj": {
+              "projectPath": "C:\\Users\\Ivan\\Desktop\\Oicar GIT\\DevBugger\\DevBuggerRest\\DevBuggerRest\\DevBuggerRest.csproj"
             }
           }
         }
