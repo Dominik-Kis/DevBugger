@@ -12,10 +12,11 @@ namespace DevBuggerDesktop.DAL
 {
     public class BugReportImageRepository
     {
+        private const string LINK = "http://localhost:5000/";
         public bool AddBugBugReportImage(BugReportImage bugReportImage)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReportImage/CreateBugReportImage");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReportImage/CreateBugReportImage");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -45,7 +46,7 @@ namespace DevBuggerDesktop.DAL
         public bool UpdateBugReportImage(BugReportImage bugReportImage)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReportImage/UpdateBugReportImage");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReportImage/UpdateBugReportImage");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -75,7 +76,7 @@ namespace DevBuggerDesktop.DAL
         public bool DeleteBugReportImage(BugReportImage bugReportImage)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReportImage/DeleteBugReportImage");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReportImage/DeleteBugReportImage");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -104,7 +105,7 @@ namespace DevBuggerDesktop.DAL
         }
         public BugReportImage GetBugReportImage(int idBugReportImage)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReportImage/GetBugReportImage/" + idBugReportImage);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReportImage/GetBugReportImage/" + idBugReportImage);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -128,7 +129,7 @@ namespace DevBuggerDesktop.DAL
         }
         public IList<BugReportImage> GetBugCategories()
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReportImage");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReportImage");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
 
@@ -147,7 +148,7 @@ namespace DevBuggerDesktop.DAL
 
         public IList<BugReportImage> GetBugReportImagesByBugReportID(int idBugReport)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/GetBugReportImagesByBugReportID/" + idBugReport);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/GetBugReportImagesByBugReportID/" + idBugReport);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 

@@ -12,10 +12,11 @@ namespace DevBuggerDesktop.DAL
 {
     public class CommentRepository
     {
+        private const string LINK = "http://localhost:5000/";
         public bool AddComment(Comment comment)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Comment/CreateComment");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Comment/CreateComment");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -45,7 +46,7 @@ namespace DevBuggerDesktop.DAL
         public bool UpdateComment(Comment comment)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Comment/UpdateComment");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Comment/UpdateComment");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -75,7 +76,7 @@ namespace DevBuggerDesktop.DAL
         public bool DeleteComment(Comment comment)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Comment/DeleteComment");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Comment/DeleteComment");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -104,7 +105,7 @@ namespace DevBuggerDesktop.DAL
         }
         public Comment GetComment(int idComment)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Comment/GetComment/" + idComment);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Comment/GetComment/" + idComment);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -128,7 +129,7 @@ namespace DevBuggerDesktop.DAL
         }
         public IList<Comment> GetComments()
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Comment");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Comment");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
 
@@ -147,7 +148,7 @@ namespace DevBuggerDesktop.DAL
 
         public IList<Comment> GetCommentsByAccountID(int idAccount)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Comment/GetCommentsByAccountID/" + idAccount);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Comment/GetCommentsByAccountID/" + idAccount);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -172,7 +173,7 @@ namespace DevBuggerDesktop.DAL
 
         public IList<Comment> GetCommentsByBugReportID(int idBugReport)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Comment/GetCommentsByBugReportID/" + idBugReport);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Comment/GetCommentsByBugReportID/" + idBugReport);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 

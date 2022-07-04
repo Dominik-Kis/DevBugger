@@ -12,10 +12,11 @@ namespace DevBuggerDesktop.DAL
 {
     public class BugReportRepository
     {
+        private const string LINK = "http://localhost:5000/";
         public bool AddBugBugReport(BugReport bugReport)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/CreateBugReport");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/CreateBugReport");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -45,7 +46,7 @@ namespace DevBuggerDesktop.DAL
         public bool UpdateBugReport(BugReport bugReport)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/UpdateBugReport");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/UpdateBugReport");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -75,7 +76,7 @@ namespace DevBuggerDesktop.DAL
         public bool DeleteBugReport(BugReport bugReport)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/DeleteBugReport");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/DeleteBugReport");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -104,7 +105,7 @@ namespace DevBuggerDesktop.DAL
         }
         public BugReport GetBugReport(int idBugReport)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/GetBugReport/" + idBugReport);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/GetBugReport/" + idBugReport);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -128,7 +129,7 @@ namespace DevBuggerDesktop.DAL
         }
         public IList<BugReport> GetBugReports()
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
 
@@ -147,7 +148,7 @@ namespace DevBuggerDesktop.DAL
 
         public IList<BugReport> GetBugReportsByAccountID(int idAccount)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/GetBugReportsByAccountID/" + idAccount);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/GetBugReportsByAccountID/" + idAccount);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -172,7 +173,7 @@ namespace DevBuggerDesktop.DAL
 
         public IList<BugReport> GetBugReportsByGamePageID(int idGamePage)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/GetBugReportsByGamePageID/" + idGamePage);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/GetBugReportsByGamePageID/" + idGamePage);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -196,7 +197,7 @@ namespace DevBuggerDesktop.DAL
 
         public IList<BugReport> GetBugReportsByBugCategoryID(int idBugCategory)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugReport/GetBugReportsByBugCategoryID/" + idBugCategory);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/GetBugReportsByBugCategoryID/" + idBugCategory);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 

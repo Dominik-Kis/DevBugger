@@ -12,10 +12,11 @@ namespace DevBuggerDesktop.DAL
 {
     public class GamePageRepository
     {
+        private const string LINK = "http://localhost:5000/";
         public bool AddGamePage(GamePage gamePage)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/GamePage/CreateGamePage");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/GamePage/CreateGamePage");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -45,7 +46,7 @@ namespace DevBuggerDesktop.DAL
         public bool UpdateGamePage(GamePage gamePage)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/GamePage/UpdateGamePage");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/GamePage/UpdateGamePage");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -75,7 +76,7 @@ namespace DevBuggerDesktop.DAL
         public bool DeleteGamePage(GamePage gamePage)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/GamePage/DeleteGamePage");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/GamePage/DeleteGamePage");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -104,7 +105,7 @@ namespace DevBuggerDesktop.DAL
         }
         public GamePage GetGamePage(int idGamePage)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/GamePage/GetGamePage/" + idGamePage);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/GamePage/GetGamePage/" + idGamePage);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -128,7 +129,7 @@ namespace DevBuggerDesktop.DAL
         }
         public IList<GamePage> GetGamePages()
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/GamePage");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/GamePage");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
 
@@ -146,7 +147,7 @@ namespace DevBuggerDesktop.DAL
         }
         public Account LoginAccount(Account account)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/Account/LoginAccount/1");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Account/LoginAccount/1");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -170,7 +171,7 @@ namespace DevBuggerDesktop.DAL
 
         public IList<GamePage> GetGamePagesByAccountID(int idAccount)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/GamePage/GetGamePagesByAccountID/" + idAccount);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/GamePage/GetGamePagesByAccountID/" + idAccount);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
 

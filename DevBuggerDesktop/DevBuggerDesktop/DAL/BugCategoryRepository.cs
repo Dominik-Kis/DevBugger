@@ -12,10 +12,11 @@ namespace DevBuggerDesktop.DAL
 {
     public class BugCategoryRepository
     {
+        private const string LINK = "http://localhost:5000/";
         public bool AddBugCategory(BugCategory bugCategory)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugCategory/CreateBugCategory");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugCategory/CreateBugCategory");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -45,7 +46,7 @@ namespace DevBuggerDesktop.DAL
         public bool UpdateBugCategory(BugCategory bugCategory)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/GamePage/UpdateGamePage");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/GamePage/UpdateGamePage");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -75,7 +76,7 @@ namespace DevBuggerDesktop.DAL
         public bool DeleteBugCategory(BugCategory bugCategory)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugCategory/DeleteBugCategory");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugCategory/DeleteBugCategory");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -104,7 +105,7 @@ namespace DevBuggerDesktop.DAL
         }
         public BugCategory GetBugCategory(int idBugCategory)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugCategory/GetBugCategory/" + idBugCategory);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugCategory/GetBugCategory/" + idBugCategory);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -128,7 +129,7 @@ namespace DevBuggerDesktop.DAL
         }
         public IList<BugCategory> GetBugCategories()
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:5000/api/BugCategory");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugCategory");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
 
