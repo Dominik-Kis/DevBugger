@@ -19,7 +19,7 @@ namespace DevBuggerRest.Controllers
         private const string ID_BUGREPORT = "IDBugReport";
         private const string DB_ID_BUGREPORT = "@IDBugReport";
         private const string BUGCATEGORYID = "BugCategoryID";
-        private const string DB_BUGCATEGORYID = "@BugCategoryID";
+        private const string DB_BUGCATEGORYID = "@IDBugCategory";
         private const string GAMEPAGEID = "GamePageID";
         private const string DB_GAMEPAGEID = "@IDGamePage";
         private const string ACCOUNTID = "AccountID";
@@ -78,8 +78,8 @@ namespace DevBuggerRest.Controllers
         }
 
         //http://localhost:5000/api/BugReport/GetBugReport/1
-        [Route("[action]/{id}")]
-        [HttpPost]
+        [Route("[action]/{idBugReport}")]
+        [HttpGet]
         public BugReport GetBugReport([FromBody] int idBugReport)
         {
             try
@@ -123,8 +123,8 @@ namespace DevBuggerRest.Controllers
 
 
         //http://localhost:5000/api/BugReport/GetBugReportsByGamePageID/1
-        [Route("[action]/{id}")]
-        [HttpPost]
+        [Route("[action]/{idGamePage}")]
+        [HttpGet]
         public List<BugReport> GetBugReportsByGamePageID([FromBody] int idGamePage)
         {
             try
@@ -169,8 +169,8 @@ namespace DevBuggerRest.Controllers
         }
 
         //http://localhost:5000/api/BugReport/GetBugReportsByBugCategoryID/1
-        [Route("[action]/{id}")]
-        [HttpPost]
+        [Route("[action]/{idBugCategory}")]
+        [HttpGet]
         public List<BugReport> GetBugReportsByBugCategoryID([FromBody] int idBugCategory)
         {
             try
@@ -216,8 +216,8 @@ namespace DevBuggerRest.Controllers
 
 
         //http://localhost:5000/api/BugReport/GetBugReportsByAccountID/1
-        [Route("[action]/{id}")]
-        [HttpPost]
+        [Route("[action]/{idAccount}")]
+        [HttpGet]
         public List<BugReport> GetBugReportsByAccountID([FromBody] int idAccount)
         {
             try

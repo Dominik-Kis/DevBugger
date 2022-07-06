@@ -64,8 +64,8 @@ namespace DevBuggerRest.Controllers
         }
 
         //http://localhost:5000/api/BugCategory/GetBugCategory/1
-        [Route("[action]/{id}")]
-        [HttpPost]
+        [Route("[action]/{idBugCategory}")]
+        [HttpGet]
         public BugCategory GetBugCategory([FromBody] int idBugCategory)
         {
             try

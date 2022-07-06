@@ -74,7 +74,7 @@ namespace DevBuggerRest.Controllers
 
         //http://localhost:5000/api/GamePage/GetGamePage/1
         [Route("[action]/{id}")]
-        [HttpPost]
+        [HttpGet]
         public GamePage GetGamePage([FromBody] int idGamePage)
         {
             try

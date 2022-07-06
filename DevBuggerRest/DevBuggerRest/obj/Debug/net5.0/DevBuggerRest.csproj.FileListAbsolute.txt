@@ -126,7 +126,6 @@ C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\
 C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\ref\DevBuggerRest.dll
 C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\DevBuggerRest.pdb
 C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\DevBuggerRest.genruntimeconfig.cache
-C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\DevBuggerRest.csprojAssemblyReference.cache
 C:\Users\domin\Desktop\2RP1\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\domin\Desktop\2RP1\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\bin\Debug\net5.0\appsettings.json
 C:\Users\domin\Desktop\2RP1\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\bin\Debug\net5.0\DevBuggerRest.StaticWebAssets.xml
@@ -170,3 +169,4 @@ C:\Users\domin\Desktop\2RP1\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debu
 C:\Users\domin\Desktop\2RP1\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\DevBuggerRest.pdb
 C:\Users\domin\Desktop\2RP1\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\DevBuggerRest.genruntimeconfig.cache
 C:\Users\domin\Desktop\2RP1\OICAR\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\ref\DevBuggerRest.dll
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerRest\DevBuggerRest\obj\Debug\net5.0\DevBuggerRest.csprojAssemblyReference.cache
