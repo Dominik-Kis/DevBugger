@@ -73,7 +73,7 @@ namespace DevBuggerRest.Controllers
         //http://localhost:5000/api/Comment/GetComment/1
         [Route("[action]/{id}")]
         [HttpGet]
-        public Comment GetComment([FromBody] int idComment)
+        public Comment GetComment(int idComment)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace DevBuggerRest.Controllers
         //http://localhost:5000/api/Comment/GetCommentsByAccountID/1
         [Route("[action]/{id}")]
         [HttpGet]
-        public List<Comment> GetCommentsByAccountID([FromBody] int idAccount)
+        public List<Comment> GetCommentsByAccountID(int idAccount)
         {
             try
             {
@@ -161,7 +161,7 @@ namespace DevBuggerRest.Controllers
         //http://localhost:5000/api/Comment/GetCommentsByBugReportID/1
         [Route("[action]/{id}")]
         [HttpGet]
-        public List<Comment> GetCommentsByBugReportID([FromBody] int idBugReport)
+        public List<Comment> GetCommentsByBugReportID(int idBugReport)
         {
             try
             {

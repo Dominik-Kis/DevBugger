@@ -80,7 +80,7 @@ namespace DevBuggerRest.Controllers
         //http://localhost:5000/api/BugReport/GetBugReport/1
         [Route("[action]/{idBugReport}")]
         [HttpGet]
-        public BugReport GetBugReport([FromBody] int idBugReport)
+        public BugReport GetBugReport(int idBugReport)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace DevBuggerRest.Controllers
         //http://localhost:5000/api/BugReport/GetBugReportsByGamePageID/1
         [Route("[action]/{idGamePage}")]
         [HttpGet]
-        public List<BugReport> GetBugReportsByGamePageID([FromBody] int idGamePage)
+        public List<BugReport> GetBugReportsByGamePageID(int idGamePage)
         {
             try
             {
@@ -171,7 +171,7 @@ namespace DevBuggerRest.Controllers
         //http://localhost:5000/api/BugReport/GetBugReportsByBugCategoryID/1
         [Route("[action]/{idBugCategory}")]
         [HttpGet]
-        public List<BugReport> GetBugReportsByBugCategoryID([FromBody] int idBugCategory)
+        public List<BugReport> GetBugReportsByBugCategoryID(int idBugCategory)
         {
             try
             {
@@ -218,7 +218,7 @@ namespace DevBuggerRest.Controllers
         //http://localhost:5000/api/BugReport/GetBugReportsByAccountID/1
         [Route("[action]/{idAccount}")]
         [HttpGet]
-        public List<BugReport> GetBugReportsByAccountID([FromBody] int idAccount)
+        public List<BugReport> GetBugReportsByAccountID(int idAccount)
         {
             try
             {

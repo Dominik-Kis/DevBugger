@@ -90,8 +90,8 @@ namespace DevBuggerRest.Controllers
 
         //http://localhost:5000/api/Account/GetAccount/1
         [Route("[action]/{id}")]
-        [HttpPost]
-        public virtual Account GetAccount([FromBody] int idAccount)
+        [HttpGet]
+        public virtual Account GetAccount(int idAccount)
         {
             try
             {
