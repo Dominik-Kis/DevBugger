@@ -144,3 +144,7 @@ C:\Users\domin\Desktop\2RP1\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\ob
 C:\Users\domin\Desktop\2RP1\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.pdb
 C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugCategoryAddWindow.g.cs
 C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugCategoryAddWindow.baml
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugCategoryAddWindow.g.cs
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\CommentDetailWindow.g.cs
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugCategoryAddWindow.baml
+C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\CommentDetailWindow.baml

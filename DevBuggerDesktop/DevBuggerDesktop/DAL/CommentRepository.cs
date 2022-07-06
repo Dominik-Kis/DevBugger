@@ -12,7 +12,7 @@ namespace DevBuggerDesktop.DAL
 {
     public class CommentRepository
     {
-        private const string LINK = "http://localhost:5000/";
+        private const string LINK = "https://devbuggerrest2022.azurewebsites.net/";
         public bool AddComment(Comment comment)
         {
             string line;
@@ -107,12 +107,7 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Comment/GetComment/" + idComment);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idComment));
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
@@ -150,12 +145,7 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Comment/GetCommentsByAccountID/" + idAccount);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idAccount));
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
@@ -175,12 +165,7 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Comment/GetCommentsByBugReportID/" + idBugReport);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idBugReport));
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))

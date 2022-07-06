@@ -66,7 +66,7 @@ namespace DevBuggerRest.Controllers
         }
 
         //http://localhost:5000/api/BugReportImage/GetBugReportImage/1
-        [Route("[action]/{id}")]
+        [Route("[action]/{idBugReportImage}")]
         [HttpPost]
         public BugReportImage GetBugReportImage(int idBugReportImage)
         {
@@ -107,7 +107,7 @@ namespace DevBuggerRest.Controllers
 
 
         //http://localhost:5000/api/BugReportImage/GetBugReportImagesByBugReportID/1
-        [Route("[action]/{id}")]
+        [Route("[action]/{idBugReport}")]
         [HttpPost]
         public List<BugReportImage> GetBugReportImagesByBugReportID(int idBugReport)
         {

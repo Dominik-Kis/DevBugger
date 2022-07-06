@@ -33,14 +33,15 @@ namespace DevBuggerDesktop.Windows
             account.Email = txtEmail.Text;
             string password = txtPassword.Password;
             string hashedPassword = PasswordHashUtils.HashPassword(password);
+            Console.WriteLine("*****" + hashedPassword);
             account.Password = hashedPassword;
             //account.Password = "Ml6YBKF5pYsjltNcFC9oSNTrPdjPqrfHVu6TKu8rm+0=";
-            //Account acc = RepoFactory.getAccountRepo().LoginAccount(account);
-            //if (acc == null || acc.AccountLevelID != 1)
-            //{
-            //    MessageBox.Show("Username or password is incorrect");
-            //    return;
-            //}
+            Account acc = RepoFactory.getAccountRepo().LoginAccount(account);
+            if (acc == null || acc.AccountLevelID != 1)
+            {
+                MessageBox.Show("Username or password is incorrect");
+                return;
+            }
             DashboardWindow dashboard = new DashboardWindow();
             dashboard.Show();
             this.Close();

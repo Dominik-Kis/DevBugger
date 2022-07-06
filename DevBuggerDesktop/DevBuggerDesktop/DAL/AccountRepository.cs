@@ -14,7 +14,7 @@ namespace DevBuggerDesktop.DAL
 {
     public class AccountRepository
     {
-        private const string LINK = "http://localhost:5000/";
+        private const string LINK = "https://devbuggerrest2022.azurewebsites.net/";
         public bool AddAccount(Account account)
         {
             string line;
@@ -165,12 +165,7 @@ namespace DevBuggerDesktop.DAL
             return account;*/
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Account/GetAccount/" + idAccount);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idAccount)); 
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))

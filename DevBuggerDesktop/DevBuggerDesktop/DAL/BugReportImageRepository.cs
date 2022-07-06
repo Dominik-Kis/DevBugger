@@ -12,7 +12,7 @@ namespace DevBuggerDesktop.DAL
 {
     public class BugReportImageRepository
     {
-        private const string LINK = "http://localhost:5000/";
+        private const string LINK = "https://devbuggerrest2022.azurewebsites.net/";
         public bool AddBugBugReportImage(BugReportImage bugReportImage)
         {
             string line;
@@ -107,12 +107,7 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReportImage/GetBugReportImage/" + idBugReportImage);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idBugReportImage));
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
@@ -150,12 +145,7 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/GetBugReportImagesByBugReportID/" + idBugReport);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idBugReport));
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))

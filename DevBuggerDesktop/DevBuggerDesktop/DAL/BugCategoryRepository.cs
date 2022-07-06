@@ -12,7 +12,7 @@ namespace DevBuggerDesktop.DAL
 {
     public class BugCategoryRepository
     {
-        private const string LINK = "http://localhost:5000/";
+        private const string LINK = "https://devbuggerrest2022.azurewebsites.net/";
         public bool AddBugCategory(BugCategory bugCategory)
         {
             string line;
@@ -107,12 +107,7 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugCategory/GetBugCategory/" + idBugCategory);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idBugCategory));
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))

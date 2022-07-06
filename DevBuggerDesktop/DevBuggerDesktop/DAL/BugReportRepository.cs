@@ -12,7 +12,7 @@ namespace DevBuggerDesktop.DAL
 {
     public class BugReportRepository
     {
-        private const string LINK = "http://localhost:5000/";
+        private const string LINK = "https://devbuggerrest2022.azurewebsites.net/";
         public bool AddBugBugReport(BugReport bugReport)
         {
             string line;
@@ -107,12 +107,7 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/GetBugReport/" + idBugReport);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idBugReport));
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
@@ -150,12 +145,7 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/GetBugReportsByAccountID/" + idAccount);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idAccount));
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
@@ -175,12 +165,7 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/GetBugReportsByGamePageID/" + idGamePage);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idGamePage));
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
@@ -199,12 +184,7 @@ namespace DevBuggerDesktop.DAL
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugReport/GetBugReportsByBugCategoryID/" + idBugCategory);
             httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(JsonConvert.SerializeObject(idBugCategory));
-            }
+            httpWebRequest.Method = "GET";
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
