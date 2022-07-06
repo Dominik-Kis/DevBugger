@@ -171,10 +171,17 @@ GO
 CREATE proc deleteGamePage
 @IDGamePage int
 as
-DELETE FROM GamePage
-where IDGamePage = @IDGamePage
-GO
+declare @id int
+while exists (select 1 from BugReport where GamePageID = @IDGamePage)
+begin
+     select top 1 @id = IDBugReport from BugReport where GamePageID = @IDGamePage 
 
+     exec deleteBugReport @id
+end
+DELETE FROM GamePage
+Where IDGamePage = @IDGamePage
+
+GO
 CREATE proc selectGamePageByAccountID
 @IDAccount int
 as
