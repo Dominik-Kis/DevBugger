@@ -38,5 +38,17 @@ namespace DevBuggerDesktop.Pages
                 new BugCategoryDetailWindow(bugCategorysViewModel, LvBugCategory.SelectedItem as BugCategory);
             }
         }
+
+        private void ListView_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ContextMenu cm = this.FindResource("cmClick") as ContextMenu;
+            cm.PlacementTarget = sender as Button;
+            cm.IsOpen = true;
+        }
+
+        private void AddCategory_Click(object sender, RoutedEventArgs e)
+        {
+            new BugCategoryAddWindow(bugCategorysViewModel);
+        }
     }
 }

@@ -10,12 +10,18 @@
       Title="BugCategorysPage"
       Background="#292929">
 
+    <Page.Resources>
+        <ContextMenu x:Key="cmClick">
+            <MenuItem Header="add" Click="AddCategory_Click"/>
+        </ContextMenu>
+    </Page.Resources>
+
     <Grid>
         <ListView 
             x:Name="LvBugCategory"
-            AlternationCount="2" Height="auto" Margin="0" Width="auto"
+            AlternationCount="2" Height="auto" Margin="0,0,0,0" Width="auto"
             Background="#292929"
-            util:GridViewSort.AutoSort="True">
+            util:GridViewSort.AutoSort="True" MouseRightButtonUp="ListView_MouseRightButtonUp">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <EventSetter Event="MouseDoubleClick" Handler="BtnDetail_Click"/>

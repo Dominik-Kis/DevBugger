@@ -116,6 +116,9 @@
     <Compile Include="Windows\AccountDetailWindow.xaml.cs">
       <DependentUpon>AccountDetailWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\BugCategoryAddWindow.xaml.cs">
+      <DependentUpon>BugCategoryAddWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\BugCategoryDetailWindow.xaml.cs">
       <DependentUpon>BugCategoryDetailWindow.xaml</DependentUpon>
     </Compile>
@@ -184,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AccountDetailWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BugCategoryAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

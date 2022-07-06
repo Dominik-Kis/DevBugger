@@ -1,5 +1,4 @@
 ﻿using DevBuggerDesktop.DAL;
-using DevBuggerDesktop.Pages;
 using DevBuggerDesktop.ViewModels;
 using DevBuggerRest.Model;
 using System;
@@ -19,61 +18,29 @@ using System.Windows.Shapes;
 namespace DevBuggerDesktop.Windows
 {
     /// <summary>
-    /// Interaction logic for BugCategoryDetailWindow.xaml
+    /// Interaction logic for BugCategoryAddWindow.xaml
     /// </summary>
-    public partial class BugCategoryDetailWindow : Window
+    public partial class BugCategoryAddWindow : Window
     {
-        private readonly BugCategory bugCategory;
         private BugCategorysViewModel bugCategorysViewModel;
-
-        public BugCategoryDetailWindow(BugCategory bugCategory)
-        {
-            InitializeComponent();
-            this.bugCategory = bugCategory;
-            DataContext = bugCategory;
-        }
-
-        public BugCategoryDetailWindow(BugCategorysViewModel bugCategorysViewModel, BugCategory bugCategory)
+        public BugCategoryAddWindow(BugCategorysViewModel bugCategorysViewModel)
         {
             InitializeComponent();
             this.bugCategorysViewModel = bugCategorysViewModel;
-            this.bugCategory = bugCategory;
-            DataContext = bugCategory;
         }
 
-        private void BugReports_Click(object sender, RoutedEventArgs e)
-        {
-            frameDashboard.Content = new BugReportsPage(bugCategory);
-        }
-
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             if (FormValid())
             {
-                bugCategory.IDCategory = int.Parse(TbIDCategory.Text.Trim());
+                BugCategory bugCategory = new BugCategory();
                 bugCategory.Name = TbName.Text.Trim();
                 bugCategory.Description = TbDescription.Text.Trim();
 
                 if (bugCategorysViewModel != null)
                 {
-                    bugCategorysViewModel.Update(bugCategory);
+                    bugCategorysViewModel.BugCategorys.Add(bugCategory);
                 }
-                else
-                {
-                    RepoFactory.getBugCategoryRepo().UpdateBugCategory(bugCategory);
-                }
-            }
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-            if (bugCategorysViewModel != null)
-            {
-                bugCategorysViewModel.BugCategorys.Remove(bugCategory);
-            }
-            else
-            {
-                RepoFactory.getBugCategoryRepo().DeleteBugCategory(bugCategory);
             }
 
             this.Close();
@@ -97,6 +64,5 @@ namespace DevBuggerDesktop.Windows
             });
             return valid;
         }
-
     }
 }

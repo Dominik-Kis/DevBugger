@@ -148,19 +148,18 @@ namespace DevBuggerRest.Controllers
                     sqlConnection.Open();
                     using (SqlCommand cmd = sqlConnection.CreateCommand())
                     {
-                        cmd.CommandText = "createBugCategory";
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue(DB_ID_CATEGORY, bugCategory.IDCategory);
-                        cmd.Parameters.AddWithValue(DB_NAME, bugCategory.Name);
-                        cmd.Parameters.AddWithValue(DB_DESCRIPTION, bugCategory.Description);
-
                         SqlParameter id = new SqlParameter(
-                                "@idBugCategory",
+                                DB_ID_CATEGORY,
                                 System.Data.SqlDbType.Int)
                         {
                             Direction = System.Data.ParameterDirection.Output
                         };
+
+                        cmd.CommandText = "createBugCategory";
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.Parameters.Add(id);
+                        cmd.Parameters.AddWithValue(DB_NAME, bugCategory.Name);
+                        cmd.Parameters.AddWithValue(DB_DESCRIPTION, bugCategory.Description);
 
                         cmd.ExecuteNonQuery();
                         bugCategory.IDCategory = (int)id.Value;

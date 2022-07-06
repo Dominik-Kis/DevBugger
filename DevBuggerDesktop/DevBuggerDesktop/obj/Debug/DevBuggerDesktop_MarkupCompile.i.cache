@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\App.xaml
-12-2102926623
+131484444349
 
-38-333980567
+39718371773
 20775161871
-Pages\AccountsPage.xaml;Pages\BugCategorysPage.xaml;Pages\BugReportsPage.xaml;Pages\CommentsPage.xaml;Pages\GamesPage.xaml;Windows\AccountDetailWindow.xaml;Windows\BugCategoryDetailWindow.xaml;Windows\BugReportsWindow.xaml;Windows\CommentDetailWindow.xaml;Windows\DashboardWindow.xaml;Windows\GameDetailWindow.xaml;Windows\LoginWindow.xaml;
+Pages\AccountsPage.xaml;Pages\BugCategorysPage.xaml;Pages\BugReportsPage.xaml;Pages\CommentsPage.xaml;Pages\GamesPage.xaml;Windows\AccountDetailWindow.xaml;Windows\BugCategoryAddWindow.xaml;Windows\BugCategoryDetailWindow.xaml;Windows\BugReportsWindow.xaml;Windows\CommentDetailWindow.xaml;Windows\DashboardWindow.xaml;Windows\GameDetailWindow.xaml;Windows\LoginWindow.xaml;
 
 True
 
