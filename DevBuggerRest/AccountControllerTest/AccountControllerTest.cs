@@ -26,7 +26,7 @@ namespace AccountControllerTest
         [TestMethod]
         public void ShouldGetAccount()
         {
-            Account account = account = new Account(1, 1, "deleteted-account@mail.com", "[Deleted_account]", "go342mjkojsdpkijgmkiWEENMGKwnghare", "Deleted", "Account", DateTime.Now);
+            Account account = account = new Account(1, 1, "deleteted-account@mail.com", "[Deleted_account]", "IKnM/SWmwl0kHiP36gZ/RQQ68OaYrY13YAys5YDRb34=", "Deleted", "Account", DateTime.Now);
 
             var response = accountController.GetAccount(1);
 
@@ -56,7 +56,7 @@ namespace AccountControllerTest
         [TestMethod]
         public void ShouldUpdateAccount()
         {
-            Account account = new Account(2, 1, "testtest@mail.com", "test", "Ml6YBKF5pYsjltNcFC9oSNTrPdjPqrfHVu6TKu8rm+0=", "te", "st", DateTime.Now);
+            Account account = new Account(2, 1, "test2@mail.com", "test2", "2jonN7v33cMAvv/2Z6Uu0R+V95oP9S8k1wiQ1sdSPD0=", "te", "st", DateTime.Now);
 
             var response = accountController.UpdateAccount(account);
 
@@ -72,7 +72,7 @@ namespace AccountControllerTest
         [TestMethod]
         public void ShouldLoginAccount()
         {
-            Account account = account = new Account(1, 1, "deleteted-account@mail.com", "[Deleted_account]", "go342mjkojsdpkijgmkiWEENMGKwnghare", "Deleted", "Account", DateTime.Now);
+            Account account = account = new Account(1, 1, "deleteted-account@mail.com", "[Deleted_account]", "IKnM/SWmwl0kHiP36gZ/RQQ68OaYrY13YAys5YDRb34=", "Deleted", "Account", DateTime.Now);
 
             var response = accountController.LoginAccount(account);
 

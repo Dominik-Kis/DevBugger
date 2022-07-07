@@ -45,12 +45,30 @@ namespace DevBuggerDesktopTest
         [TestMethod]
         public void ShouldHashPassword()
         {
-            string expected = "fDqXA4nx/Dx14pEHwwk8cLN+t21uOkz74N8ECTI47zw=";
+            string expected = "2jonN7v33cMAvv/2Z6Uu0R+V95oP9S8k1wiQ1sdSPD0=";
 
-            string result = PasswordHashUtils.HashPassword("password");
+            string result = PasswordHashUtils.HashPassword("test");
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void ShouldFailToHashPassword()
+        {
+            string expected = "test";
+
+            string result = PasswordHashUtils.HashPassword("test");
 
             Assert.IsNotNull(result);
             Assert.AreNotEqual(expected, result);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "Value cannot be null. (Parameter 'password')")]
+        public void ShouldFailToHashPasswordIsNull()
+        {
+            PasswordHashUtils.HashPassword(null);
         }
 
         [TestMethod]
