@@ -8,12 +8,18 @@ namespace DevBuggerDesktop.DAL
 {
     public class RepoFactory
     {
+        private static string link = "https://devbuggerrest2022.azurewebsites.net";
         private static AccountRepository accountRepository { get; set; }
         private static GamePageRepository gamePageRepository { get; set; }
         private static BugCategoryRepository bugCategoryRepository { get; set; }
         private static BugReportRepository bugReportRepository { get; set; }
         private static BugReportImageRepository bugReportImageRepository { get; set; }
         private static CommentRepository commentRepository { get; set; }
+
+        public static string getLink()
+        {
+            return link;
+        }
 
         public static AccountRepository getAccountRepo()
         {

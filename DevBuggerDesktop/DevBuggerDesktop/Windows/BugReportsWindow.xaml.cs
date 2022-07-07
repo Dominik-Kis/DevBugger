@@ -81,6 +81,8 @@ namespace DevBuggerDesktop.Windows
                 {
                     RepoFactory.getBugReportRepo().UpdateBugReport(bugReport);
                 }
+
+                this.Close();
             }
         }
 

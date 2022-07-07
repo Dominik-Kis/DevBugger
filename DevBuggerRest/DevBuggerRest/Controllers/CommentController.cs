@@ -217,11 +217,10 @@ namespace DevBuggerRest.Controllers
                     {
                         command.CommandText = "updateComment";
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue(BUGREPORTID, comment.BugReportID);
-                        command.Parameters.AddWithValue(ACCOUNTID, comment.AccountID);
-                        command.Parameters.AddWithValue(TEXT, comment.Text);
-                        command.Parameters.AddWithValue(CREATED, comment.Created);
-                        command.Parameters.AddWithValue(ID_COMMENT, comment.IDComment);
+                        command.Parameters.AddWithValue(DB_BUGREPORTID, comment.BugReportID);
+                        command.Parameters.AddWithValue(DB_ACCOUNTID, comment.AccountID);
+                        command.Parameters.AddWithValue(DB_TEXT, comment.Text);
+                        command.Parameters.AddWithValue(DB_ID_COMMENT, comment.IDComment);
                         command.ExecuteNonQuery();
 
                     }
@@ -290,7 +289,7 @@ namespace DevBuggerRest.Controllers
                     sqlConnection.Open();
                     using (SqlCommand cmd = sqlConnection.CreateCommand())
                     {
-                        cmd.CommandText = "deleteGamePage";
+                        cmd.CommandText = "deleteComment";
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue(DB_ID_COMMENT, comment.IDComment);
                         cmd.ExecuteNonQuery();

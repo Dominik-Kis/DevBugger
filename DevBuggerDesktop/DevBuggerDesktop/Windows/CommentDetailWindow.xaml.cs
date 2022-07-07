@@ -61,6 +61,7 @@ namespace DevBuggerDesktop.Windows
                     RepoFactory.getCommentRepo().UpdateComment(comment);
                 }
 
+                this.Close();
             }
         }
 

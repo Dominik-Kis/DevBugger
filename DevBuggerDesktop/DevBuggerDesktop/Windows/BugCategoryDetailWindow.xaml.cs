@@ -62,6 +62,8 @@ namespace DevBuggerDesktop.Windows
                 {
                     RepoFactory.getBugCategoryRepo().UpdateBugCategory(bugCategory);
                 }
+
+                this.Close();
             }
         }
 

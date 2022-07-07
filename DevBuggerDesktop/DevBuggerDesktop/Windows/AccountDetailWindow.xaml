@@ -215,7 +215,7 @@
         <Button x:Name="btnComments" Content="Comments" Grid.Column="8" Grid.Row="7" Height="25" Margin="10,0,10,0" Background="#545d6a" Foreground="White" Click="btnComments_Click"/>
 
         <Button x:Name="btnUpdate" Content="Update" Grid.Column="6" Grid.Row="8" Height="25" Margin="10,0,10,0" Background="#FF87AFEA" Foreground="White" Click="btnUpdate_Click"/>
-        <Button x:Name="btnDelete" Content="Delete" Grid.Column="7" Grid.Row="8" Height="25" Margin="10,0,10,0" Background="Red" Foreground="White" Click="btnDelete_Click"/>
+        <Button x:Name="btnDelete" Content="Delete" Grid.Column="7" Grid.Row="8" Height="25" Margin="10,0,10,0" Background="Red" Foreground="White" Click="btnDelete_Click" IsEnabled="False"/>
         <Button x:Name="btnReplaceWithDummy" Content="Replace with dummy" Grid.Column="8" Grid.Row="8" Height="25" Margin="10,0,10,0" Background="#FF353940" Foreground="White" Click="btnReplaceWithDummy_Click"/>
 
 

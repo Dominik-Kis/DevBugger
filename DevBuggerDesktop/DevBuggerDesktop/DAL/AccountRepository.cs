@@ -14,11 +14,10 @@ namespace DevBuggerDesktop.DAL
 {
     public class AccountRepository
     {
-        private const string LINK = "https://devbuggerrest2022.azurewebsites.net/";
         public bool AddAccount(Account account)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Account/AddAccount");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/Account/AddAccount");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -48,7 +47,7 @@ namespace DevBuggerDesktop.DAL
         public bool UpdateAccount(Account account)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Account/UpdateAccount");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/Account/UpdateAccount");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -78,7 +77,7 @@ namespace DevBuggerDesktop.DAL
         public virtual bool DeleteAccount(Account account)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Account/DeleteAccount");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/Account/DeleteAccount");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -108,7 +107,7 @@ namespace DevBuggerDesktop.DAL
         public bool UpdateToDummy(Account account)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Account/UpdateToDummy");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/Account/UpdateToDummy");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -146,7 +145,7 @@ namespace DevBuggerDesktop.DAL
 
             byte[] podaciZaServis = Encoding.UTF8.GetBytes(Encoding.UTF8.GetString(data.ToArray()));
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(LINK + "api/Account/GetAccount/1");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "api/Account/GetAccount/1");
             request.Method = "POST";
             request.Accept = "application/xml";
             request.ContentType = "application/xml";
@@ -163,7 +162,7 @@ namespace DevBuggerDesktop.DAL
             Console.WriteLine(account.Email);
             Console.WriteLine("------------");
             return account;*/
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Account/GetAccount/" + idAccount);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/Account/GetAccount/" + idAccount);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
 
@@ -182,7 +181,7 @@ namespace DevBuggerDesktop.DAL
         }
         public virtual IList<Account> GetAccounts()
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Account");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/Account");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
 
@@ -200,7 +199,7 @@ namespace DevBuggerDesktop.DAL
         }
         public Account LoginAccount(Account account)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/Account/LoginAccount");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/Account/LoginAccount");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 

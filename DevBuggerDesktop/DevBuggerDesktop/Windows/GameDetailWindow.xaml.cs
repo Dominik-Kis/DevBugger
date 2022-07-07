@@ -78,6 +78,8 @@ namespace DevBuggerDesktop.Windows
                     RepoFactory.getGamePageRepo().UpdateGamePage(game);
                 }
 
+                this.Close();
+
             }
         }
 
@@ -91,6 +93,9 @@ namespace DevBuggerDesktop.Windows
             {
                 RepoFactory.getGamePageRepo().DeleteGamePage(game);
             }
+
+            this.Close();
+
         }
 
         private void btnBugReports_Click(object sender, RoutedEventArgs e)

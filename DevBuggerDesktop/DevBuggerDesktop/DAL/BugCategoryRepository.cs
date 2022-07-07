@@ -12,11 +12,10 @@ namespace DevBuggerDesktop.DAL
 {
     public class BugCategoryRepository
     {
-        private const string LINK = "https://devbuggerrest2022.azurewebsites.net/";
         public bool AddBugCategory(BugCategory bugCategory)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugCategory/CreateBugCategory");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/BugCategory/CreateBugCategory");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -46,7 +45,7 @@ namespace DevBuggerDesktop.DAL
         public bool UpdateBugCategory(BugCategory bugCategory)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/GamePage/UpdateGamePage");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/GamePage/UpdateGamePage");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -76,7 +75,7 @@ namespace DevBuggerDesktop.DAL
         public bool DeleteBugCategory(BugCategory bugCategory)
         {
             string line;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugCategory/DeleteBugCategory");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/BugCategory/DeleteBugCategory");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -105,7 +104,7 @@ namespace DevBuggerDesktop.DAL
         }
         public BugCategory GetBugCategory(int idBugCategory)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugCategory/GetBugCategory/" + idBugCategory);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/BugCategory/GetBugCategory/" + idBugCategory);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
 
@@ -124,7 +123,7 @@ namespace DevBuggerDesktop.DAL
         }
         public IList<BugCategory> GetBugCategories()
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(LINK + "api/BugCategory");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(RepoFactory.getLink() + "/api/BugCategory");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
 
