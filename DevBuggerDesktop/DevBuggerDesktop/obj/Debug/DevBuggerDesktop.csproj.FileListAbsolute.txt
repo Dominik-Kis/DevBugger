@@ -148,3 +148,7 @@ C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\
 C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\CommentDetailWindow.g.cs
 C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\BugCategoryAddWindow.baml
 C:\Users\Ivan\Desktop\Oicar GIT\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\Windows\CommentDetailWindow.baml
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\DevBuggerDesktop.exe.manifest
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\bin\Debug\DevBuggerDesktop.application
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.exe.manifest
+C:\Users\GamerGruft\Desktop\Algebra\OICAR\DevBugger\DevBuggerDesktop\DevBuggerDesktop\obj\Debug\DevBuggerDesktop.application
